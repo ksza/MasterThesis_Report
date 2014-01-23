@@ -1,0 +1,43 @@
+%************************************************
+\chapter{Introduction}\label{ch:introduction}
+%************************************************
+
+%I am structuring the introduction according to this guide: http://pages.cpsc.ucalgary.ca/~saul/wiki/pmwiki.php/Chapter1/Deconstruction. It's Saul Greenbarg's guide to thesis chapter 1's, but I think it works fine for smaller projects as well. If we find %that the structure doesn't work we can always change it, but for now I think its a good way to do it (as it forces me think about every aspect)
+
+Mobile Context-Aware Systems are hard and costly to develop. Engineering challenges include a) the need to identify and deploy suitable sensors to feed into a context model, b) to design a context model that is able to determine the mobile agent's context with adequate accuracy. An additional challenge is to determine a suitable mobile interaction paradigm (interaction modalities, timing with respect to ongoing real world activity, etc.) that allows the human agent to inspect and modify the behaviour of the context-aware system. \\
+
+This master thesis project will develop a simulator of physical environments intended to facilitate the design of future context aware systems. Apart from generating data that is relatively easily acquired and used in context-aware models and systems today (time, agent location, etc.) the simulator will also provide data which up until now has been too challenging to capture using sensors available today such as the location (relative, absolute) and state of physical non-computational everyday objects. The simulator will also be able to provide state information about computational devices such as mobile phones and desktop PCs (e.g. what applications that are currently running/displayed on the device). \\
+
+The simulator will make it possible for the context-aware system designer to import or design physical environments (e.g. buildings, rooms) and populate those environments with everyday objects (chairs, tables, books, coffee cups) as well as a few computational devices (PCs, mobile phones, digital displays etc.). Once the environment has been designed, a participant in an experiment can walk around in the simulated environment and interact with objects. The behavior of the experiment participant will generate context data which the simulator feeds to context modeling components as well as high-level services that can then act on that information and for instance display information on displays situated in the simulated environment whenever a service requests to contact the human agent. \\
+
+The main goal of this work is to research and implement an open source environment simulator that can accurately capture various context data, which can easily be consumed by services of the simulator (context-aware systems). There have been many approaches towards providing a solution for this topic, but the novelty in our approach is twofold. On one hand we are aiming at developing an open source. On the other hand we aim at capturing a large variety of context data, allowing for a fine grained, almost real-life, inspection of the simulated environment. To further clarify, we are diving deaper into the system and describe the goals of each module as a set of requirements/features.\\
+
+At the core of the system lies the \emph{World Model} made up by the set of all simulated entities and their context information. The simulated entity types are: physical objects, virtual objects and mediators, and the simulated agent (person). \emph{Physical objects} are everyday objects like a chair, table, door, cup, sofa etc. \emph{Virtual objects and mediators} are basically software entities (virtual objects) that can be interacted with through \emph{mediators} (input/output devices). For instance, the music player on a mobile device is a virutal object, while the mobile device is a mediator offering two components for I/O: the screen (both input and output, as the agent can both view and change the state of the player) and the speakers (output only through which the agent can percieve the player) which is both an input and output \cite{pederson2011situative}. All the previously mentioned entities can be in direct relation with the \emph{Agent}, mutually affecting each others context.\\
+
+The world model offers an interface that helps to modify the state of entities or quiry about the state of the entities. Making use of these interfaces, we define two higher level modules: the \emph{Context Model} and the \emph{Graphical Simulator}.\\
+
+The Context Model represents the \"current situation\", a computed state of the system in t0 based on a set of rules. An example of a context model is the distance of the agent relative to a chair in meters. At every moment in time, the chair and the agent will have certain value for their location data. Based on simple arithmetics, the context model computes the distance in meters from the user to the chair. As the context data in the world model changes, the context model updates reflecting a real-time model of the simulated environment.\\
+
+The Graphical Simulator represents the GUI of the simulated environment. It allows us to visually percieve the simulated environment and to interact with it through the Agent. We see the Agent as our avatar in the virtual world empowering the user of the simulator to freely walk arround and interact with the other entities.\\
+
+Next, detailed goals of our system.
+
+\paragraph{What do we want to simulate?} Our aim is to simulate a multiple room apartment.
+
+\paragraph{What context information are we gathering?} We monitor both a set of general context and a set of entity specific context data. In the general cathegory we have: location, time etc. As specific context:
+\begin{enumerate}
+	\item physical objects 
+\end{enumerate}
+
+The quality of the simulator will be assessed by implementing a specific context model, the Situative Space Model \cite{pederson2011situative} and connecting it to the system, and let a simple context-aware service (e.g. a reminder application) react on the contextual changes as interpreted by the model. \\
+
+\input{Chapters/Chapter01/Motivation}
+
+\input{Chapters/Chapter01/Hypothesis}
+
+\input{Chapters/Chapter01/GoalsAndMethods}
+
+\input{Chapters/Chapter01/Contributions}
+
+\input{Chapters/Chapter01/Overview}
+
