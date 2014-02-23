@@ -1,6 +1,21 @@
 %************************************************
 \section{Method} % (fold)
-\label{sub:method}
+\label{sec:method}
 %************************************************
+
+In order to achieve the goals detailed in Section \ref{sec:goal}, we are going to follow an iterative design process \cite{mackay1997hci}. Each iteration will comprise of two steps:
+\begin{enumerate}
+	\item prototyping
+	\item evaluations
+\end{enumerate}
+
+As part of the process, there will be three iterations:
+\begin{itemize}
+	\item Early prototype. This step represents the skeleton of the system. Here we define our modules, describe the data model and define the world model's API (with no functionality attached). The resulting models will be evaluated to determine if they can fit the requirements. This prototype will be evaluated in close collaboration with the supervisors of this thesis.
+	\item High fidelity prototype. Based on the input from the evaluation of the early prototype, we will modify the system accordingly. Further, we will implement all the features and the APIs of the world model. The evaluation of this prototype will consist of testing the APIs in the form of unit tests and integration tests. This prototype represent the core of our framework.
+	\item Final product. In this final iteration we will implement the DummySim and the SSM model using the core framework. To evaluate, we will carry out an evaluation of the SSM and compare the result with results from the evaluation of the SSM described in \cite{pederson2011situative}.
+\end{itemize}
+
+We will wrap up our research by drawing conclusion based on our findings and establishing goals for future work.
 
 % subsection method (end)
