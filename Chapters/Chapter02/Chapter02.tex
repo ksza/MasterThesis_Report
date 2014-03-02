@@ -4,10 +4,45 @@
 %\setcounter{figure}{10}
 % \NoCaseChange{Homo Sapiens}
 
+%BEGIN: SIMACT
+\section{SIMACT: a 3D Open Source Smart Home Simulator for Activity Recognition with Open Database and Visual Editor}\label{sec:simact}
+
+SIMACT is a flexible 3D smart home infrastructure simulator, developed in Java, specifically designed to help researchers working in the field of activity recognition \cite{bouchard2012simact}. The simulator is released as open-source \cite{bouchard:simact:Online} under GPLv3 \cite{gpl:v3}.\\
+
+This work is specifically focused on the interaction between an agent and the surrounding environment in the smart house. It is built to reproduce everyday life scenarios, on a step-by-step basis. Entire scenarios and interactions can be designed only by writing using scripts and visual editors, without having to write one line of code.\\
+
+The simulator is built entailer on Java based technologies. The GUI is based on the swing library, while the 3D renderer is based on the Java Monkey Engine\footnote{\url{http://jmonkeyengine.org/}}. For the 3D design, they have used a modeling tool for house design and interior accessories from Google called SketchUp \cite{sketchup:online}. This comes with a great advantage as SketchUp's community maintains a huge library of free 3D models, where one can find almost any accessory that would fit in a home.\\
+
+To further detail, I will briefly discuss the on the system's architecture, as illustrated in Figure \ref{fig:simact_architecture}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{gfx/Chapter2/simact_architecture}
+	\caption{SIMACT: System Architecture}
+	\label{fig:simact_architecture}
+\end{figure}
+
+To create a custom simulation, a researcher starts out by defining the environment, by defining the object models contained within. The simulator loads these definitions to create the virtual model of the environment and to initialize the 3D simulator. To define the interaction with the habitat, the researcher provides the simulator with an XML file defining the interaction scenario. The scenario is defined as a sequence of steps, which is read, interpreted and execute by the simulator (it plays the role of an interpreter). As the steps are executed and the environment gets modified by these actions, the generated events are written into a database. Further, third party applications can communicate with the database to retrieve data in real-time, which can be used in the logic of the application.\\
+
+A snapshot of the simulation tool in action is depicted in Figure \ref{fig:simact_simulation_tool}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{gfx/Chapter2/simact_simulation_tool}
+	\caption{SIMACT: Simulation Tool in Action}
+	\label{fig:simact_simulation_tool}
+\end{figure}
+
+This tool provides a powerful and reusable simulation environment, with a strong platform worth considering as basis for the simulator I am targeting to develop. My only concern is that I have not been able to determine the complexity of adding support for device simulation, as the main target of SIMACT is interaction with the physical environment.\\
+
+In conclusion, I will allocate some time during the system design process to analyze in detail if building on top of SIMACT would be possible.
+
+%END: SIMACT
+
 %BEGIN: DiaSim 
 \section{DiaSim: A Parameterized Simulator for Pervasive Computing Applications}\label{sec:ubiwise}
 
-DiaSim is a Java based simulator for pervasive computing applications based on sensors and actuators \cite{bruneau2009diasim}. In this project, the simulation process starts out by defining a high-level description of the target pervasive computing environment, in a domain specific language: DiaSpec. Part of this definition are \emph{classes of entities} and \emph{data types} which can be exchanged by the entities. Based on this definition, DiaGen produces a customized \emph{programming framework} and an \emph{emulation layer}.\\
+DiaSim is a Java based simulator for pervasive computing applications based on sensors and actuators \cite{bruneau2013diasim}. In this project, the simulation process starts out by defining a high-level description of the target pervasive computing environment, in a domain specific language: DiaSpec. Part of this definition are \emph{classes of entities} and \emph{data types} which can be exchanged by the entities. Based on this definition, DiaGen produces a customized \emph{programming framework} and an \emph{emulation layer}.\\
 
 \begin{figure}[H]
 	\centering
@@ -75,7 +110,7 @@ In the 3D physical environment, the set of simulated devices are used in a conte
 
 In the 2D environment, the set of devices are presented in desktop-alike windows and they react to mouse clicks and network events. This allows to user to directly interact with the device as he would in the real-world.\\
 
-UbiWise was released under LGPL\footnote{http://www.gnu.org/copyleft/lesser.html} offering the software to the open-source community.\\
+UbiWise was released under LGPL\cite{lgpl} offering the software to the open-source community.\\
 %END: UbiWise
 
 %BEGIN: Tatus
@@ -127,7 +162,7 @@ In this work \cite{lazovik2009services} the aim is to reduce the testing costs o
 
 For the implementation of virtual stubs they have employed the service-oriented computing paradigm, which is widely used to implement systems requiring high interoperability, scalability, security and reliability. One of the main advantages is that such software can seamlessly integrate other systems written in other programming languages and even deployed under different operating systems.\\
 
-The simulation scenarios are built using Google SketchUp\footnote{http://www.sketchup.com}. This was extended with a set of tools extending its visual representation of a house with virtual home interactive web services supporting SOAP messages. Further, the visualization component is written as a set of plug-ins for Google SketchUp.\\
+The simulation scenarios are built using Google SketchUp \cite{sketchup:online}. This was extended with a set of tools extending its visual representation of a house with virtual home interactive web services supporting SOAP messages. Further, the visualization component is written as a set of plug-ins for Google SketchUp.\\
 
 The simulation and visualization tool allows to simulate any possible home automation scenario, with the possibility of modeling the user and its interactions with the home.
 %END: Service in Smart Homes
@@ -146,7 +181,7 @@ The eHomeSimulator is built on top of eHome framework to allow intuitive interac
 	\item The top layer represents the agents interacting with the environment. They can move freely in all accessible areas, interacting with the devices.
 \end{itemize}
 
-There is a environment editor which assists in setting up a simulated environment. The process starts by designing the room, walls and furniture using Google Sketchup \footnote{\url{http://sketchup.google.com/}} which then is uploaded into the editor. On top of this base we can further place the devices and appliances.\\
+There is a environment editor which assists in setting up a simulated environment. The process starts by designing the room, walls and furniture using Google Sketchup \cite{sketchup:online} which then is uploaded into the editor. On top of this base we can further place the devices and appliances.\\
 
 The eHomeSimulator's architecture is based on the Model View Controller design pattern \cite{erich1995design}. The model of the system holds the data structures representing the current state of the system, the view implements the graphical representation based on the current model and the controller process the user interaction with the simulator, updating the view according to changes in the model.\\
 
