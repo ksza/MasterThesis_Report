@@ -1,0 +1,15 @@
+%BEGIN: UbiWise 
+\section{UbiWise, A Simulator for Ubiquitous Computing Systems Design}\label{sec:ubiwise}
+
+UbiWise \cite{barton2003ubiwise} is a device-centric simulator. The target of this work was to allow researchers to simulate ubiquitous computing devices\footnote{networked, context-aware devices} before physical prototypes are available. The purpose of this is to empower the researcher to write software for the device and test it from a user interaction's point of view, in the actual physical environment the device was envisioned to be used in. This project emerged from two independent simulators: UbiSim and WISE.\\
+
+UbiSim is a 3D environment simulator, aimed at producing context information in real-time, in a close to realistic environment. To simulate the environment, they have use the Quake III Arena (Q3A)\footnote{http://www.idsoftware.com/gate.php} first person shooter gaming engine, written in the C programming language. On top of the raw simulated data outputted by Q3A, they have built a \emph{context server} which processes the simulated data and delivers meaningful context data to external applications and services. The simulator is also able to process data from sensors in the real-world, generating mixed reality together with the simulated data.\\
+
+WISE is a 2D device interaction simulator written in Java. This allows the user to interact with the software running on the device, interacting with real-world web services and other simulated devices.\\
+
+In the 3D physical environment, the set of simulated devices are used in a context-aware manner, reacting to physical events and contextual changes. The devices might be portable, hand-held by a virtual agent the user controls (e.g. a digital camera enhanced with Internet connectivity) or they might be static device, attached to a physical entity (e.g. a wireless enhanced picture frame). In simulated environment might detect the proximity between the devices, triggering events and allowing the software running on the device to take specific actions.\\
+
+In the 2D environment, the set of devices are presented in desktop-alike windows and they react to mouse clicks and network events. This allows to user to directly interact with the device as he would in the real-world.\\
+
+Although UbiWise was released under LGPL\cite{lgpl}, offering the software to the open-source community, it presents two main issues from the perspective of my work. The first aspect is that it is oriented towards emulating device protoypes making it hard to emulate custom sensors. The second challenge is the learning curve it takes to get started with it. In order to customize it to a certain area, one would need to dive deep into the Q3A engine code, which is hard, tedious and time consuming task.   
+%END: UbiWise
