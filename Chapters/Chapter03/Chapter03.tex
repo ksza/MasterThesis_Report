@@ -3,3 +3,32 @@
 %************************************************
 
 TODO: design
+
+% \begin{enumerate}
+% 	\item Follow a modular design to implement the core of the framework as a set of decoupled components:
+% 		\begin{itemize}
+% 			\item The \emph{Data Model}. This represents the contextual entities and the relationship between them that the simulator will monitor, briefly detailed in Section \ref{sec:data_model}.
+% 			\item The \emph{World Model}. Represents the current status of the simulated environment (e.g. position of the agent, status of a certain switch etc.). The structure of the entities in this model have been defined in the Data Model.
+% 			\item A universal communication protocol to access the core. It needs to be universal so that other components, can easily be developed and integrated.
+% 			\item Query and modify API of information in the World Model. To make the integration between the core of the framework and the other modules, these APIs will need to provide a complete set of methods.
+% 		\end{itemize}
+% 	\item Evaluate the framework:
+% 		\begin{itemize}
+% 			\item Implement a module to modify the state of the simulated environment (DummySim). This comprises of manipulating the agent's parameters and performing actions like picking up an item, touching a screen etc. The purpose of this module is to evaluate the modify API of the core. It also servers as a tool to modify the environment which is a required input for the SSM model to be evaluated.
+% 			\item Implement the \emph{SSM Model}. Using the current World Model's query API, retrieve the current set of contextual data and apply the rules defined in the SSM. This component will actively monitor the current status of the simulator, having as a result an up to date collection of SSM entity sets: world space, perception space, recognizable set, examinable set, action space, selected set and manipulated set. This evaluation will be considered successful if the results are similar to the results obtained in the initial evaluation of the SSM described in \cite{pederson2011situative}.
+% 		\end{itemize}
+% \end{enumerate}
+
+
+% In order to allow the user of the simulator to easily interact with the simulated environment, the visualization is really important. Projects that simulate real world scenarios, employ game alike solution providing complex graphics and interaction between the user of the simulator and the simulated world.\\
+
+% This work represents initial research for this egocentric simulator. Therefore, my main focus is on the framework's core. But, I will invest time in researching existing solutions, either 2D or 3D; if I will document the suitable frameworks with high potential. This is nice-to-have. I don't want to set it as a goal of this project, rather talk about it as future work.
+
+% \subsection{Data Model}\label{sec:data_model}
+% The data model is aimed at defining the supported entities and the relationships between them. In this work the aim is to support physical objects, virtual objects and mediators.\\
+
+% The agent represents a virtual character that can freely moved around in the environment. Beside the position the of the agent, the user can also control more complex parameters of the agent like orientation (affects field of vision), sitting down / standing, hands orientation etc. The agent will be also be able to carry out a certain set of actions like picking objects up, putting objects down etc.\\
+
+% Physical objects will be described as entities with a certain set of properties (location, weight etc.). Entity composition will be supported to some extend: place objects on top of each other (i.e. a stapler on a table), a mobile phone in the backpack worn by the agent.\\
+
+% This section created a brief overview of the supported entity types and relationships. They will be described in details in Chapter \ref{ch:design}.

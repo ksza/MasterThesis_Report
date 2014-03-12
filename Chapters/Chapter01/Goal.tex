@@ -2,35 +2,33 @@
 \section{Goal} % (fold)
 \label{sec:goal}
 %************************************************
-The goal of this project is to design and implement the basis of an open-source simulation environment for mobile context-aware design using Java based technologies. The framework will capture the context of physical objects, virtual objects and mediators \cite{pederson2011situative} in regards to the agent's parameters. The agent represents an avatar of the user interacting with the simulated environment.\\
+The goal of this project is to design and implement an open-source simulation environment for mobile context-aware system design. The framework will monitor the context of physical objects, virtual objects and mediators \cite{pederson2011situative} in regards to the agent's parameters (i.e. location, field of vision, body position sitting / standing, objects within the agent's reach etc.). The agent represents an avatar of the user interacting with the simulated environment.\\
 
-The following set of goals will guide our work:
+The followings represent the goal of my thesis project:
 \begin{enumerate}
-	\item Host all the work in a publicly available source control repository
-	\item Follow a modular design to implement the core of the framework as a set of decoupled components:
-		\begin{itemize}
-			\item The \emph{Data Model}. This represents the contextual entities and the relationship between them that the simulator will monitor, briefly detailed in Section \ref{sec:data_model}.
-			\item The \emph{World Model}. Represents the current status of the simulated environment (e.g. position of the agent, status of a certain switch etc.). The structure of the entities in this model have been defined in the Data Model.
-			\item A universal communication protocol to access the core. It needs to be universal so that other components, can easily be developed and integrated.
-			\item Query and modify API of information in the World Model. To make the integration between the core of the framework and the other modules, these APIs will need to provide a complete set of methods.
-		\end{itemize}
-	\item Evaluate the framework:
-		\begin{itemize}
-			\item Implement a module to modify the state of the simulated environment (DummySim). This comprises of manipulating the agent's parameters and performing actions like picking up an item, touching a screen etc. The purpose of this module is to evaluate the modify API of the core. It also servers as a tool to modify the environment which is a required input for the SSM model to be evaluated.
-			\item Implement the \emph{SSM Model}. Using the current World Model's query API, retrieve the current set of contextual data and apply the rules defined in the SSM. This component will actively monitor the current status of the simulator, having as a result an up to date collection of SSM entity sets: world space, perception space, recognizable set, examinable set, action space, selected set and manipulated set. This evaluation will be considered successful if the results are similar to the results obtained in the initial evaluation of the SSM described in \cite{pederson2011situative}.
-		\end{itemize}
+	\item The framework should be able to adequately represent aspects of the SSM and update the model in real time, based on the input of an event generator (i.e. the simulator).
+	\item Implement a simulator to generate events which trigger contextual changes in the framework.
+	\item Visualize, in real time, the SSM spaces, as contextual changes occur.
+	\item Host all the work in a publicly available source control repository.
 \end{enumerate}
 
-In order to allow the user of the simulator to easily interact with the simulated environment, the visualization is really important. Projects that simulate real world scenarios, employ game alike solution providing complex graphics and interaction between the user of the simulator and the simulated world.\\
+The objects simulated by the framework will have the following characteristics:
+\begin{itemize}
+	\item they can be physical objects, virtual object (i.e. software) and mediators (i.e. devices, sensors)
+	\item they can be composed; for example a lamp can be placed on a table, an electronic calendar can be placed on the wall
+	\item more specialized devices can be represented, like wearable devices, hand-held devices (i.e. mobile phones, tablets)
+	\item their state is made up by attributes like: position (within the simulated environment), height, weight, relations with other objects (i.e. pen placed on top of a paper), and various other specific state attributes (e.g. on/off for a lamp)
+	\item some of the objects might receive data from external, real-life objects; for example, a simulated sensor motion sensor could have its data retrieved from a motion sensor installed in the same room with the researchers
+\end{itemize}
 
-This work represents initial research for this egocentric simulator. Therefore, my main focus is on the framework's core. But, I will invest time in researching existing solutions, either 2D or 3D; if I will document the suitable frameworks with high potential. This is nice-to-have. I don't want to set it as a goal of this project, rather talk about it as future work.
+For the agent, the framework will monitor a set of characteristics and allow a certain set of actions to be carried out. The following statements present details:
+\begin{itemize}
+	\item the framework will monitor location within the simulated environment, visual spectrum (the objects within it), distance to each perceived object, body position (sitting/standing)
+	\item the agent's movement can be easily controlled in an intuitive user interface
+	\item the agent can pick up objects if possible (based on weight, proximity etc.), carry objects around, put objects down
+	\item objects can be in the agent's hand, pocket, backpack etc.
+	\item the agent can interact with digital devices (e.g. gestures on a touch scree, press buttons)
+\end{itemize}
 
-\subsection{Data Model}\label{sec:data_model}
-The data model is aimed at defining the supported entities and the relationships between them. In this work the aim is to support physical objects, virtual objects and mediators.\\
-
-The agent represents a virtual character that can freely moved around in the environment. Beside the position the of the agent, the user can also control more complex parameters of the agent like orientation (affects field of vision), sitting down / standing, hands orientation etc. The agent will be also be able to carry out a certain set of actions like picking objects up, putting objects down etc.\\
-
-Physical objects will be described as entities with a certain set of properties (location, weight etc.). Entity composition will be supported to some extend: place objects on top of each other (i.e. a stapler on a table), a mobile phone in the backpack worn by the agent.\\
-
-This section created a brief overview of the supported entity types and relationships. They will be described in details in Chapter \ref{ch:design}.
+At this time, it is very uncertain if I will be able to fulfill all the above goals and it is left up to the Design Chapter \ref{ch:design} to decide how we approach the goals of this research.
 % subsection goal (end)
