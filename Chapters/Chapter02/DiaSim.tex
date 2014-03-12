@@ -1,5 +1,5 @@
 %BEGIN: DiaSim 
-\section{DiaSim: A Parameterized Simulator for Pervasive Computing Applications}\label{sec:ubiwise}
+\section{DiaSim: A Parameterized Simulator for Pervasive Computing Applications}\label{sec:diasim}
 
 DiaSim is a Java based simulator for pervasive computing applications based on sensors and actuators \cite{bruneau2013diasim}. In this project, the simulation process starts out by defining a high-level description of the target pervasive computing environment, in a domain specific language: DiaSpec. Part of this definition are \emph{classes of entities} and \emph{data types} which can be exchanged by the entities. Based on this definition, DiaGen produces a customized \emph{programming framework} and an \emph{emulation layer}.\\
 
@@ -12,9 +12,7 @@ DiaSim is a Java based simulator for pervasive computing applications based on s
 
 As depicted in Figure \ref{fig:diasim_architecture}, the simulator has a modular, layered architecture. Applications written using the generated programming framework, can be run both in a simulated and a real-world environment. In the real environment, the data comes from real sensors, while in the simulated environment the data comes from simulated sensors in the emulation environment. Besides the components mentioned so far, DiaSim also includes a simulation renderer, enabling the researcher to visually monitor and debug the pervasive computing system.\\
 
-I found DiaSim's simulation model inspiring and relevant, hence I will further detail on a few key concepts.\\
-
-The core entity is called a \emph{stimuli}. This represents changes of the environment observable by the sensors in the system. Entities that generate stimuli are called \emph{stimulus producers}, producing only one type of \emph{stimulus}. The generated stimuli may trigger sensors (e.g. a motion detector) which publish events, that may in turn stimulate actuators or services. Hence, we can see a stimuli as a type of stimulus; making an analogy in object-oriented programming, stimulus would be a class, stimuli would be an instance of that class and the stimulus producer would be a factory \cite{gamma1994design}, producing instances of the stimulus class based on a certain set of rules. These rules define the evolution of the stimuli in terms of space, time and intensity (e.g. an agent moving from one location to another). Each stimulus has a type associated with it, matching the type one at least one sensor in the system.\\
+At the heart of this simulator, they have built simulation model. The core entity is called a \emph{stimuli}. This represents changes of the environment observable by the sensors in the system. Entities that generate stimuli are called \emph{stimulus producers}, producing only one type of \emph{stimulus}. The generated stimuli may trigger sensors (e.g. a motion detector) which publish events, that may in turn stimulate actuators or services. Hence, we can see a stimuli as a type of stimulus; making an analogy in object-oriented programming, stimulus would be a class, stimuli would be an instance of that class and the stimulus producer would be a factory \cite{gamma1994design}, producing instances of the stimulus class based on a certain set of rules. These rules define the evolution of the stimuli in terms of space, time and intensity (e.g. an agent moving from one location to another). Each stimulus has a type associated with it, matching the type one at least one sensor in the system.\\
 
 \begin{figure}[H]
 	\centering
@@ -30,10 +28,8 @@ As illustrated in Figure \ref{fig:diasim_simulation_model}, besides stimulus pro
 	\item Session (one-to-one with information exchange over a period of time). For example, when motion from an unknown source is detected in a restricted area, an audio notification service could stream a warning audio notification to a nearby speaker service.
 \end{itemize}
 
-After thorough analysis, I found DiaSim as being a good starting point for my work. The simulation model is generic enough to host our needs and open for further modifications. Also the rendering module allows to easily visualize the simulated system and control an agent in a 2D environment. But, the system is not open source and the research team is not yet open for external collaboration.
-
-\subsection{Siafu}
-To render the simulation, DiaSim was coupled with Siafu \cite{siafu:online}, a highly customizable, open-source Java based simulator for mobile context-aware applications and services \cite{martin2006generic}. Although Siafu enables the definition of any context type, does not provide any support to simulate entities and applications.\\
+\subsection{Siafu}\label{sub:siafu}
+To render the simulation, DiaSim was coupled with Siafu \cite{siafu:online}, a highly customizable, open-source Java based simulator for mobile context-aware applications and services \cite{martin2006generic}.\\
 
 Siafu was meant to be a flexible simulator. Hence, they have separated the main information sources from each other:
 \begin{itemize}
@@ -43,15 +39,4 @@ Siafu was meant to be a flexible simulator. Hence, they have separated the main 
 \end{itemize}
 
 The simulated data is available in 2D graphical representation and through a web service interface.\\
-
-I have briefly discussed about Siafu as I found relevant the way it was integrated with DiaSim. As illustrated in Figure \ref{fig:diasim_and_siafu}, the main models in DiaSim are extended from the three abstract information sources in Siafu: AgentModel, ContextModel and WorldModel. Further, the DiaSim aggregates the simulated entities and stimuli producers.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{gfx/Chapter2/diasim_and_siafu}
-	\caption{DiaSim and Siafu}
-	\label{fig:diasim_and_siafu}
-\end{figure}
-
-Based on this approach, DiaSim managed to easily integrate a 2D simulation renderer in their work. I am considering to further analyze Siafu as a possible corner stone for our approach.
 %END: DiaSim 

@@ -1,11 +1,9 @@
 %BEGIN: SIMACT
 \section{SIMACT: a 3D Open Source Smart Home Simulator for Activity Recognition with Open Database and Visual Editor}\label{sec:simact}
 
-SIMACT is a flexible 3D smart home infrastructure simulator, developed in Java, specifically designed to help researchers working in the field of activity recognition \cite{bouchard2012simact}. The simulator is released as open-source \cite{bouchard:simact:Online} under GPLv3 \cite{gpl:v3}.\\
+SIMACT is a smart home infrastructure simulator, developed in Java, designed to help researchers working in the field of activity recognition \cite{bouchard2012simact}. This work is specifically focused on the interaction between an agent and the surrounding environment in the smart house. It is built to reproduce everyday life scenarios, on a step-by-step basis.\\
 
-This work is specifically focused on the interaction between an agent and the surrounding environment in the smart house. It is built to reproduce everyday life scenarios, on a step-by-step basis. Entire scenarios and interactions can be designed only by writing using scripts and visual editors, without having to write one line of code.\\
-
-The simulator is built entailer on Java based technologies. The GUI is based on the swing library, while the 3D renderer is based on the Java Monkey Engine\footnote{\url{http://jmonkeyengine.org/}}. For the 3D design, they have used a modeling tool for house design and interior accessories from Google called SketchUp \cite{sketchup:online}. This comes with a great advantage as SketchUp's community maintains a huge library of free 3D models, where one can find almost any accessory that would fit in a home.\\
+The simulator is built entirely on Java based technologies. The GUI is based on the swing library, while the 3D renderer is based on the Java Monkey Engine\footnote{\url{http://jmonkeyengine.org/}}. For the 3D design, they have used a modeling tool for house design and interior accessories from Google called SketchUp \cite{sketchup:online}.\\
 
 To further detail, I will briefly discuss the on the system's architecture, as illustrated in Figure \ref{fig:simact_architecture}.
 
@@ -26,8 +24,4 @@ A snapshot of the simulation tool in action is depicted in Figure \ref{fig:simac
 	\caption{SIMACT: Simulation Tool in Action}
 	\label{fig:simact_simulation_tool}
 \end{figure}
-
-This tool provides a powerful and reusable simulation environment, with a strong platform worth considering as basis for the simulator I am targeting to develop. My only concern is that I have not been able to determine the complexity of adding support for device simulation, as the main target of SIMACT is interaction with the physical environment.\\
-
-In conclusion, I will allocate some time during the system design process to analyze in detail if building on top of SIMACT would be possible.
 %END: SIMACT
