@@ -46,4 +46,39 @@ Unfortunately the simulator is not open-source so making it unusable for researc
 
 %Ubiwise
 Although UbiWise \ref{sec:ubiwise} was released under LGPL\cite{lgpl}, offering the software to the open-source community, it presents two main issues from the perspective of my work. The first aspect is that it is oriented towards emulating device protoypes making it hard to emulate custom sensors. The second challenge is the learning curve it takes to get started with it. In order to customize it to a certain area, one would need to dive deep into the Q3A engine code, which is hard, tedious and time consuming task.\\
+
+I will conclude with the comparison illustrated in Table \ref{table:comparison}. It depicts the characteristics of interest for our work described in Section \ref{sec:goal}, summarizing which of the systems in the related work offer them.
+
+\begin{table}[H]
+	\begin{center}
+		\small \begin{tabular*}{1.1\columnwidth}{lllll}
+			\\ \hline \hline
+			Characteristics & Simact & DiaSim & Tatus & Ubiwise \\ \hline \hline
+
+			Support for physical objects? & yes & yes & yes & yes \\ \hline
+			Support for devices? & yes & yes & yes & yes \\ \hline
+			Simulate software running on devices? & no & no & no & yes \\ \hline
+			Support of object composition? & yes & yes & yes & yes \\ \hline
+			Wearable devices? & no & no & no & no \\ \hline
+			Receive data from real-life sensors? & yes & yes & no & yes \\ \hline
+
+			Monitors agent location? & yes & yes & yes & yes \\ \hline
+			Visual spectrum of the agent? & yes & no & yes & yes \\ \hline
+			Audio spectrum of the agent? & yes & no & yes & yes \\ \hline
+			Body position (crouching/standing)? & yes & no & yes & yes \\ \hline
+			Pick up object & no & no & no & no \\ \hline
+			Carry object around & no & no & yes & yes \\ \hline
+			Put object down & no & no & no & no \\ \hline
+			Object in agent's hand & no & no & yes & yes \\ \hline
+			Object in agent's pocket/backpack & no & no & no & no \\ \hline
+
+			Agent interaction with devices & no & no & no & yes \\ \hline
+
+			Is open sources?             & yes & no & no & yes \\ \hline
+		\end{tabular*}
+		
+		\caption{Features comparison}
+		\label{table:comparison}
+	\end{center}
+\end{table}
 %END: DISCUSSION
