@@ -1,0 +1,283 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Egocentric Environment Simulator for Mobile Context-Aware System Design -->
+		<title>EgoSim Evaluation</title>
+		<link rel="stylesheet" href="media/styles/main.css" type="text/css" />
+		<link rel="stylesheet" href="media/styles/nivo-slider.css" type="text/css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="media/styles/ie.css" type="text/css" /><![endif]-->
+		<script src="media/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+		<script src="media/scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+		<script src="media/scripts/blanka.js" type="text/javascript"></script>
+		<script src="media/scripts/prettify/run_prettify.js"></script>
+	</head>
+	<body>
+
+		<div id="header">
+			<div class="inner cf">
+				<div class="small_logo">
+					<img src="media/images/itu_logo.jpeg" alt="Evaluation of EgoSim" />
+				</div>
+
+				<div id="navigation">
+					<ul>
+						<li><a href="index.html">1. Introduction</a></li>
+						<li><a href="evaluation.html">2. Preparation</a></li>
+						<li><a href="warmup.html">3. Warm-up Task</a></li>
+						<li><a href="task1.html">4. Task1</a></li>
+						<li class="current-menu-item"><a href="task2.html">5. Task2</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr />		
+
+		<div id="content" class="home">
+			<div class="inner">
+
+				<h2><span>Useful Tips</span></h2>
+				<div class="justify">
+
+					<p>
+						NB: After you exit or close the APP, the process running it might get stuck. Identify the following icon in the JMonkeyEngine IDE and press the force close button.
+						<a href="media/images/close_process.png" target="_blank">
+							<img src="media/images/close_process.png" class="smaller" alt="Close Process" />
+						</a>
+
+					</p>
+
+					<p>
+						Link to the <a target="_blank" href="http://localhost:8182/context/view/set?name=all">ContextClient</a>.
+					</p>
+				</div>
+
+				<h2><span>Task 2 - Child Monitoring System</span></h2>
+				<div class="justify">
+					
+					<p>
+						The hypothetical problem we are facing as part of this task is that families cannot make their homes secure enough for their children. To provide a solution for this problem, there's a need for a system to constantly monitoring the objects a child should keep away from and should not be interacting with. Based on this context information, we can further build various software service to secure the house from the child's actions. One example of such service is the "Secure Outlets Service" (SOS). This service has to detect whenever a child is approaching an outlet with a small object, in which case it should shut down the electricity switch for outlets, preventing the child from the possibly of getting electrocuted.
+					</p>
+
+					<p>						
+						For this task, please imagine yourself as being the researcher in charge to develop this system. Once again, you decide to design your system based on the egocentric interaction paradigm, as it can categorizes all the objects of interest around the human agent. In order to validate your design, you decide to simulate the system first.
+					</p>
+
+					<p>
+						In this exercise, you will be provided with the virtual model of the simulated environment in the <a href="http://www.blender.org/">blender format</a>. Blender is a free and open-source software for creating 3D virtual models, animations and more. 
+					</p>
+
+					<p>
+						Using the EgoSim framework, you will augment this model to monitor the objects required by your system. Afterwards, based on the frameworks API, you will write the condition for the SOS to shut the electricity down in the outlets.
+					</p>
+				</div>
+
+				<hr />
+
+				<h2><span>Prerequisites</span></h2>
+				<div class="justify">
+
+					<p>
+						To get started, you will need to get your hands on 3 gems:
+						<ul>
+							<li>
+								1. The <a href="http://hub.jmonkeyengine.org/downloads/" target="_blank">JMonkeyEngine development platform, a NetBeans based IDE.</a>
+							</li>
+							<li>
+								2. The <a href="https://github.com/ksza/EgoSim/archive/master.zip">EgoSim</a> framework from my git repository.
+							</li>
+							<li>
+								3. The simulated environment's <a href="http://itu.dk/people/ksza/egosim/media/models/childproof.blend">model</a>.
+							</li>							
+						</ul>
+					</p>
+
+					<p>
+						Unzip the JMonkleyEngine Platform and run it. On the first run you will be asked to configure the working directory. Please do so!
+					</p>
+
+					<p>
+						From the File menu, select the "Import Project > From ZIP..." option. Point to the location of the EgoSim zip you've recently downloaded. This will import the BodyCentricSim project in your workspace.
+					</p>
+				</div>
+
+				<hr />
+
+				<h2><span>Importing the environment model</span></h2>
+				<div class="justify">
+
+					<p>
+						Next, you will import the environment model into the project. Expand the "Assets/Scenes" folder. Create a new folder, "Scenes/childproof". To create a new folder, from the "File" menu select the "New File..." option. In the dialog, select "Other" and "New Folder", as depicted in the picture.
+						<a href="media/images/create_new_folder.png" target="_blank">
+							<img src="media/images/create_new_folder.png" class="smaller" alt="SceneComposer" />
+						</a>
+						Copy the "childproof.blend" file into this folder. Once you see the file in the IDE, right click it and "Convert to j3o Binary". This convert it to JMonkey format.
+					</p>					
+				</div>
+
+				<hr />
+
+				<h2><span>Setting up the simulation</span></h2>
+				<div class="justify">
+
+					<p>
+						In the "Source Packages" folder, under the "dk.itu.bodysim" package, create a new class, ChildProofApp. Make this class extend EgocentricApp. In the implementation of the "createEnvironmentScene", simply write: 
+						<pre class="prettyprint">return new GenericEnvironment("Scenes/childproof/childproof.j3o", "ChildProof", assetManager);</pre>
+					</p>
+
+					<p>
+						Next, create a main method for your class:
+						
+<pre class="prettyprint">public static void main(String[] args) {
+    ChildProofApp app = new ChildProofApp();
+    app.start();
+}</pre> 
+					</p>	
+
+					<p>
+						The ChildProofApp class should look similar to:
+						<pre class="prettyprint">package dk.itu.bodysim;
+
+import com.jme3.scene.Node;
+import dk.itu.bodysim.environment.GenericEnvironment;
+
+public class ChildProofApp extends EgocentricApp {
+
+    @Override
+    protected Node createEnvironmentScene() {
+        return new GenericEnvironment("Scenes/childproof/childproof.j3o", "ChildProof", assetManager);
+    }
+
+    public static void main(String[] args) {
+        ChildProofApp app = new ChildProofApp();
+        app.start();
+    }
+}</pre>
+					</p>
+
+					<p>
+						Now your set! Inside the ChildproofApp hit the SHIFT+F6 key combination. In the settings window just start it up with the default configuration. This will start up the simulation! In here you can control the avatar, move around the environment, NOT walk through walls and objects. The EgoSim took care of this for you.
+					</p>				
+
+					<p>
+						You will notice that you see the environment from a child's perspective: the height of the agent is smaller.
+					</p>
+
+					<p>
+						At this point, you notice the agent can't interact with any objects. That's because none of them have been augmented with context data! You can notice this by opening, on your second display, the <a href="http://localhost:8182/context/view/set?name=all">ContextClient</a> in a browser.
+					</p>
+				</div>
+
+				<hr />
+
+				<h2><span>Identifying objects to monitor</span></h2>
+				<div class="justify">
+
+					<p>
+						In the assets, right click the "Scenes/childproof/childproof.j3o" file and select "Edit in SceneComposer". To see the environment, you'll have to "turn on the lights".
+						<a href="media/images/scenecomposer_light.png" target="_blank">
+							<img src="media/images/scenecomposer_light.png" class="smaller" alt="SceneComposer" />
+						</a>
+						To interact with the scene composer, you can: scroll the wheel to zoom-in/zoom out, hold the wheel clicked and move the mouse to rotate, hold the wheel clicked with the SHIFT button pressed and move the mouse to drag the scene.
+					</p>
+
+					<p>
+						The objects you want to track in this scenario are the Outlets and all the small objects that might be inserted into them; in this case, the pen on the living room table. 
+						<a href="media/images/objects_to_identify.png" target="_blank">
+							<img src="media/images/objects_to_identify.png" class="smaller" alt="SceneComposer" />
+						</a>
+						Identify the objects in the "SceneExplorer Window" on the left or by RIGHT-CLICKing on them in the "SceneComposer". Either way, as you identify them, they get highlighted in the "SceneComposer" on the right.
+						<a href="media/images/scenecomposer.png" target="_blank">
+							<img src="media/images/scenecomposer.png" class="smaller" alt="SceneComposer" />
+						</a>
+					</p>
+
+					<p>
+						To augment the objects with context data:
+						<ul>
+							<li>
+								1. Right click the object in the "SceneComposer Window" and select the "Add User Data"
+							</li>
+							<li>
+								2. In the name field enter enter EGOCENTRIC_CONTEXT_DATA. From the drop-down select "Custom" and choose "dk.itu.bodysim.context.EgocentricContextData". This will bring up the configuration form.
+								<table style="width: 100%;">
+									<tr>
+										<td style="padding-right: 30px;";>
+											<a href="media/images/choose_custom_data.png" target="_blank">
+												<img src="media/images/choose_custom_data.png" class="smaller" alt="Choose Custom Data" />
+											</a>
+										</td>
+										<td align="right">	
+											<a href="media/images/ssmconfig.png" target="_blank">
+												<img src="media/images/ssmconfig.png" class="smaller" alt="SSM Config" />
+											</a>
+										</td>
+									</tr>
+								</table>								
+							</li>
+							<li>
+								3. Configure the ID with a unique name (e.g. KitchenOutlet for the outlet in the kitchen) and the "interactionType" with "CUSTOM" for Outlets (otherwise, the agent will be able to pick it up) and "PICK_UP" for the Pen
+							</li>
+							<li>
+								4. The rest of the parameters will take meaningful default values. Although, to fine tune the classification, the option to configure them is there.
+							</li>	
+							<li>
+								5. Once done, hit the OK button.
+							</li>
+						</ul>
+					</p>
+
+					<p>
+						After you have configured all the objects you want to track, from the File menu select the "Save All" option.
+					</p>
+
+					<p>
+						You can close the SceneComposer now.
+					</p>
+
+				</div>
+
+				<hr />
+
+				<h2><span>Running the simulation</span></h2>
+				<div class="justify">
+
+					<p>
+						 Run the simulation once again. You can notice in the <a href="http://localhost:8182/context/view/set?name=all">ContextClient</a> how the objects you've augmented, get classified in the SSM sets.
+					</p>
+
+					<p>
+						During the simulation, you can also access the API endpoint which provides the data in JSON format <a href="http://localhost:8182/context/api/set?name=all">http://localhost:8182/context/api/set?name=all</a>
+					</p>
+
+					<p>
+						As part of the interactions you do with the environment, pick up the Pen from the table and move with it close to one of the outlets, so that the Outlet is in the ActionSpace. When you arrive to this point, you have successfully performed the task!
+					</p>
+				</div>
+
+				<hr />
+				<h2><span>Task 2 - Feedback</span></h2>
+				<div class="justify">
+
+					<p>
+						Please go to <a href="https://www.esurveycreator.com/s/7b4731f" target="_blank">Survey 2</a> to answer the questions for this task.
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+
+		<hr />
+
+		<div id="footer">
+			<div class="inner">
+				<p>
+					<span>Last update April 12, 2014. <a href="mailto:ksza@itu.dk">Karoly Szanto</a></span>
+					<span>Masters' Thesis Evaluation</span>
+				</p>
+			</div>
+		</div>
+	</body>
+	</html>

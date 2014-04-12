@@ -1,0 +1,257 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Egocentric Environment Simulator for Mobile Context-Aware System Design -->
+		<title>EgoSim Evaluation</title>
+		<link rel="stylesheet" href="media/styles/main.css" type="text/css" />
+		<link rel="stylesheet" href="media/styles/nivo-slider.css" type="text/css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="media/styles/ie.css" type="text/css" /><![endif]-->
+		<script src="media/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+		<script src="media/scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+		<script src="media/scripts/blanka.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+		<div id="header">
+			<div class="inner cf">
+				<div class="small_logo">
+					<img src="media/images/itu_logo.jpeg" alt="Evaluation of EgoSim" />
+				</div>
+
+				<div id="navigation">
+					<ul>
+						<li class="current-menu-item"><a href="index.html">1. Introduction</a></li>
+						<li><a href="evaluation.html">2. Preparation</a></li>
+						<li><a href="warmup.html">3. Warm-up Task</a></li>
+						<li><a href="task1.html">4. Task1</a></li>
+						<li><a href="task2.html">5. Task2</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr />		
+
+		<div id="content" class="home">
+			<div class="inner">
+
+				<h2><span>What is this?</span></h2>
+				<div class="justify">
+					<p>
+						This is the evaluation of a prototype system I have developed as part of my Masters' Thesis project. As a participant in this study, you will need to spend approximately up to 1h30min in total in order to perform the required tasks and answer the questions. To participate in this study you must have very basic programming experience in Java and be slightly familiar with IDEs for the Java programming language, like Eclipse or NetBeans.
+					</p>
+
+					<p>
+						You will start out by going through the <a href="index.html">introduction</a>, which will brief you in with the basic concepts and features of the system. Next, the <a href="evaluation.html">preparation</a> section will provide the necessary information to successfully carry out the evaluation tasks. An example system build using this paradigm would be recognizing the next action a person will take in his/her surrounding environment.
+					</p>
+
+					<p>
+						Next, you will complete a sequence of 3 tasks. At the end of each task (except for the first one), you will be asked to fill in a feedback form. As a participant to this study, you will be treated anonymously, your personal identity and personal data will remain undisclosed!
+					</p>
+
+					<p>
+						Make sure the task instructions are always visible. The best would be took keep them open in a browser on your second screen.
+					</p>
+
+					<p>
+						I hope I've managed to make this evaluation both fun and interesting. Thank you very much for taking part in the study. Enjoy! :)
+					</p>
+<!-- 					<p>
+						After you get familiar with the concepts, completing the <a href="warmup.html">warm-up task</a> should make you feel comfortable with concepts and interactions providing a hands-on experience.
+					</p>
+
+					<p>
+						Finally, <a href="task1.html">task 1</a> will be about evaluating the usability and simulation power of a ready made scenario, while <a href="task2.html">task 2</a> will be about actually using the 
+					</p> -->
+				</div>
+
+
+				<hr />
+				<h2><span>About EgoSim</span></h2>
+
+				<div class="justify">
+					<p>
+						EgoSim is the framework I have developed as part of my Masters' Thesis, An Environment Simulator for Mobile Context-Aware System Design. It enables researchers designing mobile context-aware systems, to simulate their envisioned system, based on the egocentric interaction paradigm. Using this framework, you can import a model of an environment (i.e. an indoors space) and augment it with egocentric data. The simulation will look like a game where you interact with the environment in a game-like manner.
+					</p>
+
+					<p>
+						This work is set out it the field of <a href="http://en.wikipedia.org/wiki/Ubiquitous_computing">ubiquitous computing</a>. Mobile context-aware systems are can sense their physical environment, and adapt their behaviour accordingly. If you are not familiar with these terms, it doesn't mean you haven't worked with these concepts. Take for instance a mobile phone application, using the current location of the device to order a cab for you. This is an example of a simple ubiquitous system, taking away the explicit iteration of you having to look up the address and order the cab, based on location-based sensing capabilities of the surrounding environment.
+					</p>
+
+					<p>
+						An interaction paradigm denotes a style of interaction between a user human and the system, the machine. One well known interaction paradigm is the WIMP (windows, icons, menus, pointer) interaction paradigm, standing behind the graphical user interfaces of all major operating systems. In WIMP, the centre of reference to which all modelling is anchored to are the windows, icons, menus and pointer elements. "Egocentric" means that it is the human body of a specific human individual that acts as the centre of reference to which all modelling is anchored in this interaction paradigm.
+					</p>
+
+					<p>
+						Part of the egocentric paradigm is the Situative Space Model (SSM): an interaction model and a design tool which captures what a specific human agent can perceive and not perceive, reach and not reach, at any given moment in time. The SSM is meant to categorize objects around the agent, into a number of sets, based on its continuously evolving state as it interacts with the surrounding environment. 
+					</p>
+
+					<p>
+						To better understand the purpose of the framework think again about the WIMP interaction paradigm. When designing a system with WIMP in mind, the developer can unquestionably rely on all the necessary information and abstractions (the paradigm's building blocks) provided by the underlying system - the operating system and the programming language you are developing in. The system will take care of uniformly representing the windows and menus across various screen sizes and will provide an easy way for high-level applications to listen for and react on events such as mouse moved, mouse clicked, etc. In the same manner, the EgoSim framework provides information about the state of and changes happening to the SSM sets and spaces (the egocentric paradigm building blocks) empowering the developers and designers to write business / application logic that react on changes to those.
+					</p>
+
+					<p>
+						Why a simulation framework? Building and testing a mobile context-aware application based on the egocentric interaction paradigm in a real-life scenario, would be extremely expensive, time consuming and probably close to impossible, using today's available technology. Given this premise, how would one test multiple scenarios set in totally different environments (indoors, outdoors, different buildings etc.)? The EgoSim comes as the solution to this problem, providing an easy, fast and cost-free platform aiding the development of your egocentric system.
+					</p>
+				</div>
+
+				<hr />
+				<h2><span>SSM Sets in EgoSim</span></h2>
+
+				<p>
+					I have interpreted the sets based on the definition in the <a href="http://www.itu.dk/people/tped/pubs/pedersonEtAlIEEEPervasive2011.pdf">A Situative Space Model for Mobile Mixed-Reality Computing</a> paper. The actual implementation in this work is a simplified version based on these definitions, taking into account a smaller number of parameters.
+				</p>
+
+				<div class="section blog">
+					<ol class="latest-posts">
+						<li class="post">
+							<div class="text">
+								<h3>World Space</h3>
+
+								<p>
+									Contains the set of all physical and virtual objects that are part of a specific model. The framework takes into account only a certain set of entities, carrying specific egocentric context data. Hence, not all visible objects visible are categorized.
+								</p>
+							</div>
+						</li>
+						<li class="post">
+							<div class="text">
+								<h3>Perception Space</h3>
+
+								<p>
+									Part of space around the agent that can be perceived at each moment. An object is considered to be in this space only if it is in the agent's visual spectrum and if the agent's distance from entity is at most equal to the objects perception distance (configurable).
+								</p>
+							</div>
+						</li>
+						<li class="post">
+							<div class="text">
+								<h3>Recognizable Set</h3>
+
+								<p>
+									Entities currently within the perception space but also within their recognition distance. Objects in this space can be directly associated with the agent's activities. For example, a hammer can be perceived as an object up to a certain distance, but when close enough, it can be recognised as a hammer.
+								</p>
+							</div>
+						</li>
+						<li class="post">
+							<div class="text">
+								<h3>Examinable Set</h3>
+
+								<p>
+									Entities currently within the perception space but also within their examination distance. Based on this set you can determine what actions can be performed with that object. For example, in the perception space a cell phone can be seen as a simple object, in the recognizable set you recognize it as a mobile device and in the examinable set you notice it has a screen, a power button and two volume button. You can deduct the type of action you can perform!
+								</p>
+							</div>
+						</li>
+						<li class="post">
+							<div class="text">
+								<h3>Action Space</h3>
+
+								<p>
+									Part of space around the agent that is currently accessible to the agent's physical actions. Objects in this set can be directly acted upon. In our case the object must be within the agent's reach and the agent has to be pointing at it.
+								</p>
+							</div>
+						</li>									
+						<li class="post">
+							<div class="text">
+								<h3>Selected Set</h3>
+
+								<p>
+									Objects currently being physically/virtually handled. The framework categorises only objects that are gripped, that is picked-up by the agent.
+								</p>
+							</div>
+						</li>
+						<li class="post">
+							<div class="text">
+								<h3>Manipulated Set</h3>
+
+								<p>
+									Objects whose states are currently being changed by the agent. In the current implementation, this overlaps the Selected Set as the framework only supports physical manipulation in the sense of picking-up/dropping-down objects.
+								</p>
+							</div>
+						</li>												
+					</ol>
+				</div>
+
+				<div class="justify">
+					<p>
+						The spaces represent presence and approximate spatial relationship among physical and virtual objects with respect to what a specific human agent can perceive (perception space) and manipulate (action space) at a given moment in time. Whether objects are perceivable and manipulable depends on their relations to the human agent in all available interaction modalities. The following image depicts a visual representation on the relation between the sets.
+
+						<a href="media/images/ssm_sets.png" target="_blank">
+							<img src="media/images/ssm_sets.png" class="smaller" alt="SSM Sets" />	
+						</a>
+					</p>
+				</div>
+
+				<hr />
+
+				<h2><span>Goal, Implementation and Features</span></h2>
+
+				<div class="justify">
+					<p> 
+						The main goal of this framework is to empower researchers and developers of context-aware systems, to easily start up designing pervasive systems, based on the egocentric interaction paradigm. This framework might be a useful tool for designers working with the egocentric paradigm and further, it might  play an important role in further developing the egocentric interaction paradigm.
+					</p>
+
+					<p> 
+						The framework was implemented on top of an emerging Java based game engine: <a href="http://jmonkeyengine.org/">JMonkeyEngine</a>. This platform offers rendering and gaming logic capabilities, which I was able to build this framework upon.
+					</p>		
+
+					<p>
+						EgoSim implements the following features: 
+					</p>		
+				</div>
+
+				<div class="section more">
+					<div class="text">
+						<h3 class="with-icon checkmark">Import and edit environments</h3>
+
+						<p>
+							Based on the underlying platform's features, the researcher can import 3D models of their simulation environment in the <a href="http://www.blender.org/">Blender</a> or <a href="http://www.ogre3d.org/">Ogre Mesh</a> open source formats. Once imported, with the use of the <a href="http://hub.jmonkeyengine.org/wiki/doku.php/sdk:scene_composer">Scene Composer</a> component, the user can identify the objects s/he wants as part of the World Model and configure the Egocentric Context Data parameters.
+						</p>
+					</div>
+					<div class="text">
+						<h3 class="with-icon checkmark">First-Person (FP) Agent Controls</h3>
+
+						<p>
+							On top of the imported environment the framework automatically adds FP controls so the user can freely navigate the environment. It also adds collision controls, hence the agent cannot walk through walls or other solid objects.
+						</p>
+					</div>
+					<div class="text">
+						<h3 class="with-icon checkmark">Real-Time Computation of SSM Spaces</h3>
+
+						<p>
+							As the agent interacts with the environment (walks around, picks up objects, puts down objects), the framework keeps the SSM spaces updated.
+							<br/><br/><br/><br/>
+						</p>
+					</div>
+					<div class="text">
+						<h3 class="with-icon checkmark">RESTful API to retrieve SSM Context Data</h3>
+
+						<p>
+							The framework exposes a RESTful endpoint which returns the entities in the requested SSM set. The client can either request a specific set, or can request all sets at once. For each object in the set, their respective context data is also returned. Based on these endpoints, researchers can develop third party services which take decisions based on the system's overall context.
+						</p>
+					</div>
+					<div class="text">
+						<h3 class="with-icon checkmark">Continuous visualization service</h3>
+
+						<p>
+							A web client (ContextClient) that displays, in real time (updated every 3 seconds), the state of all SSM sets. This is a web page served from within the framework and can be run on the same machine, or on a separate machine within the same network, to monitor the state of the SSM sets while the agent interacts with the simulated environment.
+						</p>
+					</div>									
+				</div>
+				<div class="about">
+					<a href="evaluation.html">NEXT: 2. Preparation</a>
+				</div>		
+			</div>
+		</div>
+
+		<hr />
+
+		<div id="footer">
+			<div class="inner">
+				<p>
+					<span>Last update April 12, 2014. <a href="mailto:ksza@itu.dk">Karoly Szanto</a></span>
+					<span>Masters' Thesis Evaluation</span>
+				</p>
+			</div>
+		</div>
+	</body>
+	</html>

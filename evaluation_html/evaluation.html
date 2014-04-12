@@ -1,0 +1,156 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Egocentric Environment Simulator for Mobile Context-Aware System Design -->
+		<title>EgoSim Evaluation</title>
+		<link rel="stylesheet" href="media/styles/main.css" type="text/css" />
+		<link rel="stylesheet" href="media/styles/nivo-slider.css" type="text/css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="media/styles/ie.css" type="text/css" /><![endif]-->
+		<script src="media/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+		<script src="media/scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+		<script src="media/scripts/blanka.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+		<div id="header">
+			<div class="inner cf">
+				<div class="small_logo">
+					<img src="media/images/itu_logo.jpeg" alt="Evaluation of EgoSim" />
+				</div>
+
+				<div id="navigation">
+					<ul>
+						<li><a href="index.html">1. Introduction</a></li>
+						<li class="current-menu-item"><a href="evaluation.html">2. Preparation</a></li>
+						<li><a href="warmup.html">3. Warm-up Task</a></li>
+						<li><a href="task1.html">4. Task1</a></li>
+						<li><a href="task2.html">5. Task2</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr />		
+
+		<div id="content" class="home">
+			<div class="inner">
+
+<!-- 				<h2><span>Introduction into the EgoSim evaluation</span></h2>
+
+				<div class="justify">
+					<p>
+						The targeted user group of the current work comprises at the moment of small number of researchers. They are people who were directly involved in conceptualizing the Egocentric Interaction Paradigm and the Situative Space Model. To evaluate this framework in a meaningful way, I had to select a number of expert user that had already been in touch with this interaction paradigm.
+					</p>
+
+					<p>
+						The evaluation will not be about setting up your own environment. Rather, I provide two separate environments which you, as a user, will be able to interact with and visualize, in real time, the SSM Sets. The goal of this evaluation is to gather feedback on performance, ease of interaction and available interaction mechanics between the user and the simulated environment. The first scenario will have a small number of objects, while the second scenario will contain a very large number of objects. In the evaluation I aim to capture how the system performs under the two different circumstances.
+					</p>
+				</div>
+
+				<hr /> -->
+
+				<h2><span>Prerequisites</span></h2>
+
+				<div class="justify">
+					<p>
+						To run the target evaluation software you will need the following software and hardware requirements:
+
+						<ul>
+							<li>- Operating system: Mac OS X, Windows, Linux, Solaris</li>
+							<li>- CPU > 1 GHz</li>
+							<li>- Recommended Graphic card: AMD/ATI Radeon 9500, NVIDIA GeForce 5 FX, Intel GMA 4500, or better supporting OpenGL 2.0 or better (native libraries are included in download)</li>
+							<li>- Java Runtime: Java 5 or higher. The Java Virtual Machine (JVM) is required to run jME games. The JVM is often preinstalled, if not, your users get it for free from <a href="http://www.java.com/en/">http://www.java.com</a>; for Mac OS, see <a href="http://support.apple.com/kb/DL1572?viewlocale=en_US">apple.com</a>.</li>
+							<li>- Two displays: on one you will be running the actual simulation, while in the other you will run the SSM visualization client</li>
+						</ul>
+					</p>	
+
+					<p>
+						In the last task you will be needing the <a href="http://hub.jmonkeyengine.org/downloads/" target="_blank">JMonkeyEngine development platform, a NetBeans based IDE.</a> Feel free to start the download and installation before you get there as it is a large download and it might require a substantial amount of time.
+					</p>	
+				</div>
+
+				<hr />
+
+				<h2><span>Instructions</span></h2>
+				<div class="justify">
+					<p>
+						The evaluation consists of three tasks; completing the <a href="warmup.html">warm-up task</a> should make you feel comfortable with concepts and interactions providing a hands-on experience. Next, <a href="task1.html">task 1</a> will evaluate the usability and simulation power of a ready made egocentric scenario. Finally, <a href="task2.html">task 2</a> will evaluate the usability of the EgoSim framework, requiring you to actually use the framework to implement an egocentric scenario, from scratch. Each step you will provided all the necessary resources and descriptions to successfully fulfil it.
+					</p>
+
+					<p>
+						For the first two steps you will get a link to a remote location containing three builds, one for each operating systems mentioned above. Please identify the one that fits your local installation. Once downloaded, uncompress the archive and/or install the software if needed (this step might not be needed). Once you have access to the executable, run it -- this will bring up a settings window where you can select your desired resolution and adjust other rendering settings. Please make sure you are NOT running the simulation full-screen. This will prevent you from seeing the in-browser ContextClient. The settings window is depicted bellow.
+					</p>
+
+
+					<a href="media/images/settings.png" target="_blank">
+						<img src="media/images/settings.png" class="smaller" alt="Settings" />	
+					</a>
+
+					<p>
+						Once the simulation is up and running (this might take longer depending on your computer's performances), hit ALT+TAB to release the mouse from within the simulation window and on the second monitor of your machine open up a web browser, go to <a href="http://localhost:8182/context/view/set?name=all">http://localhost:8182/context/view/set?name=all</a>. This page is served from within the simulator, so make sure the simulation is running! Once the page has opened, you should see a list of SSM sets and the current context information of all monitored entities, as depicted in the image bellow.
+					</p>
+
+					<a href="media/images/context_client.png" target="_blank">
+						<img src="media/images/context_client.png" class="smaller" alt="Context Client" />		
+					</a>		
+
+					<p>
+						Hit ALT+TAB one more time to focus back on the simulation and click the mouse once. If this is outside the simulation window, do a mouse click inside the simulation window to lock the mouse again.
+					</p>
+
+					<p>
+						Now you are ready the explore the simulated environment! You should see the world from a first-person perspective. Whatever entities you see in from of you are categorised to be "visible" entities. This context information together with the agent's distance to each object, helps in building up the other sets. The distance is measured in World Units (WU). This is a subjective interpretation of the distance in real-world metrics, the researcher decides upon at the time of building the environment.
+					</p>
+
+					<p>
+						To move around please use the standard first-person key mappings: 
+						<ul>
+							<li>- W -> step forward</li>
+							<li>- S -> step backward</li>
+							<li>- A -> step left</li>
+							<li>- D -> step right</li>
+						</ul>
+					</p>
+
+					<p>
+						You can also move the mouse to look around you. The middle of the screen contains a cross, this is used to point at objects. When you wan to interact with an object, point at it and hit the LEFT MOUSE BUTTON. In order to be able to interact with the object, the entity representing it must have the following characteristics:
+						<ul>
+							<li>- must be part of the World Space (must carry egocentric context information)</li>
+							<li>- the agent must be within reach of the object (it must be in the Action Space)</li>
+						</ul>
+					</p>
+					<p>
+						At the moment the framework support picking up objects, and does not support custom interactions. To pick up an object the agent must be able to lift it up; the weight of the object has to at most the max weight the agent can carry.
+					</p>
+
+					<p>
+						Once the object has been picked up, you can carry it around the environment. To use the object to interact with other objects, you can either hit the RIGHT MOUSE BUTTON and the object will be automatically put back to its initial position (no matter how far you are) OR you can point to another monitored object and click the LEFT MOUSE BUTTON. Again, the object you want to interact with must be in the Action Space. In this iteration, picked up objects can interact only with surfaces, onto which they can be placed onto. For instance you can move a pen from one table to another, but you won't be able to pour water from a glass into a glass -- you will get a system message.
+					</p>
+
+					<p>
+						At the moment, carrying objects around is the only way the agent can interact with the environment and modelled entities. Future development targets to implement interaction with mediators and virtual objects as well.
+					</p>
+
+					<p>
+						Once you have finished evaluating the scenario hit ESC. This will end the simulation. I hope the instructions are not too overwhelming. The scenarios are not bounded by walls so please make sure you don't walk to far, otherwise you will reach the end of the world and fall into the abyss :).
+					</p>
+				</div>	
+				<div class="about">
+					<a href="warmup.html">NEXT: 3. Warm-up Task</a>
+				</div>				
+			</div>
+		</div>
+
+		<hr />
+
+		<div id="footer">
+			<div class="inner">
+				<p>
+					<span>Last update April 12, 2014. <a href="mailto:ksza@itu.dk">Karoly Szanto</a></span>
+					<span>Masters' Thesis Evaluation</span>
+				</p>
+			</div>
+		</div>
+	</body>
+	</html>

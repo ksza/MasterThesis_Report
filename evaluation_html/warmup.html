@@ -1,0 +1,177 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Egocentric Environment Simulator for Mobile Context-Aware System Design -->
+		<title>EgoSim Evaluation</title>
+		<link rel="stylesheet" href="media/styles/main.css" type="text/css" />
+		<link rel="stylesheet" href="media/styles/nivo-slider.css" type="text/css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="media/styles/ie.css" type="text/css" /><![endif]-->
+		<script src="media/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+		<script src="media/scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+		<script src="media/scripts/blanka.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+		<div id="header">
+			<div class="inner cf">
+				<div class="small_logo">
+					<img src="media/images/itu_logo.jpeg" alt="Evaluation of EgoSim" />
+				</div>
+
+				<div id="navigation">
+					<ul>
+						<li><a href="index.html">1. Introduction</a></li>
+						<li><a href="evaluation.html">2. Preparation</a></li>
+						<li class="current-menu-item"><a href="warmup.html">3. Warm-up Task</a></li>
+						<li><a href="task1.html">4. Task1</a></li>
+						<li><a href="task2.html">5. Task2</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr />		
+		<div id="content" class="home">
+			<div class="inner">
+
+				<h2><span>Useful Tips</span></h2>
+				<div class="justify">
+					<p>
+						After you exit or close the APP, the process running them might get stuck. You will need to identify it in your operating system's task manager and "force close" it. Depending on your OS, it will be either the tasks name, WarmUpTask or ALFTask, or simply an instance of your local jre run.
+					</p>
+
+					<p>
+						Link to the <a target="_blank" href="http://localhost:8182/context/view/set?name=all">ContextClient</a>.
+					</p>
+				</div>
+
+				<h2><span>Prerequisites</span></h2>
+				<div class="justify">
+
+					<p>
+						Get the simulator from <a target="_blank" href="http://itu.dk/people/ksza/bodysim/warmup/">http://itu.dk/people/ksza/bodysim/wamup</a>
+					</p>
+				</div>
+
+				<h2><span>Warm-up</span></h2>
+
+				<div class="justify">
+					<p>
+						This first scenario is ment to make you familiar with the simulator's concepts and interactions. The environment is made up by two tables; the first table has two items on it: a pen and a small statue. The other table is empty. All entities in this scenario can be interacted with!
+					</p>
+
+					<a href="media/images/prototype1.png" target="_blank">
+						<img src="media/images/prototype1.png" class="smaller" alt="Prototype 1" />	
+					</a>
+
+					<p>
+						Your task is to walk around and interact with the environment while observing the SSM spaces in the ContextClient. N.B.: The client is automatically refreshed every second. As part of the actions you carry out, please try out the followings:
+
+						<ul>
+							<li>
+								1. Move far away from the first table (facing the table), until in the perception space contains only Table1 (it might contain Table2 as well if it's in your visual range). Slowly move towards Table1. At certain distances the PerceptionSpace, RecognizableSet and ExaminableSet will be populated.
+							</li>
+							<li>
+								2. Try interacting with the pen while it IS NOT part of the ActionSpace. You are informed that the agent is too far!
+							</li>	
+							<li>
+								3. Try interacting with the pen while it IS part of the ActionSpace. The pen gets picked up!
+							</li>		
+							<li>
+								4. Move with the pen towards Table2. While Table2 IS NOT in the ActionSpace, try to interact with it. You are informed that the agent is too far!
+							</li>
+							<li>
+								5. While Table2 IS in the ActionSpace and with the pen picked up, try to interact with the table. Table2 is a surfaces and the pen can be placed onto it! 
+							</li>		
+							<li>
+								6. While not holding anything in your hands and while Table2 IS in the ActionSpace, try to it up. Table2 is too heavy for the agent carry!
+							</li>
+							<li>
+								7. Move towards the Statue until it's in the ActionSpace and try to interact with it. Interacting with the Statue requires a different implementation than the standard piking up object which is not implemented in this iteration!
+							</li>
+							<li>
+								8. Pick up the pen. With the pen picked up and the statue in the ActionSpace, try to interact with the Statue. You can't, because Statue is not a surface. Future releases will handled this more complex scenario as well!
+							</li>							
+						</ul>
+
+						When you arrive to this point, you have successfully performed the WarmUp Task!
+					</p>					
+<!-- 					<p>
+						Besides accomplishing the steps above, take note on how easy/hard it is to interact with the environment, how fast does the context client reflect the state of the environment, what context information is available in the context-client. Please also take note on the overall performance.
+					</p> -->
+				</div>
+
+<!-- 				<hr />
+				<h2><span>Prototype 1 - Evaluation Form (this will be a link to a proper questionnaire)</span></h2>
+
+				<div class="justify">
+					<ul>
+						<li>
+							1. How easy/hard did you find walking around? (scale 1-5); Comment!
+						</li>
+						<li>
+							2. How explicit is it to interact with objects (pick up/drop down)? (scale 1-5); Comment!
+						</li>
+						<li>
+							3. Is picking up physical objects the right default interaction? (Yes/No); If No, what would it be?
+						</li>
+						<li>
+							4. Is dropping down physical objects the right default interaction? (Yes/No); If No, what would it be?
+						</li>
+						<li>
+							5. Besides the default interaction, would be be helpful to see a list of other things you can do with the object? (Yes/No); If Yes, what would those be?
+						</li>						
+						<li>
+							6. How accurate did you find the categorisation into the PerceptionSpace from a visual perspective? (Scale 1-5)
+						</li>												
+						<li>
+							7. How accurate did you find the categorisation into the RecognizableSet from a visual perspective? (Scale 1-5)
+						</li>												
+						<li>
+							8. How accurate did you find the categorisation into the ExaminableSet from a visual perspective? (Scale 1-5)
+						</li>	
+						<li>
+							9. How accurate did you find the categorisation into the ActionSpace from a visual perspective? (Scale 1-5)
+						</li>
+						<li>
+							10. How relevant did you find the context information presented in the context-client? (Scale 1-5)? Comment!
+						</li>
+						<li>
+							11. Is the context information presented in the context-client enough? (Yes/No) If No, what other context information would you like to see monitored?
+						</li>						
+						<li>
+							12. How responsive did you find the context-client? (Scale 1-5)? Comment!
+						</li>	
+						<li>
+							13. How did you find the overall performance of the simulation? Comment!
+						</li>
+						<li>
+							14. How did you find the overall performance of the simulation? Comment!
+						</li>
+						<li>
+							15. Do you think the SSM sets are useful to build business logic upon? (Yes/No) If Yes, The framework provides a RESTful API which give you access to the SSM sets. Can you come up with an example software service using this API -- a business logic you would implement?
+						</li>	
+						<li>
+							16. Please leave in this last field any feedback that comes to your mind!
+						</li>								
+					</ul>
+				</div> -->
+			</div>
+			<div class="about">
+				<a href="task1.html">NEXT: 4. Task1</a>
+			</div>				
+		</div>
+
+		<hr />
+
+		<div id="footer">
+			<div class="inner">
+				<p>
+					<span>Last update April 12, 2014. <a href="mailto:ksza@itu.dk">Karoly Szanto</a></span>
+					<span>Masters' Thesis Evaluation</span>
+				</p>
+			</div>
+		</div>
+	</body>
+	</html>

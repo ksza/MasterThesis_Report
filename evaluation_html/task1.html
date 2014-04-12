@@ -1,0 +1,173 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Egocentric Environment Simulator for Mobile Context-Aware System Design -->
+		<title>EgoSim Evaluation</title>
+		<link rel="stylesheet" href="media/styles/main.css" type="text/css" />
+		<link rel="stylesheet" href="media/styles/nivo-slider.css" type="text/css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="media/styles/ie.css" type="text/css" /><![endif]-->
+		<script src="media/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+		<script src="media/scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+		<script src="media/scripts/blanka.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+		<div id="header">
+			<div class="inner cf">
+				<div class="small_logo">
+					<img src="media/images/itu_logo.jpeg" alt="Evaluation of EgoSim" />
+				</div>
+
+				<div id="navigation">
+					<ul>
+						<li><a href="index.html">1. Introduction</a></li>
+						<li><a href="evaluation.html">2. Preparation</a></li>
+						<li><a href="warmup.html">3. Warm-up Task</a></li>
+						<li class="current-menu-item"><a href="task1.html">4. Task1</a></li>
+						<li><a href="task2.html">5. Task2</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr />		
+
+		<div id="content" class="home">
+			<div class="inner">
+
+
+				<h2><span>Useful Tips</span></h2>
+				<div class="justify">
+					<p>
+						After you exit or close the APP, the process running them might get stuck. You will need to identify it in your operating system's task manager and "force close" it. Depending on your OS, it will be either the tasks name, WarmUpTask or ALFTask, or simply an instance of your local jre run.
+					</p>
+
+					<p>
+						Link to the <a target="_blank" href="http://localhost:8182/context/view/set?name=all">ContextClient</a>.
+					</p>					
+				</div>
+
+				<h2><span>Prerequisites</span></h2>
+				<div class="justify">
+
+					<p>						
+						Get the simulator from <a target="_blank" href="http://itu.dk/people/ksza/bodysim/task1/">http://itu.dk/people/ksza/bodysim/task1</a>
+					</p>
+
+					<p>
+						Make sure you can hear audio feedback from your computer! Have you volume turned up and, if necessary, your earphones at hand.
+					</p>
+				</div>
+
+				<h2><span>Task 1 - Assisted Living Facility</span></h2>
+
+				<div class="justify">
+
+					<p>
+						An assisted living facility (ALF) is a housing facility for people with disabilities. These facilities provide supervision or assistance with activities of daily living (ADLs) and monitoring of resident activities to help ensure their health, safety, and well-being. Basic ADLs consist of self-care tasks, including: dressing, eating and feeding, bathing and showering etc. Constantly monitoring and predicting the activities of ADF residents is imperative for software services in the ALF.
+					</p>
+
+					<p>
+						For this task, please imagine yourself as the researcher of a monitoring system for ALFs. The system has to monitor the surroundings of the resident in real-time and provide this information to third party software service. One example of such a service is the "ADL Assistance Service" (ADL Service). This service detects whenever the resident is close enough to everyday objects to start interacting with them. If the object is usually used in a daily living activity, the service asks the resident, by means of the smart watch s/he's wearing, if s/he needs assistance with this activity. In case of a positive answer, a caregiver is immediately sent over. Please note that the ADL Service is purely conceptual; it is not implemented neither is its implementation target of this task! I am referring to it to exemplify the usability of the SSM the in various situations throughout the simulation.
+					</p>
+
+					<p>
+						You decided to design your system based on the egocentric interaction paradigm, as it can categorizes all the objects of interest around the human agent. Based on these sets, you can further develop software services to assist the residents in their ADLs.
+					</p>
+
+					<p>
+						In this task you are given a ready made simulation of the system for such an environment. You will be simulating a resident's interaction with the ALF by means of the virtual agent, completing a series of activities the resident does throughout his morning routine.You will be evaluating the usability of the simulator, the responsiveness of the ContextClient, the correctness and usability of the SSM sets, as well as how intuitive is the interaction with the environment. The pictures bellow depict the object you will be asked to interact with.
+					</p>
+
+					<!-- The second scenario was built using a 3D open-source model of a small living room environment, <a href="http://nextwavemultimedia.com/html/3dblendermodel.html">Int.Scenes</a>, created in <a href="http://www.blender.org/">blender</a>. This demonstrates the generality and flexibility of the framework. How? Because I was able to take an open-source scene, augment it with egocentric context-data and by plug-in it into the EgoSim framework. Below you have two screenshots with highlighted entities you can interact with: the TV (through the red button), all the books on the first right side shelf of the TV, the chair, the table and the shelf near the chair. -->
+					
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="padding-right: 30px;";>
+								<a href="media/images/bedroom.png" target="_blank">
+									<img src="media/images/bedroom.png" class="smaller" alt="Bedroom" />
+								</a>
+							</td>
+							<td align="right">	
+								<a href="media/images/bathroom.png" target="_blank">
+									<img src="media/images/bathroom.png" class="smaller" alt="Bathroom" />
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding-right: 30px;";>
+								<a href="media/images/living.png" target="_blank">
+									<img src="media/images/living.png" class="smaller" alt="Living" />
+								</a>
+							</td>
+							<td align="right">
+								<a href="media/images/kitchen.png" target="_blank">	
+									<img src="media/images/kitchen.png" class="smaller" alt="Kitchen" />
+								</a>
+							</td>
+						</tr>						
+					</table>
+
+					<p>
+						The story unfolds with the following steps:
+						<ul>
+							<li>
+								1. You wake up in your bedroom. You just got off your bed; now walk towards the Closet in your bedroom. If you get close enough, the Closet will be added to the ActionSpace. Take note of this in the ContextClient. At this point, the ADL Service should ask the resided if s/he needs assistance with "getting dressed".
+							</li>
+							<li>
+								2. Next, got into the bathroom. Approach the Shower, when close enough, it will be in the ActionSpace. Again, the ADL Service would detect a highly possible activity and would asks the resident if s/he needs assistance with "takings a shower".
+							</li>
+							<li>
+								3. Go to the living room, pick up the cup and go to the kitchen. Place it near the Stove (on the Sink counter-top), pick up the coffee Pot and try pouring coffee into the cup. This kind of action is not implemented visually (pouring coffee), but you will see that the system knows exactly what you are doing (if the volume of your computer is turned one, you might be able to hear the audio feedback as well)! You will notice that the series of actions in this step are possible only if the items you are interacting with are in the ActionSpace.
+							</li>
+							<li>4. Approach the Fridge. When close enough, it will be in the ActionSpace. The ADL Service would ask the resident if s/he needs assistance feeding.
+							</li>
+							<li>
+								5. Try interacting with the laptop to read your email (if the volume of your computer is turned one, you might be able to hear the audio feedback as well). The action is not visually implemented, you will get a system message instead!
+							</li>
+							<li>
+								6. As a last step, walk around the apartment and observe how various objects get categorized, added/removed from SSM sets, as they enter/leave the view sight oh the agent, and as the agent gets closer/further from them.
+							</li>
+						</ul>
+					</p>
+
+					<p>
+						There's an easter egg hidden somewhere around, have you found it? If no, then try interacting with the piano. Interact with it a few times :).
+					</p>
+
+					<p>
+						When you arrive to this point, you have successfully performed the task!
+					</p>
+
+					<hr />
+					<h2><span>Task 1 - Evaluation Form (this will be a link to a proper questionnaire)</span></h2>
+
+					As a participant to this study, you will be treated anonymously, your personal identity and personal data will remain undisclosed!
+					<div class="justify">
+
+						<p>
+							Please go to <a href="https://www.esurveycreator.com/s/40e9d46" target="_blank">Survey 1</a> to answer the questions for this task.
+						</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="about">
+				<a href="task2.html">NEXT: 5. Task2</a>
+			</div>							
+		</div>
+
+		<hr />
+
+		<div id="footer">
+			<div class="inner">
+				<p>
+					<span>Last update April 12, 2014. <a href="mailto:ksza@itu.dk">Karoly Szanto</a></span>
+					<span>Masters' Thesis Evaluation</span>
+				</p>
+			</div>
+		</div>
+	</body>
+	</html>
