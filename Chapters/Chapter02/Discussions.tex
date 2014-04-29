@@ -2,36 +2,92 @@
 \section{Discussions}\label{sec:discussions}
 
 %Service in Smart Homes
-The framework presented in Section \ref{sec:services_in_smart_homes} is solely oriented towards emulating sensors withing a smart home. The system supports in the simulated environment both emulated sensors and representation of real-life sensory data. For the implementation of virtual stubs they have employed the service-oriented computing paradigm, which is widely used to implement systems requiring high interoperability, scalability, security and reliability. One of the main advantages is that such software can seamlessly integrate other systems written in other programming languages and even deployed under different operating systems.\\
+% The framework presented in Section \ref{sec:services_in_smart_homes} is solely oriented towards emulating sensors withing a smart home. The system supports in the simulated environment both emulated sensors and representation of real-life sensory data. For the implementation of virtual stubs they have employed the service-oriented computing paradigm, which is widely used to implement systems requiring high interoperability, scalability, security and reliability. One of the main advantages is that such software can seamlessly integrate other systems written in other programming languages and even deployed under different operating systems.\\
 
-Although they have created a highly decoupled architecture, the framework is able to represent a very limited types of entities. The characteristics monitored by the framework for the entities and the simulated agent are limited to proximity only.\\
-
-%Diasim
-After thorough analysis, I found DiaSim's \ref{sec:diasim} simulation model as being generic enough to possibly host our needs. The simulation model is flexible and open for further modifications. Also the rendering module allows to easily visualize the simulated system and control an agent in a 2D environment. But, the system is not open source and the research team is not yet open for external collaboration.\\
-
-%Siafu
-As part of the DiaSim work, I have presented Siafu \ref{sub:siafu}, a highly customizable, open-source Java based simulator for mobile context-aware applications and services. Although Siafu enables the definition of any context type, does not provide any support to simulate entities and applications. I have briefly discussed about Siafu as I found relevant the way it was integrated with DiaSim. As illustrated in Figure \ref{fig:diasim_and_siafu}, the main models in DiaSim are extended from the three abstract information sources in Siafu: AgentModel, ContextModel and WorldModel. Further, the DiaSim aggregates the simulated entities and stimuli producers. Based on this approach, DiaSim managed to easily integrate a 2D simulation renderer in their work.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{gfx/Chapter2/diasim_and_siafu}
-	\caption{DiaSim and Siafu}
-	\label{fig:diasim_and_siafu}
-\end{figure}
-
-I am considering to further analyze Siafu as a possible corner stone for our approach.\\
-
-%Simact
-SIMACT \ref{sec:simact}, is a flexible 3D smart home infrastructure simulator, developed in Java, specifically designed to help researchers working in the field of activity recognition. The simulator is released as open-source \cite{bouchard:simact:Online} under GPLv3 \cite{gpl:v3}.\\
-
-The novel thing in this simulator is that entire scenarios and interactions can be designed only by using scripts and visual editors, without having to write one line of code. For the 3D design, they have used a modeling tool for house design and interior accessories from Google called SketchUp \cite{sketchup:online}. This comes with a great advantage as SketchUp's community maintains a huge library of free 3D models, where one can find almost any accessory that would fit in a home.\\
-
-SIMACT provides a powerful and reusable simulation environment, with a strong platform, worth considering as basis for the simulator I am targeting to develop. My only concern is that I have not been able to determine the complexity of adding support for device simulation, as the main target of SIMACT is interaction with the physical environment. In conclusion, I will allocate some time during the system design process to analyze in detail if building on top of SIMACT would be possible.\\
+% Although they have created a highly decoupled architecture, the framework is able to represent a very limited types of entities. The characteristics monitored by the framework for the entities and the simulated agent are limited to proximity only.\\
 
 %Simulation of Smart Environments
-In the simulation of smart environments \ref{sec:sim_of_smart_envs}, the eHomeSimulator has an architecture providing loose coupling between components. Also, the underlying framework's architecture offers great support for reusability of services and integration with real-life devices. The devices are trivial, offering basic interactions (e.g. on/off) and they are static (the agent can't move them). Actually, all the agent can do is move around between some given bounds and interact with some of the device. There is no support for mobility of devices and wearable device, nor is it in plan for future work. Moreover, the representation of the agent is in 2D where he can be facing 4 directions, offering no support for various states like sitting, standing etc.\\
+In the simulation of smart environments \ref{sec:sim_of_smart_envs}, the eHomeSimulator design promotes loose coupling between components. The underlying framework's architecture offers good support for reusability of smart home services and integration with real-life devices. Sensor and devices are operated on a per room basis, not on actual proximity to each individual entity. Devices in the current room can be operated through the \emph{Control Panel} (e.g. turn lamp on/off). The simulated entities are static (the agent can't move them). Actually, all the agent can do is move from room to room, this will trigger sensors to be activated/deactivated, which in turn might might change the state of other entities. There is no support for mobility of devices, nor is it in plan for future work. Moreover, the user can manipulate the agent (the virtual avatar), to walk around in the 2D environment. Given the nature of the visualization, the agent can be facing four directions: forward, backward, left or right.\\
 
-The project is close sourced, making it impossible to extend, to reuse or to contribute to it. In conclusion, there are a few lessons to be learnt from the architectural choices made within this project.\\
+The project is close sourced, making it impossible to extend, to reuse or to contribute to it. In conclusion, the simulator is target solely on simulating sensors in a smart home and how the presence of the human agent influences the environment. The framework was not designed to simulate the environment from the human agent's point of view, it was rather designed to simulated the evolution of sensors based on the human agent's presence. From this project's perspective, eHomeSimulator is outdated, imposing a limited number of interaction possibilities. That is why I am not be including it in further discussions.\\
+
+% \begin{table}[H]
+% 	\begin{center}
+% 		\small \begin{tabular*}{1.1\columnwidth}{lllll}
+% 			\\ \hline \hline
+% 			Characteristics & Simact & DiaSim & Tatus & Ubiwise \\ \hline \hline
+
+% 			Support for physical objects? & yes & yes & yes & yes \\ \hline
+% 			Support for devices? & yes & yes & yes & yes \\ \hline
+% 			Simulate software running on devices? & no & no & no & yes \\ \hline
+% 			Support of object composition? & yes & yes & yes & yes \\ \hline
+% 			Wearable devices? & no & no & no & no \\ \hline
+% 			Receive data from real-life sensors? & yes & yes & no & yes \\ \hline
+
+% 			Monitors agent location? & yes & yes & yes & yes \\ \hline
+% 			Visual spectrum of the agent? & yes & no & yes & yes \\ \hline
+% 			Audio spectrum of the agent? & yes & no & yes & yes \\ \hline
+% 			Body position (crouching/standing)? & yes & no & yes & yes \\ \hline
+% 			Pick up object & no & no & no & no \\ \hline
+% 			Carry object around & no & no & yes & yes \\ \hline
+% 			Put object down & no & no & no & no \\ \hline
+% 			Object in agent's hand & no & no & yes & yes \\ \hline
+% 			Object in agent's pocket/backpack & no & no & no & no \\ \hline
+
+% 			Agent interaction with devices & no & no & no & yes \\ \hline
+
+% 			Is open sources?             & yes & no & no & yes \\ \hline
+% 		\end{tabular*}
+		
+% 		\caption{Features comparison}
+% 		\label{table:comparison}
+% 	\end{center}
+% \end{table}
+
+Table \ref{table:comparison} depicts the characteristics of interest for the current work, highlighting whether or not they are implemented within the system from the related work.
+
+\begin{table}[H]
+	\begin{center}
+		\small \begin{tabular*}{1.1\columnwidth}{p{6.5cm}llll}
+			\\ \hline \hline
+			Characteristics & Simact & DiaSim & Tatus & Ubiwise \\ \hline \hline
+
+			Visual representation of the simulated environment & yes & yes & yes & yes \\ \hline
+			Interact with the environment through a virtual avatar & no & yes & yes & yes \\ \hline
+			360\textdegree control of the avatar & no & no & yes & yes \\ \hline
+			Simulate sensors & yes & yes & yes & yes \\ \hline
+			Directly interact with physical objects & yes & no & no & no \\ \hline
+			Interact with physical objects using attached sensors & yes & yes & yes & yes \\ \hline
+			Interact with devices (mediators) & yes & yes & yes & yes \\ \hline
+			Interact with software (virtual objects) & no & no & no & yes \\ \hline
+			Pick objects up & no & no & no & no \\ \hline
+			Put objects down & no & no & no & no \\ \hline
+			Carry objects around & no & no & no & yes \\ \hline
+			Monitors the agent's location & no & yes & yes & yes \\ \hline
+			Visual spectrum of the agent \footnote{Objects within to the agents sight} & no & no & yes & yes \\ \hline
+			Classify objects based on agent proximity & no & no & no & no \\ \hline
+		 	Provides API for third party services to access context data & yes & no & yes & no \\ \hline
+		 	Is open source? & yes & no & no & yes \\ \hline
+		\end{tabular*}
+		
+		\caption{Features comparison}
+		\label{table:comparison}
+	\end{center}
+\end{table}
+
+%Diasim
+After thorough analysis, I found DiaSim's \ref{sec:diasim} simulation model as being generic enough to possibly host our needs. The simulation model seems to be flexible and open for further modifications. But, the system is not open source and the research team is not yet open for external collaboration.\\
+
+Even if building on top of DiaSim would have been possible, some outstanding issues should be tackled. The simulated environment does not monitor the agent's visual spectrum (objects within to the agents sight). To accommodate this need, the renderer module should be entirely replaced. Besides, there is no support for direct interaction with physical and virtual objects. The only type of interaction is proximity based: i.e. a sensor attached to a door would command the door to open if the agent is within range. Moreover, DiaSim is also lacking an open API to enable third party service to make use of the simulated system's context data.\\
+
+In conclusion, DiaSim offers great support for setting up a new simulation of a sensor-enhanced environment, from scratch. It simulates the evolution of the environment over time, influenced by the presence of one or many agents. But, it lacks support for the body-centric approach of the current work.\\
+
+%Simact
+SIMACT came up with a slightly different approach. The entire simulation is controlled by the framework as it interprets the simulation scenario, described in an XML file. This is a step-by-step description of how various parameters of the system (e.g. the temperature in a room) and of objects (e.g. door opened/closed, lamp on/off) evolve. SIMACT is oriented towards observing the systems evolution over time with the ability to control the execution of the steps in a fine grained manner: pause, resume, go back, etc. As the simulation is running, it is animated in 3D view.\\
+
+This approach comes with a drawback: SIMACT does not implement the concept of an avatar. The researcher is enabled to move a camera around, zoom in and zoom out in order to find the best spot to observe the animation of the ongoing simulation. The animation was implemented using the JMonkey game engine. This game engine has to offer more than just rendering capabilities, it allows to implement the concept of an agent offering components to implement movement and interaction with the environment. In Chapter \ref{ch:design} I will argue for JMonkey as a possible candidate to be used in my work.\\
+
+Although the framework is released as open-source \cite{bouchard:simact:Online} under GPLv3 \cite{gpl:v3}, it was written in french! (continue!)
 
 %Tatus
 In Tatus \ref{sec:tatus}, the context-awareness is limited to sensors and actuators reacting to the user's position. This is actually not that bad because in the game engine SDK the developer can extract the position of entities, determine proximity of other entities within a given radius and determine the presence of other entities within a field of view. All these data helps to implement simulations for a wide range of sensors.\\
@@ -46,39 +102,4 @@ Unfortunately the simulator is not open-source so making it unusable for researc
 
 %Ubiwise
 Although UbiWise \ref{sec:ubiwise} was released under LGPL\cite{lgpl}, offering the software to the open-source community, it presents two main issues from the perspective of my work. The first aspect is that it is oriented towards emulating device protoypes making it hard to emulate custom sensors. The second challenge is the learning curve it takes to get started with it. In order to customize it to a certain area, one would need to dive deep into the Q3A engine code, which is hard, tedious and time consuming task.\\
-
-I will conclude with the comparison illustrated in Table \ref{table:comparison}. It depicts the characteristics of interest for our work described in Section \ref{sec:goal}, summarizing which of the systems in the related work offer them.
-
-\begin{table}[H]
-	\begin{center}
-		\small \begin{tabular*}{1.1\columnwidth}{lllll}
-			\\ \hline \hline
-			Characteristics & Simact & DiaSim & Tatus & Ubiwise \\ \hline \hline
-
-			Support for physical objects? & yes & yes & yes & yes \\ \hline
-			Support for devices? & yes & yes & yes & yes \\ \hline
-			Simulate software running on devices? & no & no & no & yes \\ \hline
-			Support of object composition? & yes & yes & yes & yes \\ \hline
-			Wearable devices? & no & no & no & no \\ \hline
-			Receive data from real-life sensors? & yes & yes & no & yes \\ \hline
-
-			Monitors agent location? & yes & yes & yes & yes \\ \hline
-			Visual spectrum of the agent? & yes & no & yes & yes \\ \hline
-			Audio spectrum of the agent? & yes & no & yes & yes \\ \hline
-			Body position (crouching/standing)? & yes & no & yes & yes \\ \hline
-			Pick up object & no & no & no & no \\ \hline
-			Carry object around & no & no & yes & yes \\ \hline
-			Put object down & no & no & no & no \\ \hline
-			Object in agent's hand & no & no & yes & yes \\ \hline
-			Object in agent's pocket/backpack & no & no & no & no \\ \hline
-
-			Agent interaction with devices & no & no & no & yes \\ \hline
-
-			Is open sources?             & yes & no & no & yes \\ \hline
-		\end{tabular*}
-		
-		\caption{Features comparison}
-		\label{table:comparison}
-	\end{center}
-\end{table}
 %END: DISCUSSION

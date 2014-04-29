@@ -12,7 +12,7 @@ DiaSim is a Java based simulator for pervasive computing applications based on s
 
 As depicted in Figure \ref{fig:diasim_architecture}, the simulator has a modular, layered architecture. Applications written using the generated programming framework, can be run both in a simulated and a real-world environment. In the real environment, the data comes from real sensors, while in the simulated environment the data comes from simulated sensors in the emulation environment. Besides the components mentioned so far, DiaSim also includes a simulation renderer, enabling the researcher to visually monitor and debug the pervasive computing system.\\
 
-At the heart of this simulator, they have built simulation model. The core entity is called a \emph{stimuli}. This represents changes of the environment observable by the sensors in the system. Entities that generate stimuli are called \emph{stimulus producers}, producing only one type of \emph{stimulus}. The generated stimuli may trigger sensors (e.g. a motion detector) which publish events, that may in turn stimulate actuators or services. Hence, we can see a stimuli as a type of stimulus; making an analogy in object-oriented programming, stimulus would be a class, stimuli would be an instance of that class and the stimulus producer would be a factory \cite{gamma1994design}, producing instances of the stimulus class based on a certain set of rules. These rules define the evolution of the stimuli in terms of space, time and intensity (e.g. an agent moving from one location to another). Each stimulus has a type associated with it, matching the type one at least one sensor in the system.\\
+At the heart of this simulator, is the simulation model. The core entity is called a \emph{stimuli}. This represents changes of the environment observable by the sensors in the system. Entities that generate stimuli are called \emph{stimulus producers}, producing only one type of \emph{stimulus}. The generated stimuli may trigger sensors (e.g. a motion detector) which publish events, that may in turn stimulate actuators or services. Making an analogy in object-oriented programming, stimulus would be a class, stimuli would be an instance of that class and the stimulus producer would be a factory \cite{gamma1994design}, producing instances of the stimulus class based on a certain set of rules. These rules define the evolution of the stimuli in terms of space, time and intensity (e.g. an agent moving from one location to another). Each stimulus has a type associated with it, matching the type one at least one sensor in the system.\\
 
 \begin{figure}[H]
 	\centering
@@ -33,10 +33,21 @@ To render the simulation, DiaSim was coupled with Siafu \cite{siafu:online}, a h
 
 Siafu was meant to be a flexible simulator. Hence, they have separated the main information sources from each other:
 \begin{itemize}
-	\item Agent Model. Takes decision on what a certain agent should do given it's current context and the status of surrounding entires. As a result, the model will change the properties of an agent (e.g. standing, sitting, walking etc.). A special property is the destination. This will make the agent move in the surrounding environment; movement and path finding routines are handled automatically by the simulator.
-	\item World Model. Consists of an environment model, places of interest (e.g. office, rooms etc.) and global events model (e.g. holidays, happy hour at a restaurant etc.)
+	\item Agent Model. Takes decision on what a certain agent should do given it's current context and the status of surrounding entities. As a result, the model will change the properties of an agent (e.g. walking). A special property is the destination. This will make the agent move in the surrounding environment; movement and path finding routines are handled automatically by the simulator.
+	\item World Model. Consists of an environment model, places of interest (e.g. office, rooms) and global events model (e.g. holidays, happy hour at a restaurant)
 	\item Context Model. Manages context variables used in the simulation.
 \end{itemize}
 
-The simulated data is available in 2D graphical representation and through a web service interface.\\
+As illustrated in Figure \ref{fig:diasim_and_siafu}, the main models in DiaSim are extended from the three abstract information sources in Siafu: AgentModel, ContextModel and WorldModel. Further, DiaSim aggregates the simulated entities and stimuli producers. Based on this approach, DiaSim managed to easily integrate a 2D simulation renderer in their work.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{gfx/Chapter2/diasim_and_siafu}
+	\caption{DiaSim and Siafu}
+	\label{fig:diasim_and_siafu}
+\end{figure}
+
+The simulated data is available in 2D graphical representation and through a web service interface. Using the current 2D interface, the agent can be moved around the environment and can be facing four directions. The simulated sensors and actuators trigger actions based on the agent's proximity and the current context of other monitored entities in the system. At the moment of writing this thesis, no other interactions are available within DiaSim; the agent cannot interact with devices by explicitly triggering actions, nor can it interact with physical objects.\\
+
+Although limited at the moment, the researchers of DiaSim are planing, as future work, to enhance the interaction capabilities by visualizing the simulation in a 3D engine.
 %END: DiaSim 
