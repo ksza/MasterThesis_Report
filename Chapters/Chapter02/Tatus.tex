@@ -1,7 +1,7 @@
 %BEGIN: Tatus
 \section{A Testbed for Evaluating Human Interaction with Ubiquitous Computing Environments}\label{sec:tatus}
 
-TATUS \cite{o2005testbed} is as a ubiquitous computing simulator aimed at overcoming the challenges of effectively evaluating human interaction with adaptive ubiquitous technologies. These challenges are mainly imposed by the cost and logistics of building and controlling the context in such real-life environments. In other words, TATUS is a simulator supporting research and development of adaptive software controlling ubiquitous computing environments.\\
+Tatus \cite{o2005testbed} is as a ubiquitous computing simulator aimed at overcoming the challenges of effectively evaluating human interaction with adaptive ubiquitous technologies. These challenges are mainly imposed by the cost and logistics of building and controlling the context in such real-life environments. In other words, TATUS is a simulator supporting research and development of adaptive software controlling ubiquitous computing environments.\\
 
 Figure \ref{fig:tatus_overview} depicts the high-level overview of the simulator. We can identify two main components: the 3D Simulated Ubiquitous Computing Environment and the System Under Test (SUT).\\
 
@@ -27,8 +27,8 @@ To simulated sensors and actuators they have exploited a concept called \emph{Tr
 
 A SUT is written as independent pieces of software. It can even run on a separate machines, while multiple SUTs can connect simultaneously to the same simulator. To allow SUTs to run on separate machines the simulator has embedded networking capabilities and communicates through messages. Outgoing messages carry state information, while incoming messages carry instructions to modify the simulated environment. Moreover, to abstract out the network interaction from the SUTs, the simulator provides a Proxy making the communication from the test software's side really easy.\\
 
-As the simulator was developed on top of 3D game engine, it empowers the agent to freely walk around the simulated environment. The interaction between the agent and the based on proximity only. This means that entities will take a specific action when the agent is detected nearby; ''when a player enters a region of a map occupied by a trigger
-the associated event is activated e.g. a door is opened'' \cite{o2005testbed}. These triggers can be attached to both physical objects and devices, enabling both categories of objects to be interacted with.\\
+As the simulator was developed on top of 3D game engine, it empowers the agent to freely walk around the simulated environment, while the interaction is based on proximity only. This means that entities will take a specific action when the agent is detected nearby; ''when a player enters a region of a map occupied by a trigger
+the associated event is activated e.g. a door is opened'' \cite{o2005testbed}. These triggers can be attached to both physical objects and devices, enabling both categories of objects to be interacted with, as such.\\
 
 The framework exposes an API so that third party software can easily access and modify the context data within the ongoing simulation.
 %END: Tatus
