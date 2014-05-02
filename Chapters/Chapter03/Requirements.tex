@@ -2,7 +2,80 @@
 \section{Requirements} % (fold)
 \label{sec:requirements}
 %************************************************
+In Section \ref{sec:goal}, I have defined the main goals of the system, as a list of high level system requirements. They are very generic and hard to establish an architecture upon. This is mainly because they do not contain details of the functionality the end-user of the system will be able to use. To have a clear vision of what this system needs to achieve, in this section I will defined a list of requirements from the end-user's perspective.\\
 
-Refer to requirements in the goal section. Maybe specify some requirements for future goals!
+Agile Software Development is an iterative and incremental software development methodology, promoting adaptive planning, evolutionary development and delivery, while encouraging rapid and flexible response to change \cite{agile:online}. It is mainly used in the industry. One of the best practices in Agile Software Development for requirements is \emph{user stories}. ''A user story describes functionality that will be valuable to either a user or purchaser of a system or software'' \cite{cohn2004user}. User stories are written from the perspective of the system's users. A specific group of users, will use the system in a certain way; the feature requested by this group represents a \emph{user role}. The user role does not necessarily be formed by a human user; it can be an external service in need of accessing some data.\\
 
+I have not employed Agile Software Development in this work, but I have decided to use the user stories concept, as a way to express the requirements of this system. I took this decision as the agile methodology and the iterative design process resemble similarities and applying the user stories in this context, comes naturally.\\
+
+Writing the requirements following the user story concept, helps me reflect upon the needs this framework must satisfy, from the user's perspective. Based on the goals of the system defined in Section \ref{sec:goal} and supported by the use case scenario defined in Section \ref{sec:scenario}, I will first identify the user roles for this framework:
+\begin{table}[H]
+	\begin{center}
+		\small \begin{tabular*}{1.1\columnwidth}{p{3cm}p{3cm}p{5.5cm}} 
+			\\ \hline \hline
+			Role & Who & Role Description \\ \hline \hline
+
+		 	System Designer & The researcher & A researcher designing a mobile context-aware system based in the egocentric interaction paradigm. Uses the framework to design a simulation of the egocentric system.\\ \hline
+
+		 	Simulation User & The researcher, a QA engineer, an end-user of the egocentric system & This role can be fulfilled by users interested in the resulting egocentric system.\\ \hline
+
+		 	Third Party Service & An individual piece of software & An individual piece of software that builds business logic based on the monitored context data, as the simulation unfolds.\\ \hline
+		\end{tabular*}
+		
+		\caption{List of roles for the EgoSim framework}
+		\label{table:roles}
+	\end{center}
+\end{table}
+The ''who'' presents the possible user types that can fulfil a specific roles, while the ''description'' briefly describes the role's main interest in the system.\\
+
+The following list of user stories, represent the requirements of the EgoSim framework:
+\begin{enumerate}
+	\item[\textlabel{1.}{us:1}] \emph{As a system designer, I want to model the environment my egocentric system will run in. The environment's model has to be populated with everyday physical objects and devices}. It is part of goal \ref{goal:1} and presented as a need in points \ref{scenario:1}, \ref{scenario:1A}, \ref{scenario:1B} and \ref{scenario:1C}.
+
+	\item[\textlabel{2.}{us:2}] \emph{As a system designer, I need to identify the objects I want to be monitored during the simulation}, as described in goal \ref{goal:2} and point \ref{scenario:1D} in the scenario.
+
+	\item[\textlabel{2.1}{us:2.1}] \emph{As a system designer, I want to specify how certain entities can be interacted with}. Points \ref{scenario:1E}, \ref{scenario:1F}, \ref{scenario:1G} and \ref{scenario:1H} illustrate a few ways entities could be interacted with.
+
+	\item[\textlabel{2.2.}{us:2.2}] \emph{As a system designer, I want to augment objects that will be monitored with information needed by the SSM model}, as illustrated in point \ref{scenario:1I}. In order for the SSM classification to work, it needs to be aware of specific parameters for each entity. By default, each monitored entity will carry a set of default SSM configuration data, but certain entities might need some adjusted values. The SSM configuration parameters are detailed in Section \ref{ssm_params}.
+
+	\item[\textlabel{3.}{us:3}] \emph{As a system designer, I want to run a simulation based on the environment model I have set up}.
+
+	\item[\textlabel{4.}{us:4}] \emph{As a simulation user, I want to control a virtual avatar within the simulated environment}. This behaviour is mentioned in goal \ref{goal:1} and, as described in points \ref{scenario:2}, \ref{scenario:2A}, \ref{scenario:2B} and \ref{scenario:2C}, I want to be able to control the movement and eyesight of the agent. Also, I want to be able to pick up certain objects, carry them around and make them interact with other objects (e.g. put it down on a surface).
+
+	\item[\textlabel{5.}{us:5}] \emph{As a simulation user, I want to have a sense of reality in the simulated environment}. The user should comprehend and fell present in the target environment.
+
+	\item[\textlabel{6.}{us:6}] \emph{As a system designer, I want the simulation to classify monitored objects into SSM sets as the agent is being controlled}. This requirement is mentioned in goal \ref{goal:2} and highlighted in the scenario throughout points \ref{scenario:2D} and \ref{scenario:2E}.
+
+	\item[\textlabel{7.}{us:7}] \emph{As a third party service, I want to access the content of SSM sets through a publicly available API from within the simulation}. Goal \ref{goal:3} covers this requirement, while point \ref{scenario:3} describes a useful scenario.
+
+	\item[\textlabel{8.}{us:8}] \emph{As a simulation user, I want to follow the state of SSM sets, in real time, as the simulation unfolds}. As described in goal \ref{goal:3}, this requirement is satisfied the need for an ''easy way to visualize the SSM spaces in real-time''.
+
+\end{enumerate}
+
+To strengthen the requirements above, we conclude this section with a list of non-functional requirements (NFRs)\footnote{constraints on the system's behaviour}:
+\begin{table}[H]
+	\begin{center}
+		\small \begin{tabular*}{1.1\columnwidth}{p{10cm}p{1.5cm}} 
+			\\ \hline \hline
+			NFR & Relates to \\ \hline \hline
+
+		 	The agent should no be able to pass through walls and other objects in the environment. & \ref{us:4}\\ \hline
+
+		 	The visualization of simulated environment should be non-blocking. No matter how heavy the computations carried out under the hood, the simulation user's experience should not be affected. & \ref{us:5}\\ \hline
+
+		 	Only objects within the visual spectrum of the user should be categorised & \ref{us:6}\\ \hline
+
+		 	The SSM classification should happen in real-time. & \ref{us:6}\\ \hline
+
+		\end{tabular*}
+		
+		\caption{Non functional requirements}
+		\label{table:nfr}
+	\end{center}
+\end{table}
+
+\subsection{SSM Configuration Parameters}\label{subsec:ssm_params}
+In the definition of each set from the SSM \cite{pederson2011situative}...\\
+
+FILL IN WITH THE DEFINITIONS FROM MY NOTEBOOK AT HOME!!!!!
 % section requirements (end)
