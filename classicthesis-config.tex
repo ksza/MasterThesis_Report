@@ -242,6 +242,14 @@
 % ****************************************************************************************************
 \usepackage{float}
 \usepackage{gensymb}
+
+\makeatletter
+\newcommand*{\textlabel}[2]{%
+  \edef\@currentlabel{#1}% Set target label
+  \phantomsection% Correct hyper reference link
+  #1\label{#2}% Print and store label
+}
+\makeatother
 % ********************************************************************
 % Development Stuff
 % ********************************************************************
