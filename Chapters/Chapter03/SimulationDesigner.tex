@@ -2,6 +2,14 @@
 \section{Simulation Designer} % (fold)
 \label{sec:simulation_designer}
 %************************************************
-\subsection{Environment Modelling}\label{subsec:environment_modelling}
-\subsection{Object Properties}\label{subsec:object_properties}
+Creating the environment model is the first step required by our system. As described in requirements \ref{us:1} and \ref{us:2}, the simulation designer needs to empower the researcher to create the model of the target environment and to identify and configure the objects to be monitored.\\
+
+To proceed, first we need to figure out what kind of model we are going to use to represent the environment. Similar projects like DiaSim \ref{sec:diasim} have used a 2D representation, while Tatus \ref{sec:tatus} or UbiWise \ref{sec:ubiwise} have used a 3D representation of the environment. In this context, 2D stands for two-dimensional while 3D stands for three-dimensional.\\
+
+Think from the agent's perspective, a 2D model can cover two dimensions: location and orientation. As mentioned in requirement \ref{us:4}, the simulation user must be able to control the agent's movement (location and orientation) as well as the eyesight (the visual spectrum). The projects which have used a 2D representation were focusing solely on proximity, while the projects aiming for a more realistic interaction have used a 3D model. Such a model can encapsulate more details, proving a better sense of reality as required in \ref{us:5}.\\
+
+With the 3D model in place, the system designer has to identify the objects she/he desires to be monitored and classified during the simulation. To prepare the model as such, we have designed a list of properties each objects will need to carry; some of them are mandatory, while others can have meaningful default values. The properties are detailed in the following list of \textlabel{object properties}{design:object_properties}:
+\paragraph{ID} - to uniquely identify an object within the environment. This parameter is mandatory and it is up the system designer to ensure that each object's ID is unique.
+
+\paragraph{Type} - describes the type of the object. We need to support physical objects and devices \ref{us:1}, so this parameter can have two values: Physical or Device.
 % section simulation_designer (end)

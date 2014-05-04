@@ -36,7 +36,7 @@ The following list of user stories, represent the requirements of the EgoSim fra
 
 	\item[\textlabel{2.1}{us:2.1}] \emph{As a system designer, I want to specify how certain entities can be interacted with}. Points \ref{scenario:1E}, \ref{scenario:1F}, \ref{scenario:1G} and \ref{scenario:1H} illustrate a few ways entities could be interacted with.
 
-	\item[\textlabel{2.2.}{us:2.2}] \emph{As a system designer, I want to augment objects that will be monitored with information needed by the SSM model}, as illustrated in point \ref{scenario:1I}. In order for the SSM classification to work, it needs to be aware of specific parameters for each entity. By default, each monitored entity will carry a set of default SSM configuration data, but certain entities might need some adjusted values. The SSM configuration parameters are detailed in Section \ref{ssm_params}.
+	\item[\textlabel{2.2.}{us:2.2}] \emph{As a system designer, I want to augment objects that will be monitored with information needed by the SSM model}, as illustrated in point \ref{scenario:1I}. In order for the SSM classification to work, it needs to be aware of specific parameters for each entity. By default, each monitored entity will carry a set of default SSM configuration data, but certain entities might need some adjusted values. The SSM configuration parameters are detailed in Section \ref{subsec:ssm_params}.
 
 	\item[\textlabel{3.}{us:3}] \emph{As a system designer, I want to run a simulation based on the environment model I have set up}.
 
@@ -44,7 +44,7 @@ The following list of user stories, represent the requirements of the EgoSim fra
 
 	\item[\textlabel{5.}{us:5}] \emph{As a simulation user, I want to have a sense of reality in the simulated environment}. The user should comprehend and fell present in the target environment.
 
-	\item[\textlabel{6.}{us:6}] \emph{As a system designer, I want the simulation to classify monitored objects into SSM sets as the agent is being controlled}. This requirement is mentioned in goal \ref{goal:2} and highlighted in the scenario throughout points \ref{scenario:2D} and \ref{scenario:2E}.
+	\item[\textlabel{6.}{us:6}] \emph{As a system designer, I want the simulation to classify monitored objects into SSM sets as the agent is being controlled}. This requirement is mentioned in goal \ref{goal:2} and highlighted in the scenario throughout points \ref{scenario:2D} and \ref{scenario:2E}. The SSM sets are detailed in Section \ref{subsec:ssm_params}.
 
 	\item[\textlabel{7.}{us:7}] \emph{As a third party service, I want to access the content of SSM sets through a publicly available API from within the simulation}. Goal \ref{goal:3} covers this requirement, while point \ref{scenario:3} describes a useful scenario.
 
@@ -74,8 +74,15 @@ To strengthen the requirements above, we conclude this section with a list of no
 	\end{center}
 \end{table}
 
-\subsection{SSM Configuration Parameters}\label{subsec:ssm_params}
-In the definition of each set from the SSM \cite{pederson2011situative}...\\
+\subsection{SSM Sets and Configuration Parameters}\label{subsec:ssm_params}
+In this work, we have focused on two main parameters to classify objects around the agent: proximity and visual spectrum. This means that objects within the agent's eyesight will be classified based on the distance from the agent current position. We have given a less generic interpretation to the SSM Sets defined in \cite{pederson2011situative}, to fit this use case, as presented in the list below:
+\paragraph{World Space} contains the set of all entities (physical objects and mediators) in the environment's virtual model. The framework takes into account only the entities which have been identified to be monitored. Hence, not all visible objects visible are categorized.
+\paragraph{Perception Space} is part of space around the agent that is within the agent's eyesight at each moment. Objects within this space that are no further than \emph{PERCEPTION\_DISTANCE} from the agent, will be classified into this set.
+\paragraph{Recognition Set} contains the entities that are currently in Perception Space and within their \emph{RECOGNITION\_DISTANCE}. Objects in this space can be directly associated with the agent's activities. For example, a hammer can be perceived as an object up to a certain distance, but when close enough, it can be recognised as a hammer.
+\paragraph{Examinable Set} contains the objects that are currently in Perception Space and within their \emph{EXAMINATION\_DISTANCE}. Based on this set it can be determined what actions can be performed with that object. For example, in the perception space a cell phone can be seen as a simple object, in the recognizable set it can be recognized as a mobile device and in the examinable set one can notice it has a screen, a power button and two volume button. We can deduct deduct the type of action one can perform!
+\paragraph{Action Space} part of space around the agent that is currently accessible to the agent's physical actions. More specifically, the object has to currently be in Perception Space and within \emph{ACTION\_DISTANCE}. Objects in this set can be directly acted upon.
+\paragraph{Selected Set} objects currently being physically handled.
+\paragraph{Manipulated Set} objects whose states (external and internal) are currently being changed by the agent. Normally a subset of the Selected Set.\\
 
-FILL IN WITH THE DEFINITIONS FROM MY NOTEBOOK AT HOME!!!!!
+As described in the definitions above, in order to correctly classify objects, they need to be augmented with the following parameters: \emph{PERCEPTION\_DISTANCE}, \emph{RECOGNITION\_DISTANCE}, \emph{EXAMINATION\_DISTANCE} and \emph{ACTION\_DISTANCE}. Normally, they should be given meaningful default values so configuring then should not be a mandatory step. Even so, some objects might need adjusted values, so the possibility should be given to the system designer.
 % section requirements (end)
