@@ -2,13 +2,15 @@
 \section{Requirements} % (fold)
 \label{sec:requirements}
 %************************************************
-In Section \ref{sec:goal}, we have defined the main goals of the system, as a list of high level system requirements. They are very generic and hard to establish an architecture upon. This is mainly because they do not contain details of the functionality the end-user of the system will be able to use. To have a clear vision of what this system needs to achieve, in this section we will defined a list of requirements from the end-user's perspective.\\
+In Section \ref{sec:goal} we have defined the main goals of the system as a list of high level system requirements. They are very generic and hard to establish an architecture upon. Because they do not contain details of the functionality the end-user of the system will be able to use. To have a clear vision of what this system needs to achieve, we will defined in this section a list of requirements from the end-user's perspective.\\
 
-Agile Software Development is an iterative and incremental software development methodology, promoting adaptive planning, evolutionary development and delivery, while encouraging rapid and flexible response to change \cite{agile:online}. It is mainly used in the industry. One of the best practices in Agile Software Development for requirements is \emph{user stories}. ''A user story describes functionality that will be valuable to either a user or purchaser of a system or software'' \cite{cohn2004user}. User stories are written from the perspective of the system's users. A specific group of users, will use the system in a certain way; the feature requested by this group represents a \emph{user role}. The user role does not necessarily be formed by a human user; it can be an external service in need of accessing some data.\\
+We have decided to use the user stories concept, as a way to express the requirements of this system.\\
 
-We have not employed Agile Software Development in this work, but we have decided to use the user stories concept, as a way to express the requirements of this system. We took this decision as the agile methodology and the iterative design process resemble similarities and applying the user stories in this context, comes naturally.\\
+Agile Software Development is an iterative and incremental software development methodology, promoting adaptive planning, evolutionary development and delivery, while encouraging rapid and flexible response to change \cite{agile:online}. It is mainly used in the industry. One of the best practices in Agile Software Development for requirements is \emph{user stories}. We have not employed Agile Software Development in this work, but we have used the user stories concept as the agile methodology and the iterative design process resemble similarities and applying the user stories in this context, comes naturally.\\
 
-Writing the requirements following the user story concept, helps me reflect upon the needs this framework must satisfy, from the user's perspective. Based on the goals of the system defined in Section \ref{sec:goal} and supported by the use case scenario defined in Section \ref{sec:scenario}, we have first identify the user roles for this framework:
+''A user story describes functionality that will be valuable to either a user or purchaser of a system or software'' \cite{cohn2004user}. User stories are written from the perspective of the system's users. A specific group of users, will use the system in a certain way; the feature requested by this group represents a \emph{user role}. The user role does not necessarily have to be assigned to a human user; it can also be an external service in need of accessing some data.\\
+
+Writing the requirements following the user story concept, helps us reflect upon the needs this framework must satisfy, from the user's perspective. Based on the goals of the system defined in Section \ref{sec:goal} and supported by the use case scenario defined in Section \ref{sec:scenario}, we have first identified the user roles for this framework:
 \begin{table}[H]
 	\begin{center}
 		\small \begin{tabular*}{1.1\columnwidth}{p{3cm}p{3cm}p{5.5cm}} 
@@ -26,7 +28,7 @@ Writing the requirements following the user story concept, helps me reflect upon
 		\label{table:roles}
 	\end{center}
 \end{table}
-The ''who'' presents the possible user types that can fulfil a specific roles, while the ''description'' briefly describes the role's main interest in the system.\\
+The ''who'' presents the possible user types that can fulfil a specific role, while the ''description'' briefly describes the role's main interest in the system.\\
 
 The following list of user stories, represent the requirements of the EgoSim framework:
 \begin{enumerate}
@@ -40,7 +42,7 @@ The following list of user stories, represent the requirements of the EgoSim fra
 
 	\item[\textlabel{3.}{us:3}] \emph{As a system designer, I want to run a simulation based on the environment model I have set up}.
 
-	\item[\textlabel{4.}{us:4}] \emph{As a simulation user, I want to control a virtual avatar within the simulated environment}. This behaviour is mentioned in goal \ref{goal:1} and, as described in points \ref{scenario:2}, \ref{scenario:2A}, \ref{scenario:2B} and \ref{scenario:2C}, I want to be able to control the movement and eyesight of the agent. Also, I want to be able to pick up certain objects, carry them around and make them interact with other objects (e.g. put it down on a surface).
+	\item[\textlabel{4.}{us:4}] \emph{As a simulation user, I want to control a virtual avatar within the simulated environment}. This behaviour is mentioned in goal \ref{goal:1} and, as described in points \ref{scenario:2}, \ref{scenario:2A}, \ref{scenario:2B} and \ref{scenario:2C}, I want to be able to control the movement and field of vision of the agent. Also, I want to be able to pick up certain objects, carry them around and make them interact with other objects (e.g. put it down on a surface).
 
 	\item[\textlabel{5.}{us:5}] \emph{As a simulation user, I want to have a sense of reality in the simulated environment}. The user should comprehend and fell present in the target environment.
 
@@ -61,11 +63,11 @@ To strengthen the requirements above, we conclude this section with a list of no
 			\\ \hline \hline
 			NFR & Relates to \\ \hline \hline
 
-		 	The agent should no be able to pass through walls and other objects in the environment. & \ref{us:4}\\ \hline
+		 	The agent should not be able to pass through walls and other objects in the environment. & \ref{us:4}\\ \hline
 
-		 	The visualization of simulated environment should be non-blocking. No matter how heavy the computations carried out under the hood, the simulation user's experience should not be affected. & \ref{us:5}\\ \hline
+		 	The visualization of simulated environment should be non-blocking. No matter how heavy are the computations carried out under the hood, the simulation user's experience should not be affected. & \ref{us:5}\\ \hline
 
-		 	Only objects within the visual spectrum of the user should be categorised & \ref{us:6}\\ \hline
+		 	Only objects within the field of vision of the user should be categorised & \ref{us:6}\\ \hline
 
 		 	The SSM classification should happen in real-time. & \ref{us:6}\\ \hline
 
@@ -77,14 +79,14 @@ To strengthen the requirements above, we conclude this section with a list of no
 \end{table}
 
 \subsection{SSM Sets and Configuration Parameters}\label{subsec:ssm_params}
-In this work, we have focused on two main parameters to classify objects around the agent: proximity and visual spectrum. This means that objects within the agent's eyesight will be classified based on the distance from the agent current position. We have given a less generic interpretation to the SSM Sets defined in \cite{pederson2011situative}, to fit this use case, as presented in the list below:
+In this work, we have focused on two main parameters to classify objects around the agent: proximity and field of vision. This means that objects within the agent's field of vision will be classified based on the distance from the agent's current position. We have given a less generic interpretation to the SSM Sets defined in \cite{pederson2011situative}, to fit this use case, as presented in the list below:
 \paragraph{World Space} contains the set of all entities (physical objects and mediators) in the environment's virtual model. The framework takes into account only the entities which have been identified to be monitored. Hence, not all visible objects visible are categorized.
-\paragraph{Perception Space} is part of space around the agent that is within the agent's eyesight at each moment. Objects within this space that are no further than \emph{PERCEPTION\_DISTANCE} from the agent, will be classified into this set.
+\paragraph{Perception Space} is part of space around the agent that is within the agent's field of vision at each moment. Objects within this space that are no further than \emph{PERCEPTION\_DISTANCE} from the agent, will be classified into this set.
 \paragraph{Recognition Set} contains the entities that are currently in Perception Space and within their \emph{RECOGNITION\_DISTANCE}. Objects in this space can be directly associated with the agent's activities. For example, a hammer can be perceived as an object up to a certain distance, but when close enough, it can be recognised as a hammer.
-\paragraph{Examinable Set} contains the objects that are currently in Perception Space and within their \emph{EXAMINATION\_DISTANCE}. Based on this set it can be determined what actions can be performed with that object. For example, in the perception space a cell phone can be seen as a simple object, in the recognizable set it can be recognized as a mobile device and in the examinable set one can notice it has a screen, a power button and two volume button. We can deduct deduct the type of action one can perform!
+\paragraph{Examinable Set} contains the objects that are currently in Perception Space and within their \emph{EXAMINATION\_DISTANCE}. Based on this set it can be determined what actions can be performed with that object. For example, in the perception space a cell phone can be seen as a simple object, in the recognizable set it can be recognized as a mobile device and in the examinable set one can notice it has a screen, a power button and two volume button. We can deduct the type of action one can perform!
 \paragraph{Action Space} part of space around the agent that is currently accessible to the agent's physical actions. More specifically, the object has to currently be in Perception Space and within \emph{ACTION\_DISTANCE}. Objects in this set can be directly acted upon.
 \paragraph{Selected Set} objects currently being physically handled.
 \paragraph{Manipulated Set} objects whose states (external and internal) are currently being changed by the agent. Normally a subset of the Selected Set.\\
 
-As described in the definitions above, in order to correctly classify objects, they need to be augmented with the following parameters: \emph{PERCEPTION\_DISTANCE}, \emph{RECOGNITION\_DISTANCE}, \emph{EXAMINATION\_DISTANCE} and \emph{ACTION\_DISTANCE}. Normally, they should be given meaningful default values so configuring then should not be a mandatory step. Even so, some objects might need adjusted values, so the possibility should be given to the system designer.
+As described in the definitions above, in order to correctly classify objects, they need to be augmented with the following parameters: \emph{PERCEPTION\_DISTANCE}, \emph{RECOGNITION\_DISTANCE}, \emph{EXAMINATION\_DISTANCE} and \emph{ACTION\_DISTANCE}. Normally, they should be given meaningful default values, therefore configuring them should not be a mandatory step. Even so, some objects might need adjusted values, so the possibility should be given to the system designer.
 % section requirements (end)

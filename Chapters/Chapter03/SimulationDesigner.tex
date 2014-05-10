@@ -2,14 +2,24 @@
 \section{Simulation Designer} % (fold)
 \label{sec:simulation_designer}
 %************************************************
-Creating the environment model is the first step required by our system. As described in requirements \ref{us:1} and \ref{us:2}, the simulation designer needs to empower the researcher to create the model of the target environment and to identify and configure the objects to be monitored.\\
+Creating the environment model is the first step required by our system. As described in requirements \ref{us:1} and \ref{us:2}, the simulation designer needs to empower the system designer to create the model of the target environment and to identify and configure the objects to be monitored.\\
 
-To proceed, first we need to figure out what kind of model we are going to use to represent the environment. Similar projects like DiaSim \ref{sec:diasim} have used a 2D representation, while Tatus \ref{sec:tatus} or UbiWise \ref{sec:ubiwise} have used a 3D representation of the environment. In this context, 2D stands for two-dimensional while 3D stands for three-dimensional.\\
+First, we need to figure out what kind of model we are going to use to represent the environment. Similar projects like DiaSim \ref{sec:diasim} have used a 2D representation, while Tatus \ref{sec:tatus} or UbiWise \ref{sec:ubiwise} have used a 3D representation of the environment. In this context, 2D stands for two-dimensional while 3D stands for three-dimensional.\\
 
-Think from the agent's perspective, a 2D model can cover two dimensions: location and orientation. As mentioned in requirement \ref{us:4}, the simulation user must be able to control the agent's movement (location and orientation) as well as the eyesight (the visual spectrum). The projects which have used a 2D representation were focusing solely on proximity, while the projects aiming for a more realistic interaction have used a 3D model. Such a model can encapsulate more details, proving a better sense of reality as required in \ref{us:5}.\\
+Thinking from the agent's perspective, a 2D model can cover two parameters: location and orientation. As mentioned in requirement \ref{us:4}, the simulation user must be able to control the agent's movement (location and orientation) as well as the field of vision. For a realistic field of vision, two more parameters are required: depth and height. The 3D model provides three dimensions that can host all the required parameters. Moreover, the projects which have used a 2D representation were focusing solely on proximity, while the projects aiming for a more realistic interaction have used a 3D model. Such a model can encapsulate more details, proving a better sense of reality as required in \ref{us:5}.\\
 
-With the 3D model in place, the system designer has to identify the objects she/he desires to be monitored and classified during the simulation. To prepare the model as such, we have designed a list of properties each objects will need to carry; some of them are mandatory, while others can have meaningful default values. The properties are detailed in the following list of \textlabel{object properties}{design:object_properties}:
+Based on the arguments above, we have decided to use a 3D representation of the environment. Within the model, the system designer has to identify the objects she/he desires to be monitored and classified during the simulation. An entity within the model, visually resembles a certain kind of object (e.g., a chair, a pen, etc), but it is up to the system designer to provided the SSM semantics for that object.\\
+
+To provide meaning for an object for the upcoming simulation, we are augmenting the objects with a set of properties - \emph{Ego metadata}. Therefore, when detecting the objects, the metadata can be retrieved and further used for monitoring an classification. To prepare the model as such, we have designed a set of properties each objects will need to carry; although all the properties defined in the Ego metadata set are used by the simulation, some can function with default values (for example the default object type is physical), while others have to have the values specified by the designer (for example the ID must be uniquely specified by the designer). The first set of properties are meant to provide concrete identity to an object, while the second set of properties represent the SSM configuration parameters. The properties are detailed in the following list of \textlabel{Ego metadata Properties}{design:object_properties}:
 \paragraph{ID} - to uniquely identify an object within the environment. This parameter is mandatory and it is up the system designer to ensure that each object's ID is unique.
 
-\paragraph{Type} - describes the type of the object. We need to support physical objects and devices \ref{us:1}, so this parameter can have two values: Physical or Device.
+\paragraph{Type} - describes the type of the object. We need to support physical objects and mediators \ref{us:1}, so this parameter can have two values: Physical or Mediator. The default value is Physical.
+
+\paragraph{Interaction Type} - specifies the type of iteration the agent can carry out with this object. It can be either Pick-Up or Custom. The Pick-Up interaction type has to be offered out of the box by the framework, while the Custom interaction type empowers the system designer to design different iterations. The default value is Pick-Up.
+
+\paragraph{Is Surface} - picked-up objects can be put-down onto surfaces only (e.g. a desk). By default, an object is not a surface.
+
+\paragraph{Weight} - how much the objects weights, in Kg.
+
+\paragraph{SSM Configuration Parameters} - data required by the SSM Classifier to correctly classify the objects into SSM sets; made up by a list of four parameters: \emph{PERCEPTION\_DISTANCE}, \emph{RECOGNITION\_DISTANCE}, \emph{EXAMINATION\_DISTANCE} and \emph{ACTION\_DISTANCE}.
 % section simulation_designer (end)
