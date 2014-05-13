@@ -2,8 +2,5 @@
 \section{The Context Client} % (fold)
 \label{sec:context_client}
 %************************************************
-
-1. a third party app using the api\\
-2. a web page served from within the simulation --> polling vs. web sockets\\
-
+To make it easy for the simulation user to follow the evolution of the SSM Sets as the simulation unfolds and the agent interacts with the environment, as discussed in requirement \ref{us:8}, we have designed the Context Client as a service working on top of the API \ref{sec:api}. It is really just a nicely formatted visualization for easy understanding of what's going on under the hood. To provide a close to real-time visualisation, the context client will be accessing the API every second to display an updated visualization of the SSM Sets. In future work, the context client is meant to be improved alongside the API.\\
 % section context_client (end)
