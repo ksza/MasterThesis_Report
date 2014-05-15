@@ -1,0 +1,41 @@
+%************************************************
+\section{Setting up the simulation} % (fold)
+\label{sec:sd_setup_simulation}
+%************************************************
+In the ''Source Packages'' folder, under the ''dk.itu.bodysim'' package, create a new class, ChildProofApp. Make this class extend EgocentricApp. In the implementation of the ''createEnvironmentScene'', simply write:
+\begin{lstlisting}
+return new GenericEnvironment("Scenes/childproof/childproof.j3o", "ChildProof", assetManager);
+\end{lstlisting}
+
+Next, create a main method for your class:
+\begin{lstlisting}
+ChildProofApp app = new ChildProofApp(); 
+app.start();
+\end{lstlisting}
+
+The ChildProofApp class should look similar to:
+\begin{lstlisting}
+package dk.itu.bodysim;
+
+import com.jme3.scene.Node;
+import dk.itu.bodysim.environment.GenericEnvironment;
+
+public class ChildProofApp extends EgocentricApp {
+
+    @Override
+    protected Node createEnvironmentScene() {
+        return new GenericEnvironment("Scenes/childproof/childproof.j3o", "ChildProof", assetManager);
+    }
+
+    public static void main(String[] args) {
+        ChildProofApp app = new ChildProofApp();
+        app.start();
+    }
+\end{lstlisting}
+
+Now your set! Inside the ChildproofApp hit the SHIFT+F6 key combination. In the settings window just start it up with the default configuration. This will start up the simulation! In here you can control the avatar, move around the environment, NOT walk through walls and objects. The EgoSim took care of this for you.\\
+
+You will notice that you see the environment from a child's perspective: the height of the agent is smaller.\\
+
+At this point, you notice the agent can't interact with any objects. That's because none of them have been augmented with context data! You can notice this by opening, on your second display, the ContextClient\footnote{\url{http://localhost:8182/context/view/set?name=all}} in a browser.
+% section sd_setup_simulation (end)

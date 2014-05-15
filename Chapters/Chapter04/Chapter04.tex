@@ -44,16 +44,17 @@ To get up to speed with jMonkey Engine development, you can access the following
 	\item read the JME Beginner's Guide book \cite{kusterer2013jmonkeyengine}
 \end{itemize}
 
-In this section we will go through the implementation of each component presented in the design Chapter \ref{ch:design}, but in a slightly different order. We will first describe the Simulation Runtime \ref{sec:impl_simulation_runtime} where we present the type of 3D models JME is compatible with and how we bring those models to ''life''. Next, we present the Simulation Designer \ref{sec:impl_simulation_designer} and how it can be used to work with the 3D models JME is compatible with and configure the objects with Ego Metadata. We continue with the rest of the components in the same order as we did in the design: The Agent \ref{sec:impl_the_agent}, Monitoring Service \ref{sec:impl_monitoring_service}, The API \ref{sec:impl_api} and finally the Context Client \ref{sec:impl_context_client}.\\
+In this section we will go through the implementation of each component presented in the design Chapter \ref{ch:design}, in the exact same order. We will first describe the Simulation Designer \ref{sec:impl_simulation_designer} and how it can be used to work with the 3D models JME is compatible with and configure the objects with Ego Metadata. Next, we will present the Simulation Runtime \ref{sec:impl_simulation_runtime} and how it helps us in bringing those 3D models to ''life''. We continue with the rest of the components : The Agent \ref{sec:impl_the_agent}, Monitoring Service \ref{sec:impl_monitoring_service}, The API \ref{sec:impl_api} and finally the Context Client \ref{sec:impl_context_client}.\\
 
-You can find the source code of this project on GitHub \cite{egosim:online}.\\
+You can find the source code of this project on GitHub \cite{egosim:online}. Using the framework to set up a new simulation is described in details in Appendix \ref{ch:user_guide}.\\
 
-\input{Chapters/Chapter04/SimulationRuntime}
 \input{Chapters/Chapter04/SimulationDesigner}
+\input{Chapters/Chapter04/SimulationRuntime}
 \input{Chapters/Chapter04/TheAgent}
 \input{Chapters/Chapter04/MonitoringService}
 \input{Chapters/Chapter04/TheApi}
 \input{Chapters/Chapter04/TheContextClient}
+\input{Chapters/Chapter04/PrototypeModels}
 
 % THIS IS FROM UBIWISE. I CAN PROVIDE THIS INFO, OF HOW TO USE THE FINAL PRODUCT IN AN APPENDIX!
 
