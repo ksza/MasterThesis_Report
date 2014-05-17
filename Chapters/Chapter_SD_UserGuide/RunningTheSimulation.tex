@@ -6,5 +6,30 @@ Run the simulation once again. You can notice in the ContextClient\footnote{\url
 
 During the simulation, you can also access the API\footnote{\url{http://localhost:8182/context/api/set?name=all}} endpoint which provides the data in JSON format.\\
 
-You can now move around the environment, pick up the Pen and interact with the Outlets.
+Now you are ready the explore the simulated environment! You can move around the environment, pick up the Pen and interact with the Outlets. 
+
+%************************************************
+\subsection{Controlling the agent}\label{subsec:sd_controlling_the_agent}
+%************************************************
+You should see the world from a first-person perspective. Whatever entities you see in front of you are categorised to be ''visible'' entities. This context information together with the agent's distance to each object, helps in building up the other sets. The distance is measured in World Units (WU). This is a subjective interpretation of the distance in real-world metrics, the researcher decides upon at the time of building the environment.\\
+
+To move around please use the standard first-person key mappings:
+\begin{itemize}
+	\item W -> step forward
+ 	\item S -> step backward
+	\item A -> step left
+	\item D -> step right
+\end{itemize}
+
+You can also move the mouse to look around you. The middle of the screen contains a cross, this is used to point at objects. When you wan to interact with an object, point at it and hit the LEFT MOUSE BUTTON. In order to be able to interact with the object, the entity representing it must have the following characteristics:
+\begin{itemize}
+	\item must be part of the World Space (must carry egocentric context information)
+	\item the agent must be within reach of the object (it must be in the Action Space)
+\end{itemize}
+
+At the moment the framework only supports picking up objects, and does not support custom interactions. To pick up an object the agent must be able to lift it up; the weight of the object has to be at most the maximum weight the agent can carry.\\
+
+Once the object has been picked up, you can carry it around the environment. To use the object to interact with other objects, you can either hit the RIGHT MOUSE BUTTON and the object will be automatically put back to its initial position (no matter how far you are) OR you can point to another monitored object and click the LEFT MOUSE BUTTON. Again, the object you want to interact with must be in the Action Space. In this iteration, picked up objects can interact only with surfaces, onto which they can be placed onto. For instance you can move a pen from one table to another, but you won't be able to pour water from a glass into a glass -- you will get a system message.\\
+
+At the moment, carrying objects around is the only way the agent can interact with the environment and modelled entities. Future development targets to implement interaction with mediators and virtual objects as well.\\
 % section sd_running_the_simulation (end)
