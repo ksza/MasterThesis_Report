@@ -4,7 +4,7 @@
 %************************************************
 As depicted in Figure \ref{fig:final_architecture}, the Simulation Runtime component is responsible for loading up the 3D model of the target environment and initialize some of the components: the agent \ref{sec:impl_the_agent} and the monitoring service \ref{sec:impl_monitoring_service}. It also represents the entry point of the simulation. In Java terminology this means that this is the main class of the application.\\
 
-Each simulation a system designer would set up, needs to follow the exact same series of tasks. Hence, this component represents an abstraction which must be extended by each particular simulation. Normally, the particular simulation should only provide the loaded scene and the abstraction takes care of the rest.\\
+Each simulation a system designer would set up, needs to follow the exact same series of tasks. Hence, this component represents an abstraction which must be extended by each particular simulation. Normally, the particular simulation should only provide the loaded scene and the abstraction takes care of the rest. We have implemented a few prototype simulations described in Section \ref{sec:impl_prototype_simulations}. These prototype simulations have been used during the evaluation process.\\
 
 The diagram in Figure \ref{fig:impl_ego_app} illustrates the EgocentricApp abstract class and how it relates to some classes in the JME library. This abstraction provides the functionality needed for a concrete simulation. The diagram highlights only a few of its properties and methods.
 \begin{figure}[H]
