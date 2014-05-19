@@ -10,6 +10,9 @@ Agile Software Development is an iterative and incremental software development 
 
 ''A user story describes functionality that will be valuable to either a user or purchaser of a system or software'' \cite{cohn2004user}. User stories are written from the perspective of the system's users. A specific group of users, will use the system in a certain way; the feature requested by this group represents a \emph{user role}. The user role does not necessarily have to be assigned to a human user; it can also be an external service in need of accessing some data.\\
 
+%************************************************
+\subsection{User Roles}\label{subsec:user_roles}
+%************************************************
 Writing the requirements following the user story concept, helps us reflect upon the needs this framework must satisfy, from the user's perspective. Based on the goals of the system defined in Section \ref{sec:goal} and supported by the use case scenario defined in Section \ref{sec:scenario}, we have first identified the user roles for this framework:
 \begin{table}[H]
 	\begin{center}
@@ -29,7 +32,11 @@ Writing the requirements following the user story concept, helps us reflect upon
 	\end{center}
 \end{table}
 The ''who'' presents the possible user types that can fulfil a specific role, while the ''description'' briefly describes the role's main interest in the system.\\
+% section user_roles (end)
 
+%************************************************
+\subsection{User Stories}\label{subsec:user_stories}
+%************************************************
 The following list of user stories, represent the requirements of the EgoSim framework:
 \begin{enumerate}
 	\item[\textlabel{1.}{us:1}] \emph{As a system designer, I want to model the environment my egocentric system will run in. The environment's model has to be populated with everyday physical objects and devices}. It is part of goal \ref{goal:1} and presented as a need in points \ref{scenario:1}, \ref{scenario:1A}, \ref{scenario:1B} and \ref{scenario:1C}.
@@ -55,7 +62,11 @@ The following list of user stories, represent the requirements of the EgoSim fra
 \end{enumerate}
 
 While an extra requirement is needed to fully support the situative space model - namely, representation of and interaction with virtual devices - we leave that requirement for future work.\\
+% section user_stories (end)
 
+%************************************************
+\subsection{Non-functional Requirements}\label{subsec:nfrs}
+%************************************************
 To strengthen the requirements above, we conclude this section with a list of non-functional requirements (NFRs)\footnote{constraints on the system's behaviour}:
 \begin{table}[H]
 	\begin{center}
@@ -77,6 +88,7 @@ To strengthen the requirements above, we conclude this section with a list of no
 		\label{table:nfr}
 	\end{center}
 \end{table}
+% section nfrs (end)
 
 \subsection{SSM Sets and Configuration Parameters}\label{subsec:ssm_params}
 In this work, we have focused on two main parameters to classify objects around the agent: proximity and field of vision. This means that objects within the agent's field of vision will be classified based on the distance from the agent's current position. We have given a less generic interpretation to the SSM Sets defined in \cite{pederson2011situative}, to fit this use case, as presented in the list below:

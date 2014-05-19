@@ -2,20 +2,35 @@
 \section{Method} % (fold)
 \label{sec:method}
 %************************************************
+In order to achieve the goals detailed in Section \ref{sec:goal}, we are going to take an empirical approach. First, we will research related work to assess what approaches have others taken in order to solve similar problems. Next, we will establish the best technological set-up we find suitable to fit our problem. Finally, we will design and implement a single solution which we contentiously improve as our advances.\\
 
-In order to achieve the goals detailed in Section \ref{sec:goal}, we are going to follow an iterative design process \cite{mackay1997hci}. Each iteration will comprise of two steps:
-\begin{enumerate}
-	\item prototyping
-	\item evaluation
-\end{enumerate}
+% We had to follow more of an unconventional method, rather than the conventional iterative design process \cite{mackay1997hci}, because it was hard to visualise from the beginning what we are to achieve as an end result. So creating concrete iterations towards an unclear result was impossible. Moreover, achieving the goals as described in Section \ref{sec:goal} present a fair amount of work, implementing several prototypes not being feasible in the time allocated for this work.\\
 
-As part of the process, there will be three iterations:
-\begin{itemize}
-	\item Early prototype. This step represents the skeleton of the system, where we implemented a first version of the simulation framework; \emph{EgoSim}. As part of the implementation, we have set up a trivial test environment which provides input to the underlying framework to run the SSM classifications. The resulting SSM sets are visualized, in real time, in the \emph{ContextClient}. This prototype has been evaluated in close collaboration with the supervisors of this thesis.
-	\item High fidelity prototype. Based on the input from the evaluation of the early prototype, we modified the system accordingly. Further, we have implemented all the intended interaction mechanism between the agent and the environment and we have also developed a public API to provide easy access to the SSM spaces for third party services. As part of this prototype, we have designed an advanced simulation environment based on a real-life inspired scenario. This prototype has been evaluated by the target group of 17 participants. The purpose of the evaluation was to test the usability of the simulator, the responsiveness of the ContextClient, the correctness and usability of the SSM sets, as well as how intuitive is the interaction with the environment.
-	\item Final product. In this final iteration we have fixed the bugs discovered during the previous iteration. Furthermore, we have designed a comprehensive documentation on how to use the EgoSim framework. For this iteration we have created a third simulation environment and, this time, the 17 participants have evaluated the usefulness and ease-of-use of the EgoSim framework, by setting up a simulation based on the framework and the documentation. As most participants were not experts of the Egocentric Interaction Paradigm, we have also evaluated framework as an educational tool by comparing the participants understanding of SSM related concepts before and after the evaluation.
-\end{itemize}
+To support our design decisions, in Section \ref{sec:scenario} we have imagined an end-to-end scenario on how our framework would be used. This scenario, together with the goals will guide both the design and the implementation of our framework.\\
+
+Based on the goals and the scenario, we have determined three user roles for our framework, as detailed in Section \ref{subsec:user_roles}. Once the framework will be implemented we will carry out a two step evaluation: in the first step we will evaluate the framework from the \emph{simulation user's} point of view, while in the second step we will evaluate the system from the \emph{system designer's} point of view.\\
+
+For the first evaluation step we will implement a simulation prototype based on our framework which will be used as the target of evaluation in the first step. Using this prototype, the simulation users will test the usability of the simulator, the responsiveness of the ContextClient, the correctness and usability of the SSM sets, as well as how intuitive is the interaction with the environment.\\
+
+For the second evaluation step, we will imagine a problem to be solved by the system designer using our framework. To reduce the evaluation time, we will provide the participants with a ready made model of their supposed target environment. The system designers will evaluate the usefulness and ease-of-use of the EgoSim framework, by setting up the simulation of the evaluation scenario based on the framework and the documentation. In this step, the system designer's will also assess the API provided by the framework for \emph{third party services}.\\
+
 
 We will wrap up our research by drawing conclusion based on our findings and establishing goals for future work.
+% A three phase evaluation where each phase evaluates specific aspects of the framework.
+% So the METHOD is no iterative!
+
+
+% In order to achieve the goals detailed in Section \ref{sec:goal}, we are going to follow an iterative design process \cite{mackay1997hci}. Each iteration will comprise of two steps:
+% \begin{enumerate}
+% 	\item prototyping
+% 	\item evaluation
+% \end{enumerate}
+
+% As part of the process, there will be three iterations:
+% \begin{itemize}
+% 	\item Early prototype. This step represents the skeleton of the system, where we implemented a first version of the simulation framework; \emph{EgoSim}. As part of the implementation, we have set up a trivial test environment which provides input to the underlying framework to run the SSM classifications. The resulting SSM sets are visualized, in real time, in the \emph{ContextClient}. This prototype has been evaluated in close collaboration with the supervisors of this thesis.
+% 	\item High fidelity prototype. Based on the input from the evaluation of the early prototype, we modified the system accordingly. Further, we have implemented all the intended interaction mechanism between the agent and the environment and we have also developed a public API to provide easy access to the SSM spaces for third party services. As part of this prototype, we have designed an advanced simulation environment based on a real-life inspired scenario. This prototype has been evaluated by the target group of 17 participants. The purpose of the evaluation was to test the usability of the simulator, the responsiveness of the ContextClient, the correctness and usability of the SSM sets, as well as how intuitive is the interaction with the environment.
+% 	\item Final product. In this final iteration we have fixed the bugs discovered during the previous iteration. Furthermore, we have designed a comprehensive documentation on how to use the EgoSim framework. For this iteration we have created a third simulation environment and, this time, the 17 participants have evaluated the usefulness and ease-of-use of the EgoSim framework, by setting up a simulation based on the framework and the documentation. As most participants were not experts of the Egocentric Interaction Paradigm, we have also evaluated framework as an educational tool by comparing the participants understanding of SSM related concepts before and after the evaluation.
+% \end{itemize}
 
 % subsection method (end)

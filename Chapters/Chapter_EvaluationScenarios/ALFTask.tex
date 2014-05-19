@@ -1,0 +1,67 @@
+%************************************************
+\section{Scenario 2: ALF} % (fold)
+\label{sec:eval_alf_scenario}
+%************************************************
+An assisted living facility (ALF) is a housing facility for people with disabilities. These facilities provide supervision or assistance with activities of daily living (ADLs) and monitoring of resident activities to help ensure their health, safety, and well-being. Basic ADLs consist of self-care tasks, including: dressing, eating and feeding, bathing and showering etc. Constantly monitoring and predicting the activities of ADF residents is imperative for software services in the ALF.\\
+
+For this task, please imagine yourself as the researcher of a monitoring system for ALFs. The system has to monitor the surroundings of the resident in real-time and provide this information to third party software service. One example of such a service is the ''ADL Assistance Service'' (ADL Service). This service detects whenever the resident is close enough to everyday objects to start interacting with them. If the object is usually used in a daily living activity, the service asks the resident, by means of the smart watch she/he's wearing, if she/he needs assistance with this activity. In case of a positive answer, a caregiver is immediately sent over. Please note that the ADL Service is purely conceptual; it is not implemented neither is its implementation target of this task! I am referring to it to exemplify the usability of the SSM the in various situations throughout the simulation.\\
+
+You decided to design your system based on the egocentric interaction paradigm, as it can categorizes all the objects of interest around the human agent. Based on these sets, you can further develop software services to assist the residents in their ADLs.\\
+
+In this task you are given a ready made simulation of the system for such an environment. You will be simulating a resident's interaction with the ALF by means of the virtual agent, completing a series of activities the resident does throughout his morning routine.You will be evaluating the usability of the simulator, the responsiveness of the ContextClient, the correctness and usability of the SSM sets, as well as how intuitive is the interaction with the environment. The screenshots in Figure \ref{fig:eval_alf_interactive} depict the object you will be asked to interact with.\\
+
+% \begin{figure}[H]
+%     \centering
+%     \subfig[]{
+%         \includegraphics[width=0.4\columnwidth]{gfx/Chapter_EvaluationScenarios/bedroom}
+%         \label{fig:eval_alf_bedroom}
+%     }
+%     \subfig[]{
+%         \includegraphics[width=0.4\columnwidth]{gfx/Chapter_EvaluationScenarios/bathroom}
+%         \label{fig:eval_alf_bathroom}
+%     }
+%     \subfig[]{
+%         \includegraphics[width=0.4\columnwidth]{gfx/Chapter_EvaluationScenarios/living}
+%         \label{fig:eval_alf_living}
+%     }
+%     \subfig[]{
+%         \includegraphics[width=0.4\columnwidth]{gfx/Chapter_EvaluationScenarios/kitchen}
+%         \label{fig:eval_alf_kitchen}
+%     }    
+%     \caption{Screenshots of the running ALF simulation, highlighting objects the simulation user can interact with.}
+%     \label{fig:eval_alf_interactive}
+% \end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		$
+			\begin{array}{cc}
+				\includegraphics[width=0.45\columnwidth]{gfx/Chapter_EvaluationScenarios/bedroom}&
+				\includegraphics[width=0.45\columnwidth]{gfx/Chapter_EvaluationScenarios/bathroom}
+			\end{array}
+		$
+		$
+			\begin{array}{cc}
+				\includegraphics[width=0.45\columnwidth]{gfx/Chapter_EvaluationScenarios/living}&
+				\includegraphics[width=0.45\columnwidth]{gfx/Chapter_EvaluationScenarios/kitchen}
+			\end{array}
+		$
+	\end{center}
+	\caption{Screenshots of the running ALF simulation, highlighting objects the simulation user can interact with.}
+	\label{fig:eval_alf_interactive}
+\end{figure}
+
+The story unfolds with the following steps:
+\begin{enumerate}
+	\item You wake up in your bedroom. You just got off your bed; now walk towards the Closet in your bedroom. If you get close enough, the Closet will be added to the ActionSpace. Take note of this in the ContextClient. At this point, the ADL Service should ask the resided if she/he needs assistance with ''getting dressed''.
+	\item Next, got into the bathroom. Approach the Shower, when close enough, it will be in the ActionSpace. Again, the ADL Service would detect a highly possible activity and would asks the resident if she/he needs assistance with ''takings a shower''.
+	\item Go to the living room, pick up the cup and go to the kitchen. Place it near the Stove (on the Sink counter-top), pick up the coffee Pot and try pouring coffee into the cup. This kind of action is not implemented visually (pouring coffee), but you will see that the system knows exactly what you are doing (if the volume of your computer is turned one, you might be able to hear the audio feedback as well)! You will notice that the series of actions in this step are possible only if the items you are interacting with are in the ActionSpace.
+	\item Approach the Fridge. When close enough, it will be in the ActionSpace. The ADL Service would ask the resident if she/he needs assistance feeding.
+	\item Try interacting with the laptop to read your email (if the volume of your computer is turned one, you might be able to hear the audio feedback as well). The action is not visually implemented, you will get a system message instead!
+	\item As a last step, walk around the apartment and observe how various objects get categorized, added/removed from SSM sets, as they enter/leave the view sight oh the agent, and as the agent gets closer/further from them.
+\end{enumerate}
+
+There's an easter egg hidden somewhere around, have you found it? If no, then try interacting with the piano. Interact with it a few times :).\\
+
+When you arrive to this point, you have successfully performed the task.
+% section eval_alf_scenario (end)
