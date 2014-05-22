@@ -3,18 +3,18 @@
 \label{sec:sd_setup_simulation}
 %************************************************
 In the ''Source Packages'' folder, under the ''dk.itu.bodysim'' package, create a new class, ChildProofApp. Make this class extend EgocentricApp. In the implementation of the ''createEnvironmentScene'', simply write:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Loading a j3o environment},label={lst:importing_model}]
 return new GenericEnvironment("Scenes/childproof/childproof.j3o", "ChildProof", assetManager);
 \end{lstlisting}
 
 Next, create a main method for your class:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Starting the app},label={lst:starting_the_simulation}]
 ChildProofApp app = new ChildProofApp(); 
 app.start();
 \end{lstlisting}
 
 The ChildProofApp class should look similar to:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Full class implementation of a new simulation created with EgoSim},label={lst:final_childproof}]
 package dk.itu.bodysim;
 
 import com.jme3.scene.Node;
@@ -31,6 +31,7 @@ public class ChildProofApp extends EgocentricApp {
         ChildProofApp app = new ChildProofApp();
         app.start();
     }
+}
 \end{lstlisting}
 
 Now your set! Inside the ChildproofApp hit the SHIFT+F6 key combination. In the settings window just start it up with the default configuration. This will start up the simulation! In here you can control the avatar, move around the environment, NOT walk through walls and objects. The EgoSim took care of this for you.\\

@@ -4,7 +4,7 @@
 %************************************************
 
 %************************************************
-\subsection{Question 0}
+\subsection{Question 0}\label{question2:0}
 %************************************************
 \emph{What level of understanding do you have at the moment about the SSM?}\\
 
@@ -27,7 +27,7 @@ The scale goes from 1 \emph{(Not at all)} to 7 \emph{(Expert)}.
 % section sec:question0 (end)
 
 %************************************************
-\subsection{Question 1}
+\subsection{Question 1}\label{question2:1}
 %************************************************
 \emph{Were you able to finish this task?}
 \begin{table}[H]
@@ -53,7 +53,7 @@ The scale goes from 1 \emph{(Not at all)} to 7 \emph{(Expert)}.
 % section sec:question1 (end)
 
 %************************************************
-\subsection{Question 2}
+\subsection{Question 2}\label{question2:2}
 %************************************************
 \emph{Did you find this framework useful for simulating the situative space model?}
 \begin{table}[H]
@@ -84,7 +84,7 @@ The scale goes from 1 \emph{(Not at all)} to 7 \emph{(Expert)}.
 % section sec:question2 (end)
 
 %************************************************
-\subsection{Question 3}
+\subsection{Question 3}\label{question2:3}
 %************************************************
 \emph{How easy/hard did you find the process of augmenting the objects to monitor?}\\
 
@@ -107,7 +107,7 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 % section sec:question3 (end)
 
 %************************************************
-\subsection{Question 4}
+\subsection{Question 4}\label{question2:4}
 %************************************************
 \emph{How easy/hard did you find the usage of the framework as a whole?}\\
 
@@ -130,7 +130,7 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 % section sec:question4 (end)
 
 %************************************************
-\subsection{Question 5}
+\subsection{Question 5}\label{question2:5}
 %************************************************
 \emph{What other parameters, if any, would you find useful for the system to monitor, besides proximity and visibility?}
 
@@ -151,7 +151,7 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 % section sec:question5 (end)
 
 %************************************************
-\subsection{Question 6}
+\subsection{Question 6}\label{question2:6}
 %************************************************
 \emph{What information, besides what's already served, do you think that should be available through the API?}
 
@@ -166,7 +166,7 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 % section sec:question6 (end)
 
 %************************************************
-\subsection{Question 7}
+\subsection{Question 7}\label{question2:7}
 %************************************************
 \emph{What types of interaction, besides pick up/put down, do you find absolutely necessary to make the simulator more realistic?}
 
@@ -193,7 +193,7 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 % section sec:question7 (end)
 
 %************************************************
-\subsection{Question 8}
+\subsection{Question 8}\label{question2:8}
 %************************************************
 \emph{Please provide any ideas to improve this framework! (also point out bugs you might have found, things that you liked, etc)}
 
@@ -211,15 +211,13 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 	\item Trim the context variable for space EGOCENTRIC\_CONTEXT\_DATA
 	\item Didn't noticed any bugs and I liked the fact that I had a different perception when I was a child than when I was an adult
 	\item No bugs! As a first time usage it went fine!
-	\item A potential weakness of this framework would be the lack of information regarding the relationship between objects. In this example, the child may pick up and pen and attempt to stick it the outlet. Is is trivial to conceive a logic that may cause the power in the outlet to shut down, preventing the kid from getting electrocuted (pen is selected, outlet is in action space). However, if the kid releases its grip on the pen, the system will register that both objects are in the action space, thus turning the power back on. If the kid then touches the pen, it will be too late to react as the child is already in danger of electrocution.
-	\item A possible solution to this scenario could be adding a space that describes the interaction between two objects. A flower pot and the table it is placed on interact, though not in a way that is relevant to a child's safety. However, a pen stuck in an outlet may cause an interaction where a specific handling is necessary.
-	\item The situation where the outlet is not in the action space as some electrical appliance may already be plugged in should be considered. The system should not react to the pen holding child's proximity to the already used outlet. The presence of an object in the action space can thus depend on how the said object interacts with other objects. Various object states may be needed in order to correctly simulate the above mentioned scenario
+	\item A potential weakness of this framework would be the lack of information regarding the relationship between objects. In this example, the child may pick up and pen and attempt to stick it the outlet. Is is trivial to conceive a logic that may cause the power in the outlet to shut down, preventing the kid from getting electrocuted (pen is selected, outlet is in action space). However, if the kid releases its grip on the pen, the system will register that both objects are in the action space, thus turning the power back on. If the kid then touches the pen, it will be too late to react as the child is already in danger of electrocution. A possible solution to this scenario could be adding a space that describes the interaction between two objects. A flower pot and the table it is placed on interact, though not in a way that is relevant to a child's safety. However, a pen stuck in an outlet may cause an interaction where a specific handling is necessary. The situation where the outlet is not in the action space as some electrical appliance may already be plugged in should be considered. The system should not react to the pen holding child's proximity to the already used outlet. The presence of an object in the action space can thus depend on how the said object interacts with other objects. Various object states may be needed in order to correctly simulate the above mentioned scenario
 	\item It is very easy to augment objects with data. Would be nice if people could declare their own type of interactions.
 \end{itemize}
 % section sec:question8 (end)
 
 %************************************************
-\subsection{Question 9}
+\subsection{Question 9}\label{question2:9}
 %************************************************
 \emph{Given the SSM sets, what should be the condition for the SOS service to shut the electricity down in the outlets? Feel free to write the condition in simple words, pseudo-code or any language of your choice.}
 
@@ -242,5 +240,26 @@ The scale goes from 1 \emph{(Very easy)} to 7 \emph{(Very hard)}.
 	\item dangeous\_objects = set(has\_sharp\_edges(obj) for obj in all\_objects). If any(dangerous\_objects.intersection(selectedSet)) and any(outlets.intersection(actionSpace)): shut\_down\_electricity()
 \end{itemize}
 % section sec:question9 (end)
+
+%************************************************
+\subsection{Question 10}\label{question2:10}
+%************************************************
+\emph{Can you think of any system that could use the SSM sets and classification algorithms as building blocks? Please describe it shortly.}
+
+\begin{itemize}
+	\item A friendship network with several kind of relationships and different possible interactions accordingly.
+	\item Any home to help out with certain defined tasks e.g,: elder's home, persons with disabilities to help with daily activities or in case of urgencies. Hospitals. Public institutions guide a person from entrance to the needed assitance
+	\item  Assistance for the visually impaired.
+	\item  This system could be implemented for people with disabilities, especially visually impaired persons, to offer a augmented representation of their environment.
+	\item  A tourist map that is context aware and can recommend places to visit that are near the current location, that are for example still open (maybe it's night, you don't want recommendations for a zoo), etc...
+	\item  It would be fun to model the International Space Station with SSM. Think no gravity (physics engine for jMonkey?), resource management.
+	\item  future bodyworn computer systems, starting with today's cellular phones.
+	\item  provide help for people with disabilities
+	\item  Any monitoring system, learning systems.
+	\item  A kindergarten construction. It can be used to simulate all the possible places a kid can explore and possible things he can do.
+	\item security application: auto-lock my computer screen when it's disappears from the intersection of my Examinable Set and Action Space (or perhaps just action space)
+	\item Automatic light switching based on the position of the inhabitant of a home (not motion-based). This can be generalized to a system that defines custom operation modes of devices in a home, depending on what the user is doing.
+\end{itemize}
+% section sec:question10 (end)
 
 % section sec:res_childproof_task (end)

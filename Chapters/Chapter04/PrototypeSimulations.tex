@@ -2,7 +2,7 @@
 \section{Prototype Simulations} % (fold)
 \label{sec:impl_prototype_simulations}
 %************************************************
-To prepare the framework for the evaluation processes, we have set up a few prototype simulations, on the basis of the user guide described in Appendix \ref{ch:user_guide}. The class diagram in Figure \ref{impl_prototype_simulations} illustrates the classes implementing the two prototype simulations. The WarmUpTask and ALFTask are two individual simulations extending the EgocentricApp class. Explaining the meaning of the environment use in the simulations is out of scope for this section, this information is tightly related to the evaluation and will be addressed in Chapter \ref{ch:evaluation}.
+To prepare the framework for the evaluation processes, we have set up a few prototype simulations, on the basis of the user guide described in Appendix \ref{ch:user_guide}. The class diagram in Figure \ref{fig:impl_prototype_simulations} illustrates the classes implementing the two prototype simulations. The WarmUpTask and ALFTask are two individual simulations extending the EgocentricApp class. Explaining the meaning of the environment use in the simulations is out of scope for this section, this information is tightly related to the evaluation and will be addressed in Chapter \ref{ch:evaluation}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{gfx/Chapter4/prototype_simulations}
@@ -37,7 +37,7 @@ Interesting to note in the ALF simulations is that we have implemented a custom 
 \end{figure}
 
 To implement the custom interaction behaviour, we have overridden the onCustomInteraction() method as illustrated in the following Listing. This is an example of why it is important to choose good and unique IDs for the entities while augmenting them with EgocentricContextData -- because they are used to implement business logic further on.
-\begin{lstlisting}
+\begin{lstlisting}[caption={Snippet of code illustrating how to implement a CUSTOM interaction with an object},label={lst:custom_interaction}]
 @Override
 public void onCustomInteraction(Spatial spatial) {
     
@@ -60,7 +60,7 @@ Moreover, we have also implemented an example of combined interaction. The scree
 \end{figure}
 
 To implement the combined interaction behaviour, we have overridden the onCombinedInteraction() method as illustrated in the following Listing. In this version we simply play a poring liquid sound. But, from the ALFTask we have access to all the components and assets of the simulations, so more complex actions could be taken (e.g. animating liquid pouring from the Pot into the Cup, etc).
-\begin{lstlisting}
+\begin{lstlisting}[caption={Snippet of code illustrating how to implement a COMBINED interaction between two objects (when the agent acts upon an object while holding another object)},label={lst:combined_interaction}]
 @Override
 public void onCombinedInteraction(Spatial pickedUpObject, Spatial withObject) {
     super.onCombinedInteraction(pickedUpObject, withObject);    
