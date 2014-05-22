@@ -8,9 +8,13 @@
 \setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
 \manualmark
 \markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % dots in TOC for sections
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % dots in TOC for chapter
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}} % dots in TOC for subsections
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}} % dots in list of figures
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}} % dots in list of tables
+\renewcommand{\cftlistingsleader}{\cftdotfill{\cftdotsep}} % dots in list of lsitings
 \tableofcontents 
 \automark[section]{chapter}
 \renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
@@ -62,15 +66,15 @@
     % Acronyms
     %*******************************************************
     %\phantomsection 
-    \refstepcounter{dummy}
-    \pdfbookmark[1]{Acronyms}{acronyms}
-    \markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
-    \chapter*{Acronyms}
-    \begin{acronym}[UML]
-        \acro{DRY}{Don't Repeat Yourself}
-        \acro{API}{Application Programming Interface}
-        \acro{UML}{Unified Modeling Language}
-    \end{acronym}                     
+    % \refstepcounter{dummy}
+    % \pdfbookmark[1]{Acronyms}{acronyms}
+    % \markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+    % \chapter*{Acronyms}
+    % \begin{acronym}[UML]
+    %     \acro{DRY}{Don't Repeat Yourself}
+    %     \acro{API}{Application Programming Interface}
+    %     \acro{UML}{Unified Modeling Language}
+    % \end{acronym}                     
 \endgroup
 
 \cleardoublepage
