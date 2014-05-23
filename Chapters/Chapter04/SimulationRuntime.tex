@@ -35,7 +35,7 @@ The EgocentricApp provide two callback methods:
 
 Spatials are the elements of the 3D scene graph. As depicted in the class diagram they provide the \emph{getUserData(String)} method. With the help of this method we can retrieve the Ego Metadata using the EGOCENTRIC\_CONTEXT\_DATA flag. In the callback methods presented above, the received spatials will always carry Ego Metadata. Otherwise, the callback methods will not be called in the first place.\\
 
-The simulation logic is spread among the components which we will present next. The EgocentricApp is mean to initialize these components and provide a generic entry point for the concrete simulations extending it. To provide easy access to various game assets and the callback methods for the rest of the components, EgocentricApp is implemented as Singleton \cite{gamma1994design}.
+The simulation logic is spread among the components which we will present next. The EgocentricApp is mean to initialize these components and provide a generic entry point for the concrete simulations extending it. To provide easy access to various game assets and the callback methods for the rest of the components, EgocentricApp is implemented as Singleton \cite{gamma1994design}.\\
 
-A few concrete simulation examples will be discussed in Section \ref{sec:impl_prototype_models}.
+A few concrete simulation examples will be discussed in Section \ref{sec:impl_prototype_simulations}.
 % section impl_simulation_runtime (end)
