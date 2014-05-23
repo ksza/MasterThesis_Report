@@ -5,7 +5,7 @@
 We have designed and implemented a framework that allows system designers to create simulations of mobile context-aware systems. The simulator empowers users to intuitively interact with the simulated environment, while classifying the objects around the agent according to the SSM context model.\\
 
 UbiWise \ref{sec:ubiwise} is a device-centric simulator, it focuses on user manipulation of devices and the
-interactions between devices (e.g. protocol support in the discovery phase).
+interactions between devices.\\
 
 TATUS \ref{sec:tatus} targets the intelligent technology controlling ubiquitous computing environments through the use of embedded sensors and actuators.\\
 
@@ -17,9 +17,7 @@ We conclude this chapter with a comparison on how some of the simulators present
 \subsection{Role1: The System Designer} % (fold)
 \label{subsec:eval_role_system_designer}
 %************************************************
-The system designer is a researcher or a developer designing and implementing a simulation of a context-aware system.\\
-
-This role shares a common working methodology throughout all three systems:
+The system designer is a researcher or a developer designing and implementing a simulation of a context-aware system. This role shares a common working methodology throughout all three systems:
 \begin{enumerate}
 	\item using an editor, she/he creates a 3D model of the simulate environment
 	\item using the framework and the underlying game engine, she/he develops the simulation's business logic. This step might need thorough understanding of the game engine, in case the system designer has to implement more than what the framework has to offer
@@ -33,7 +31,7 @@ Next, the TATUS framework handles the aggregation of the generate message; basic
 
 For EgoSim, the system designer can use on of the many 3D modelling software to generate compatible 3D models with the underlying game engine, one of them being Blender \cite{blender:online}. The model can than be imported into the scene composer where the system designer identifies the objects he wants classified according to the SSM context model. To finalise the simulation, the system designer has to write some Java code by extending an abstraction provided by the framework. The abstraction will only need the model to use and some initial configuration data. If desired, the abstraction provide callback methods to implement functionality for custom interactions. During the simulation, the framework makes the context data available through an API available to third party services.\\
 
-Comparing the work routine a system designer has to do in order to set up a new simulation, we can notice a few similarities. 
+% Comparing the work routine a system designer has to do in order to set up a new simulation, we can notice a few similarities. 
 
 Because of the game engines they have used, developing the model of an environment for UbiWise or TATUS is constrained to their specific map editors. EgoSim on the other hand, is based on jMonkey Engine which works with various third party 3D model formats. We consider this being a plus. For example Blender, on of the software producing compatible formats, is the most popular open source 3D modelling software. The community produces a lot of free model which can be reused. Moreover, it is well documented which together with the active community helps a system designer get up to speed fairly quick.\\
 
@@ -52,7 +50,7 @@ TATUS offers a 3D view. The simulation user can experience the physical environm
 
 EgoSim offers a 3D view. The simulation user can interact with the simulated environment by moving around and performing basic interactions with everyday objects (i.e. pick-up/drop-down). As the simulation unfolds, the underlying monitoring service classifies the objects in the agent's surroundings according to the SSM context model. This context information can be accessed from a third party service through an API. Applications build on top of this context model can be always aware of the agent's surroundings, being able to take appropriate actions. Moreover, the simulation user has access to a ContextClient which displays the current status of the SSM context model. This can be used to observe if the simulation was correctly set up.\\
 
-In all cases the user interacts with a 3D environment. One is UbiWise is device centric, TATUS is sensor centric while EgoSim is body centric.
+In all cases the user interacts with a 3D environment, but each environment is meant for a certain type of interaction: UbiWise is device centric, TATUS is sensor centric while EgoSim is body centric.
 % section sec:eval_role_simulation_user (end)
 
 % section sec:eval_comparisond (end)

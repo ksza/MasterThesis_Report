@@ -4,7 +4,7 @@
 %************************************************
 In Section \ref{sec:goal} we have defined the main goals of the system as a list of high level system requirements. They are very generic and hard to establish an architecture upon. Because they do not contain details of the functionality the end-user of the system will be able to use. To have a clear vision of what this system needs to achieve, we will defined in this section a list of requirements from the end-user's perspective.\\
 
-We have decided to use the user stories concept, as a way to express the requirements of this system.\\
+We have decided to use the user stories concept\cite{cohn2004user}, as a way to express the requirements of this system.\\
 
 Agile Software Development is an iterative and incremental software development methodology, promoting adaptive planning, evolutionary development and delivery, while encouraging rapid and flexible response to change \cite{agile:online}. It is mainly used in the industry. One of the best practices in Agile Software Development for requirements is \emph{user stories}. We have not employed Agile Software Development in this work, but we have used the user stories concept as the agile methodology and the iterative design process resemble similarities and applying the user stories in this context, comes naturally.\\
 
@@ -20,7 +20,7 @@ Writing the requirements following the user story concept, helps us reflect upon
 			\\ \hline \hline
 			Role & Who & Role Description \\ \hline \hline
 
-		 	System Designer & The researcher & A researcher designing a mobile context-aware system based in the egocentric interaction paradigm. Uses the framework to design a simulation of the egocentric system.\\ \hline
+		 	System Designer & The researcher & As discussed in the introduction \ref{ch:introduction}, someone designing a mobile context-aware system based on the egocentric interaction paradigm. Uses the framework to design a simulation of the egocentric system.\\ \hline
 
 		 	Simulation User & The researcher, a QA engineer, an end-user of the egocentric system & This role can be fulfilled by users interested in the resulting egocentric system.\\ \hline
 
@@ -99,6 +99,14 @@ In this work, we have focused on two main parameters to classify objects around 
 \paragraph{Action Space} part of space around the agent that is currently accessible to the agent's physical actions. More specifically, the object has to currently be in Perception Space and within \emph{ACTION\_DISTANCE}. Objects in this set can be directly acted upon.
 \paragraph{Selected Set} objects currently being physically handled.
 \paragraph{Manipulated Set} objects whose states (external and internal) are currently being changed by the agent. Normally a subset of the Selected Set.\\
+
+The image in Figure \ref{fig:req_ssm_sets} presents a graphical representation of the SSM to clarify the relationship between the sets.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{gfx/Chapter3/ssm_sets}
+	\caption{A situative space model (SSM). The spaces represent presence and approximate spatial relationship among physical and virtual objects with respect to what a specific human agent can perceive (perception space) and manipulate (action space) at a given moment in time. Whether objects are perceivable and manipulable depends on their relations to the human agent in all available interaction modalities (for example, vision, touch, and audio).\cite{pederson2011situative}}
+	\label{fig:req_ssm_sets}
+\end{figure}
 
 As described in the definitions above, in order to correctly classify objects, they need to be augmented with the following parameters: \emph{PERCEPTION\_DISTANCE}, \emph{RECOGNITION\_DISTANCE}, \emph{EXAMINATION\_DISTANCE} and \emph{ACTION\_DISTANCE}. Normally, they should be given meaningful default values, therefore configuring them should not be a mandatory step. Even so, some objects might need adjusted values, so the possibility should be given to the system designer.
 % section requirements (end)
