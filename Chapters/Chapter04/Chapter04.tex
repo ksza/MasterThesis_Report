@@ -5,10 +5,10 @@ This chapter describes the choices made during the implementation of the design 
 
 In Section \ref{sec:simulation_runtime} we have argued for the benefits of using a game engine as the building block for the EgoSim framework. There are many available game engines which could fit our design, just to mention a few:
 \begin{itemize}
-	\item Source \cite{valvesrc:online}, Half Life's game engine, used to build the TATUS \ref{sec:tatus} ubiquitous computing simulator
-	\item Quake III Arena's game engine from ID Software \cite{q3a:online}, used to build the UbiWise \ref{sec:ubiwise} device-centric simulator
+	\item Source\footnote{\url{https://developer.valvesoftware.com/wiki/Source}}, Half Life's game engine, used to build the TATUS \ref{sec:tatus} ubiquitous computing simulator
+	\item Quake III Arena's game engine from ID Software\footnote{\url{http://www.idsoftware.com/gate.php}}, used to build the UbiWise \ref{sec:ubiwise} device-centric simulator
 	\item jMonkey Engine version 2.0 \cite{jme:online} was used to build the simulation in the SIMACT \ref{sec:simact} smart home infrastructure simulator
-	\item Unity \cite{unity:online} is a new cross-platform game engine, having a large number of game developers adopting it as a platform of choice when developing a game
+	\item Unity\footnote{\url{http://unity3d.com/}} is a new cross-platform game engine, having a large number of game developers adopting it as a platform of choice when developing a game
 \end{itemize}
 
 Previous to starting this project we had no knowledge of game development and game engines whatsoever. We have ran across Source, Quake III Arena and jMonkey Engine (JME) during research of related work, while we have heard of Unity due to all the buzz that formed around it lately. Source, Quake III Arena and Unity require previous knowledge of game development terminology and concepts. JME on the other hand has been implemented as a ''3D game engine for adventurous Java developers''. Moreover, ''it's open source, cross platform and cutting edge. And it is all beautifully documented'' \cite{jme:online}.\\
@@ -46,7 +46,7 @@ To get up to speed with jMonkey Engine development, you can access the following
 
 In this section we will go through the implementation of each component presented in the design Chapter \ref{ch:design}, in the exact same order. We will first describe the Simulation Designer \ref{sec:impl_simulation_designer} and how it can be used to work with the 3D models JME is compatible with and configure the objects with Ego Metadata. Next, we will present the Simulation Runtime \ref{sec:impl_simulation_runtime} and how it helps us in bringing those 3D models to ''life''. We continue with the rest of the components : The Agent \ref{sec:impl_the_agent}, Monitoring Service \ref{sec:impl_monitoring_service}, The API \ref{sec:impl_api} and finally the Context Client \ref{sec:impl_context_client}.\\
 
-The source code is included with the thesis in the \emph{EgoSim\_SourceCode.zip} archive. You can also find the source code of this project on GitHub \cite{egosim:online}. Using the framework to set up a new simulation is described in details in Appendix \ref{ch:user_guide}.\\
+The source code is included with the thesis in the \emph{EgoSim\_SourceCode.zip} archive. You can also find the source code of this project on GitHub\footnote{\url{https://github.com/ksza/EgoSim}}. Using the framework to set up a new simulation is described in details in Appendix \ref{ch:user_guide}.\\
 
 \input{Chapters/Chapter04/SimulationDesigner}
 \input{Chapters/Chapter04/SimulationRuntime}

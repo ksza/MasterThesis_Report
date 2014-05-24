@@ -4,7 +4,7 @@
 
 SIMACT is a smart home infrastructure simulator, developed in Java, designed to help researchers working in the field of activity recognition \cite{bouchard2012simact}. This work is specifically focused on the interaction between an agent and the surrounding environment in the smart house. It is built to reproduce everyday life scenarios, on a step-by-step basis.\\
 
-The simulator was built entirely on Java based technologies. The GUI was based on the swing library, while the 3D renderer was based on the Java Monkey Engine (JMonkey) version 2.0 \cite{jme:online}. For the 3D design, they have used a modelling tool for house design and interior accessories from Google called SketchUp \cite{sketchup:online}.\\
+The simulator was built entirely on Java based technologies. The GUI was based on the swing library, while the 3D renderer was based on the Java Monkey Engine (JMonkey) version 2.0 \cite{jme:online}. For the 3D design, they have used a modelling tool for house design and interior accessories from Google called SketchUp\footnote{\url{http://www.sketchup.com}}.\\
 
 To further detail, we will briefly discuss on the system's architecture, as illustrated in Figure \ref{fig:simact_architecture}.
 
@@ -26,7 +26,7 @@ A snapshot of the simulation tool in action is depicted in Figure \ref{fig:simac
 	\label{fig:simact_simulation_tool}
 \end{figure}
 
-The novel approach in this simulator is that entire scenarios and interactions can be designed only by using scripts and visual editors, without having to write one line of code. For the 3D design, the researchers have used a modelling tool for house design and interior accessories from Google called SketchUp \cite{sketchup:online}. This comes with a great advantage as SketchUp's community maintains a large library of free 3D models, where one can find almost any accessory that would fit in a home.\\
+The novel approach in this simulator is that entire scenarios and interactions can be designed only by using scripts and visual editors, without having to write one line of code. For the 3D design, the researchers have used a modelling tool for house design and interior accessories from Google called SketchUp. This comes with a great advantage as SketchUp's community maintains a large library of free 3D models, where one can find almost any accessory that would fit in a home.\\
 
 The framework enables simulation of both devices and physical objects. The entire simulation is controlled by the framework as it interprets the simulation scenario, described in an XML file. This is a step-by-step description of how various parameters of the system (e.g. the temperature in a room) and of objects (e.g. door opened/closed, lamp on/off) evolve. During the simulation, context data can be retrieved by third party service from the data base exposed by the framework.\\
 
