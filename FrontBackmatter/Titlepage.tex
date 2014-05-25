@@ -1,36 +1,90 @@
 %*******************************************************
 % Titlepage
 %*******************************************************
+\newgeometry{left=3cm,bottom=4cm,top=4cm,right=3cm}
 \begin{titlepage}
-	% if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
-	\begin{addmargin}[-1cm]{-3cm}
-    \begin{center}
-        \large  
 
-        \hfill
+\begin{center}
 
-        \vfill
 
-        \begingroup
-            \color{Maroon}\spacedallcaps{\myTitle} \\ \bigskip
-        \endgroup
+% Upper part of the page
+\includegraphics[width=0.15\textwidth]{gfx/itu_logo}\\[1cm]    
 
-        \spacedlowsmallcaps{\myName}
+\textsc{\LARGE IT University of Copenhagen}\\[2.0cm]
 
-        \vfill
+% Title
+\HRule \\[0.4cm]
+{ \huge \bfseries An Environment Simulator for Mobile Context-Aware System Design}\\[0.4cm]
 
-        \includegraphics[width=6cm]{gfx/itu_logo} \\ \medskip
+\HRule \\[1.5cm]
 
-        \mySubtitle \\ \medskip   
-        %\myDegree \\
-        %\myDepartment \\                            
-        %\myFaculty \\
-        %\myUni \\ \bigskip
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+K\'aroly Sz\'ant\'o\\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{E-Mail:} \\
+\href{mailto:ksza@itu.dk}{ksza@itu.dk}\\
+\end{flushright}
+\end{minipage}\\[0.8cm]
 
-        \myTime\ -- \myVersion
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Supervisor:}\\
+Thomas Olof Pederson\\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{E-Mail:} \\
+\href{mailto:tped@itu.dk}{tped@itu.dk}\\
+\end{flushright}
+\end{minipage}
 
-        \vfill                      
+\vfill
 
-    \end{center}  
-  \end{addmargin}       
-\end{titlepage}   
+% Bottom of the page
+{\large June 1, 2014}
+
+\end{center}
+
+\end{titlepage}
+\restoregeometry
+% \begin{titlepage}
+% 	% if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
+% 	\begin{addmargin}[-1cm]{-3cm}
+%     \begin{center}
+%         \large  
+
+%         \hfill
+
+%         \vfill
+
+%         \begingroup
+%             \color{Maroon}\spacedallcaps{\myTitle} \\ \bigskip
+%         \endgroup
+
+%         \spacedlowsmallcaps{\myName}
+
+%         \vfill
+
+%         \includegraphics[width=6cm]{gfx/itu_logo} \\ \medskip
+
+%         \mySubtitle \\ \medskip   
+%         %\myDegree \\
+%         %\myDepartment \\                            
+%         %\myFaculty \\
+%         %\myUni \\ \bigskip
+
+%         \myTime\ -- \myVersion
+
+%         \vfill                      
+
+%     \end{center}  
+%   \end{addmargin}       
+% \end{titlepage}   
