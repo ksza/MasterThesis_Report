@@ -2,15 +2,24 @@
 \section{Discussion} % (fold)
 \label{sec:eval_discussion}
 %************************************************
-% The tool we have built is meant to be used by system designers to create simulations. The resulting systems are then used by simulation users and third party services. To meaningfully assess the quality of the EgoSim framework and of the simulations which can be built with it, we have to take a step back to inspect the goals \ref{sec:goal} and and requirements \ref{sec:requirements}. The requirements have been identified based on the goals of the system and guided by an end-to-end scenario \ref{sec:scenario} we have imagined as the intended way to use our system. Given that the result of our work is an interactive system, we have evaluated the system from the end user's point of view.\\
-
-% To quantify the user feedback into a meaningful discussion, we have extracted four characteristics of interest which emerged from the goals and requirements of our system. For the system designer we wanted to create a framework which allows ''researchers to easily build a simulated environment''\ref{goal:1}, as detailed in requirements \ref{us:1} - \ref{us:3}. Within the simulations built by system designers, we wanted to allow simulation users to control a virtual agent in order to interact ''with the environment (move around, look around, pick up objects, etc)'' \ref{goal:2} (detailed in requirement \ref{us:4}). To evaluate how useful these requirements are and to what extent our system have met them, we will look into the \emph{usefulness} and \emph{usability} of both the framework and simulations from the end user's point of view.\\
-
-% The simulation users interact with a visual heavy 
-
 The evaluation results can be found in Appendix \ref{sec:res_alf_task} and Appendix \ref{sec:res_childproof_task}. Before we carry on with the discussion, we would like to point out one more time that the level of experience in the field of software engineering of all of our participants was high. We believe that the results of the evaluation provide good guidelines for future work on the system.\\
 
 For the ALF evaluation scenario we came up with a hypothetical problem and provided a solution based on the SSM. We were concerned that the participants might not agree that designing the solution based on the egocentric interaction paradigm is the right approach. Therefore, we have asked them \ref{question1:6} whether the SSM is the right context model for the ALF system and for the third party services developed around it. All the participants agreed that this was the right approach, assuring that we have chosen a strong and relevant scenario for this evaluation.\\
+
+%************************************************
+\subsection{Characteristics} % (fold)
+\label{sec:eval_characteristics}
+%************************************************
+The tool we have built is meant to be used by system designers to create simulations. The resulting systems are then used by simulation users and third party services. To meaningfully assess the quality of the EgoSim framework and of the simulations which can be built with it, we have to take a step back to inspect the goals \ref{sec:goal} and and requirements \ref{sec:requirements}. The requirements have been identified based on the goals of the system and guided by an end-to-end scenario \ref{sec:scenario} we have imagined as the intended way to use our system. Given that the result of our work is an interactive system, we have evaluated the system from the end user's point of view.\\
+
+To quantify the user feedback into a meaningful discussion, we have extracted four characteristics of interest which emerged from the goals and requirements of our system. To evaluate how useful our requirements are and to what extent our system have met them, we will look into the \emph{usefulness} and \emph{usability} of both the framework and simulations.\\
+
+Given that simulations created with EgoSim are interactive systems, we are interested about how \emph{responsive} they were found by simulation users. Moreover, the ContextClient is meant to be a close to real-time context visualization tool, therefore we are assessing its responsiveness as well.\\
+
+The core of a simulation is the classification process and the SSM context model. We have found it imperative to assess the quality and relevance of how objects around the virtual agent got classified during the simulation.\\
+
+To conclude, in the remainder of this section we will have discuss the evaluation results in the light of four characteristics: usefulness, usability, responsiveness and classification.\\
+% section sec:eval_characteristics (end)
 
 %************************************************
 \subsection{Usefulness} % (fold)
