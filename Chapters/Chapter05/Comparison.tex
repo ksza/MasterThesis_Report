@@ -23,16 +23,26 @@ The system designer is a researcher or a developer designing and implementing a 
 	\item using the framework and the underlying game engine, she/he develops the simulation's business logic. This step might need thorough understanding of the game engine, in case the system designer has to implement more than what the framework has to offer
 \end{enumerate}
 
+%************************************************
+\subsubsection{UbiWise} % (fold)
+%************************************************
 ''The building blocks of UbiWise are the simulated devices, the virtual representations of the physical devices''\cite{barton2003ubiwise}. Using a designer written in Java, the system designer creates a model of the simulated device. This model will be represented both in the 2D and the 3D view. Next, the system designer uses GtkRadiant\footnote{\url{http://icculus.org/gtkradiant}} to design the 3D model of the simulated physical environment where the device will be used. GtkRadiant is the official level design tool chain for the Q3A game engine. The drawback of this environment designer, as stated in the UbiWise paper is ''Operation of this editor is complex and it takes a couple of days to understand it; online resources for models often require format conversions to work in the editor. Thus the effort for the first simulation could be a week's time;''\cite{barton2003ubiwise}. The last step is to provide functionality for the device. This is done by means of an XML configuration file. It configures various actions to be handled by custom Java classes. These actions will be triggered from the 2D view.\\
 
+%************************************************
+\subsubsection{TATUS} % (fold)
+%************************************************
 In TATUS, the system designer uses the Hammer\footnote{\url{https://developer.valvesoftware.com/wiki/Valve_Hammer_Editor}} map editor to model an environment. It is a drawing tool for building maps. Hammer compiles maps a format used by the Half-Life game engine, which TATUS was built upon. To add sensors/actuators to the environment, the system designer would place \emph{triggers} at various locations in the map. Triggers are specific concepts from the Half-Life game engine. For clarity, imagine them as invisible entities within a map, which generate events based on a player's movements and location. So, if a player enters a region of a map occupied by a trigger the associated event is activated (e.g. a door is opened).\\
 
 Next, the TATUS framework handles the aggregation of the generate message; basically manages the context of the simulation. The context information is available through an API. To develop the simulation's business logic, the system designer implements a new System Under Test (SUT), in Java, which connects to the API and implements business logic based on the available context information.\\
 
+%************************************************
+\subsubsection{EgoSim} % (fold)
+%************************************************
 For EgoSim, the system designer can use on of the many 3D modelling software to generate compatible 3D models with the underlying game engine, one of them being Blender\footnote{\url{http://www.blender.org/}}. The model can than be imported into the scene composer where the system designer identifies the objects he wants classified according to the SSM context model. To finalise the simulation, the system designer has to write some Java code by extending an abstraction provided by the framework. The abstraction will only need the model to use and some initial configuration data. If desired, the abstraction provide callback methods to implement functionality for custom interactions. During the simulation, the framework makes the context data available through an API available to third party services.\\
 
-% Comparing the work routine a system designer has to do in order to set up a new simulation, we can notice a few similarities. 
-
+%************************************************
+\subsubsection{Discussion} % (fold)
+%************************************************
 Because of the game engines they have used, developing the model of an environment for UbiWise or TATUS is constrained to their specific map editors. EgoSim on the other hand, is based on jMonkey Engine which works with various third party 3D model formats. We consider this being a plus. For example Blender, on of the software producing compatible formats, is the most popular open source 3D modelling software. The community produces a lot of free model which can be reused. Moreover, it is well documented which together with the active community helps a system designer get up to speed fairly quick.\\
 
 If the system designer is in need to develop custom functionality and needs to go to the game engine level, TATUS and UbiWise impose quite a challenge. Both game engines were written in C/C++. As stated in TATUS ''Following the experiences encountered while working with the HL SDK, it has become apparent that its complexity requires the presence of an experienced developer. In order to tackle the SDK, a developer must at least have a good working knowledge of C/C++''. EgoSim on the other hand is based on jMonkey Engine. It is written in Java, a language widely embraced by the research community. Moreover, it's open source and well documented. An system designer experienced in Java should be able to get up to speed within a few day with jMonkey Engine.\\
@@ -44,12 +54,24 @@ If the system designer is in need to develop custom functionality and needs to g
 %************************************************
 This role is filled up by a person running a simulation build with one of the frameworks. In all three cases, the user interacts from a first-person view with the simulated environment.\\
 
+%************************************************
+\subsubsection{UbiWise} % (fold)
+%************************************************
 UbiWise offers two views to the user, the 3D physical view (game environment) and the 2D device view (Java Swing Interface). A user in such an instance does all manipulation of the devices through the device view only. The 3D view is used solely to see the effects of device manipulation on the 3D environment. For example, in the example scenario the agent carries a digital wireless camera and in the simulated environment there is a wireless picture frame, both connected to the same content service. When the user uploads a picture from the 2D view, the wireless picture frame reflects the picture that has been uploaded.\\
 
+%************************************************
+\subsubsection{TATUS} % (fold)
+%************************************************
 TATUS offers a 3D view. The simulation user can experience the physical environment fully immersed throughout the lifetime of the simulation. The environment will be modified by the SUT based on the business logic implemented for a specific situation (in a certain context). For example, if the agent is close enough to a door, the SUT might decide to open that door. Therefore, TATUS specifically targets predicting user intentions based on notifications from sensors and actuators embedded in the environment. The simulation user experiences changes in the environment while interacting with it, as effect of the SUT's business logic controlling the ubiquitous computing environments through the use of embedded sensors and actuators.\\
 
+%************************************************
+\subsubsection{EgoSim} % (fold)
+%************************************************
 EgoSim offers a 3D view. The simulation user can interact with the simulated environment by moving around and performing basic interactions with everyday objects (i.e. pick-up/drop-down). As the simulation unfolds, the underlying monitoring service classifies the objects in the agent's surroundings according to the SSM context model. This context information can be accessed from a third party service through an API. Applications build on top of this context model can be always aware of the agent's surroundings, being able to take appropriate actions. Moreover, the simulation user has access to a ContextClient which displays the current status of the SSM context model. This can be used to observe if the simulation was correctly set up.\\
 
+%************************************************
+\subsubsection{Discussion} % (fold)
+%************************************************
 In all cases the user interacts with a 3D environment, but each environment is meant for a certain type of interaction: UbiWise is device centric, TATUS is sensor centric while EgoSim is body centric.
 % section sec:eval_role_simulation_user (end)
 
