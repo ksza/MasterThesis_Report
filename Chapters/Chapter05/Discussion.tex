@@ -27,6 +27,9 @@ To conclude, in the remainder of this section we will have discuss the evaluatio
 %************************************************
 One of the main objectives of our evaluation was to investigate if the users found our system useful. On one hand we were interested if the participants found simulations built using EgoSim as being useful; on the other hand if they have found the system as a whole useful to simulate system designed around the SSM context model.\\
 
+%************************************************
+\subsubsection{The Framework} % (fold)
+%************************************************
 All the participants have seen the value of simulating a system using EgoSim, over directly implementing the system into a real set-up. This strengthens the hypothesis of our work, that there is a real need for the system we have built. As one of the users stated in the feedback for question \ref{question1:7}: ''The simulation could provide a cost effective way of gaining valuable insight into the design of an Assisted Living Facility before such a facility is constructed''. Moreover, some participants pointed out some benefits of the simulator we have not stated:
 \begin{itemize}
 	\item lower costs in case of trial and error
@@ -37,10 +40,6 @@ All the participants have seen the value of simulating a system using EgoSim, ov
 \end{itemize}
 
 To further assess the usefulness of EgoSim, all the users found it useful to simulate systems build with the SSM context model at their core. One of the participants stated in the feedback for question \ref{question2:2} ''Objects can be easily decorated with context information and interacting with them can be tested quickly because the framework takes care of basic interaction and movement in the space''. The fact that we have inferred functionality from based on the Ego Metadata configuration, makes the framework a lot more useful for users than we though in the first place. None but one of the participants were previously aware of the SSM context model, but they have managed to successfully build a simulation in the second task: ''with a few easy steps I was able to model the desired environment''.\\
-
-When creating a simulation of a real life environment, immersion of the user into the virtual environment is rather important. The user must identify herself/himself with the agent and the simulated environment must resemble the real environment it actually represents. This has two implications: on one hand the 3D model of the environment must be good enough to resemble the real life setup of the simulated environment; on the other hand, the when the simulation is running and the user is interacting with the environment, she/he must feel absorbed to a certain extent. All the participants found the ALF simulation a good simulation for a home \ref{question1:1}. We have build both the ALF and the Childproof 3D models with a third party software and used them with our framework. Moreover, the participants have experienced the virtual environment by means of the running simulation. The fact that all participants found it a good simulation of a home, assures that third party software can supply useful 3D models. The feedback from our participants makes us believe that we made the right decision to use a game engine to render the 3D models and provide interaction capabilities.\\
-
-We believed the level of object details for this evaluation was not relevant. One of the participants proved us wrong saying ''given the high system requirements I would have expected a better graphics/game engine''. Reflecting upon the issues this is not a game engine problem. The jMonkey Engine has all the capabilities of rendering high quality models. We have simply implemented models with low details. However, developing high detail models requires much more time invested in the modelling process.\\
 
 Our system proved to be a useful educational tool as well. Before staring the evaluation, only one participants reported as being familiar with the egocentric interaction paradigm \ref{question1:0}. After the evaluation the participants have reported an average of 4.5 level of understanding about the SSM, on a scale from 1 to 7 \ref{question2:0}. This means using the EgoSim framework, participants got rather good insights into what egocentric integration paradigm means and how the SSM works. In the future, it might prove to be a useful tool for students studying ubiquitous computing to learn about these concepts.\\
 
@@ -53,29 +52,49 @@ In one of the feedback questions we have asked the participants to imagine vario
 \end{itemize}
 
 All of these systems/services are useful systems and they can easily be simulated with EgoSim. The fact that so many participants were able to come up with ideas of systems build on top of the SSM context model, means the context model has a lot of potential for context aware system development. Therefore, the support EgoSim offers for building simulations with this context model as a cornerstone, based on the user feedback, turns out to be useful based on the user feedback.
+
+%************************************************
+\subsubsection{The Simulation} % (fold)
+%************************************************
+When creating a simulation of a real life environment, immersion of the user into the virtual environment is rather important. The user must identify herself/himself with the agent and the simulated environment must resemble the real environment it actually represents. This has two implications: on one hand the 3D model of the environment must be good enough to resemble the real life setup of the simulated environment; on the other hand, the when the simulation is running and the user is interacting with the environment, she/he must feel absorbed to a certain extent. All the participants found the ALF simulation a good simulation for a home \ref{question1:1}. We have build both the ALF and the Childproof 3D models with a third party software and used them with our framework. Moreover, the participants have experienced the virtual environment by means of the running simulation. The fact that all participants found it a good simulation of a home, assures that third party software can supply useful 3D models. The feedback from our participants makes us believe that we made the right decision to use a game engine to render the 3D models and provide interaction capabilities.\\
+
+We believed the level of object details for this evaluation was not relevant. One of the participants proved us wrong saying ''given the high system requirements I would have expected a better graphics/game engine''. Reflecting upon the issues this is not a game engine problem. The jMonkey Engine has all the capabilities of rendering high quality models. We have simply implemented models with low details. However, developing high detail models requires much more time invested in the modelling process.\\
 % section sec:eval_usefulness (end)
 
 %************************************************
 \subsection{Usability} % (fold)
 \label{sec:eval_usability}
 %************************************************
+
+%************************************************
+\subsubsection{The Framework} % (fold)
+%************************************************
 All participants were positive about the usability of the system. Creating a simulation using EgoSim comes down to do some configuration work on top of a 3D model. Using EgoSim to design a new simulations, the participants have reported that identifying and configuring the objects to be classified during simulation, on a scale from 1 to 7 (Very easy - Very hard) was an average of 2.1 \ref{question2:3}. This means that almost everyone has found the process of designing a new simulation easy. We have based this process on the jMonkey SDK's components. We were sceptical at first and thought it might be a laborious and hard to understand process, but based on the user feedback, we conclude it was the right decision.\\
 
 Although, one of the participants was not able to finish the second task \ref{question2:1} because due to not being able to augment the desired object models with EgocentricContextData. This was most probably due to the fact that when configuring an object in the jMonkey scene composer, the name of the custom user data must be EGOCENTRIC\_CONTEXT\_DATA. If it is not exactly this, even if the name has an extra space, the framework will fail to identify object to be classified. A user feedback to improve this feature was to ''trim the context variable for space EGOCENTRIC\_CONTEXT\_DATA''. We could indeed rephrase the name into something shorter, but this is a matter for future work.\\
 
+%************************************************
+\subsubsection{The Simulation} % (fold)
+%************************************************
 When running the simulation, the participants felt that interacting with the environment was very intuitive. On a scale from 1 to 7 (Not intuitive at all -- Highly intuitive), they have reported an average of 5.5 \ref{question1:3}. This translates into the interaction with the environment being very intuitive. This is of course valid only for moving around the environment and for the default interaction we have provided for objects -- pick-up/drop-down. Some users felt that a generic USE action would be more appropriate ''A generic USE action would help is many situations as many objects that are interacted with might have a main USE method. pickup/putdown could be specific implementations of use''. Moreover, other kind of interactions have been requests like turn off/on for electronics, shower, etc. All these aspects will be discussed in Section \ref{sec:future_work}.\\
 
 The collision detection (the fact the agent could not pass through objects) was especially well received ''I think moving around was very close to reality and I liked the fact that it was aware of the obstacles. For example, you could not just move forward through the couch to get to the coffee table''.\\
 
+%************************************************
+\subsubsection{Context Data and Contextual Interactions} % (fold)
+%************************************************
 The custom interactions we have implemented in the fist scenario were also well received: ''The Piano playing actions were nice''. Some participants noted that support for building custom interaction would have been useful: ''Would be nice if people could declare their own type of interactions''. This is actually possible with the current implementation, unfortunately we could not fit any more tasks for the participants in the evaluation; it took a fair amount of time as it is. The fact that it is a required feature, means we have well anticipated this need by implementing support for both CUSTOM interaction with objects, as detailed in Listing \ref{lst:custom_interaction}, and COMBINED interaction between two objects, as detailed in Listing \ref{lst:custom_interaction}.\\
 
 Most context aware systems need to access the historical information of changes in context of various entities. We have not implemented this aspect, but we should plan for this in future work. On of the participants even mentioned the lack of this feature stating that it would be useful to have ''Historical information about the agent: what actions has he performed so far, objects with which he has interacted with so far, etc''.\\
 
+A potential weakness of the framework was pointed out by one of the participants saying ''a potential weakness of this framework would be the lack of information regarding the relationship between objects''. In the current implementation we monitor the context of surrounding object only from the agent's perspective. But context information that is affected by relationship between objects might also be relevant. This could be solved by adding support for sensor to our framework, which we lack at the moment.\\
+
+%************************************************
+\subsubsection{The API} % (fold)
+%************************************************
 To evaluate the framework from a third party service's point of view, in the second task we have given the participants to solve a hypothetical problem in the context of the scenario, as a developer of a third party service based on data available through the API. 16 out of the 17 participants were able to provide the correct solution \ref{question2:10}. This makes us believe the data in the SSM sets provided through the API is explicit enough to build service aware of the current context in the ongoing simulation.\\
 
 In the current implementation context changes occur only as the agent interacts with the environment. Some participants pointed out that it would be useful to modify some context data through the API. We will reconsider this idea in future work.\\
-
-A potential weakness of the framework was pointed out by one of the participants saying ''a potential weakness of this framework would be the lack of information regarding the relationship between objects''. In the current implementation we monitor the context of surrounding object only from the agent's perspective. But context information that is affected by relationship between objects might also be relevant. This could be solved by adding support for sensor to our framework, which we lack at the moment.\\
 
 Overall, the framework as a whole was perceive by the participants as being highly useful \ref{question2:3}. One of the participants even said that ''it is very easy to import a scene and augment the objects with different information and interaction types''.\\
 % section sec:eval_usability (end)
