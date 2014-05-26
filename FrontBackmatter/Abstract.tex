@@ -10,25 +10,39 @@
 
 \chapter*{Abstract}
 % 1) introduce the reader to the problem. Say something about how big it is and its nature.
-Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process. This is why ''the use of simulation technology in ubiquitous computing is of particular importance to developers and researchers alike [...] simulation enables researchers to evaluate scenarios, applications, protocols and so forth without the difficulties in dealing with hardware sensors and actuators, and also offers greater flexibility since it is easy to run a set of simulations with a range of parameters''\cite{reynolds2006requirements}.
+Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process. This is why the use of simulation technology in ubiquitous computing is of particular importance to developers and researchers alike. Simulation enables researchers to evaluate scenarios and applications
+without the difficulties in dealing with hardware sensors and actuators \cite{reynolds2006requirements}.
 
 % 2) say something about common existing ways in dealing with the problem
-Various systems offer a solution to this problem focused on a certain application domain. SIMACT \cite{bouchard2012simact} and eHomeSimulator \cite{armac2007simulation} help simulate pervasive systems in smart homes/environments. DiaSim \cite{bruneau2013diasim} and TATUS \cite{o2005testbed} are simulators for pervasive computing applications based on sensors and actuators. UbiWise \cite{barton2003ubiwise} is a device-centric simulator, helping to simulate ubiquitous computing devices before physical prototypes are available.
+Some state-of-the-art systems simulate pervasive computing applications based on sensors and actuators in smart environments based on sensors and actuators; others are focused on simulating ubiquitous computing devices before physical prototypes are available.
+
+% Various systems offer a solution to this problem focused on a certain application domain. SIMACT \cite{bouchard2012simact} and eHomeSimulator \cite{armac2007simulation} help simulate pervasive systems in smart homes/environments. DiaSim \cite{bruneau2013diasim} and TATUS \cite{o2005testbed} are simulators for pervasive computing applications based on sensors and actuators. UbiWise \cite{barton2003ubiwise} is a device-centric simulator, helping to simulate ubiquitous computing devices before physical prototypes are available.
 
 % 3) indicate the limitations of those approaches and present your own approach as one that doesn't share all those limitations
-We believe that physical objects and devices are an essential part of the context of a human agent. All the aforementioned simulators are driven by the presence of a human agent within the simulated environment, but none of them classifies the surroundings of the human agent into meaningful context data.
- 
+We believe that physical objects and devices are an essential part of the context of a human agent. All the aforementioned simulators are driven by the presence of a human agent within the simulated environment, but none of them provides explicit details about what the human agent can perceive and act on, in a given moment in time, to the context-aware logic which the system designer is about to design.
+
+
 % 4) present what you have developed
-The Egocentric Interaction Paradigm is a theoretical framework which aids system design from a body-centric perspective; objects around the human agent are classified according to the Situative Space Model (SSM), offering at any moment in time a clear understanding on what the human agent might do next. We have developed EgoSim, an open-source framework which helps to simulated pervasive systems based on the SSM.
+We have developed EgoSim, a mobile context-aware simulation framework which classifies objects surrounding the human agent according to the Situative Space Model (SSM). The SSM defines object (physical or virtual) classifications with respect to what degree they can be interacted with, at any given point in time.
+
+% The Egocentric Interaction Paradigm is a theoretical framework which aids system design from a body-centric perspective; objects around the human agent are classified according to the Situative Space Model (SSM), offering at any moment in time a clear understanding on what the human agent might do next. We have developed EgoSim, an open-source framework which helps to simulated pervasive systems based on the SSM.
 
 % 5) present how it was developed and evaluated
-We have implemented the EgoSim framework on top of the jMonkey \cite{jme:online} game engine. For the evaluation process we have recruited 17 participants with vast experience in the field of software engineering. They have evaluated the system both as system designers and as users of simulations built with EgoSim. Using their feedback, we have assessed the quality of our system based on 4 characteristics: usefulness, usability, responsiveness and accuracy of the classification process.
+To evaluate our system we have recruited 17 participants with vast experience in the field of software engineering, which have provided valuable feedback. We have assessed the quality of our system based on 4 characteristics: usefulness, usability, responsiveness and accuracy of the classification process.
+
+% We have implemented the EgoSim framework on top of the jMonkey \cite{jme:online} game engine. For the evaluation process we have recruited 17 participants with vast experience in the field of software engineering. They have evaluated the system both as system designers and as users of simulations built with EgoSim. Using their feedback, we have assessed the quality of our system based on 4 characteristics: usefulness, usability, responsiveness and accuracy of the classification process.
 
 % 6) present the most interesting results from the evaluation and from developing the prototype
-For the evaluation process we have developed two prototype simulations. The participants have also successfully developed a simulation using our framework. All participants have fount EgoSim and the resulting simulations as being useful, with high usability and responsiveness. Only a little more than half of the users have reported that the objects were correctly classified according to the SSM. Also, the system was found to be a promising educational tool for the theoretical framework.
+All participants have found EgoSim useful, highly usable and responsive, concluding that we have successfully designed a solution based on SSM to the aid ubiquitous system design, contributing with another dimension to the worlds of ubiquitous computing simulators.
+
+
+% Only a little more than half of the users have reported that the objects were correctly classified according to the SSM. 
+
+
+% For the evaluation process we have developed two prototype simulations. The participants have also successfully developed a simulation using our framework. All participants have fount EgoSim and the resulting simulations as being useful, with high usability and responsiveness. Only a little more than half of the users have reported that the objects were correctly classified according to the SSM. Also, the system was found to be a promising educational tool for the theoretical framework.
 
 % 7) present how your work changes (ideally) the way we can handle the problem mentioned in 1) in the future
-We conclude this work with a number of improvements to our system and a list of new features as a result of the evaluation.
+We conclude this work with a number of improvements to our system and a list of new features as a result of the evaluation. The classification process given priority as it is presents inaccurate results in edge cases.
 
 \endgroup			
 
