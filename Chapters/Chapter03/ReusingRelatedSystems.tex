@@ -1,0 +1,42 @@
+%************************************************
+\section{Challenges of building onto related systems} % (fold)
+\label{sec:reusing_related_systems}
+%************************************************
+While researching the systems presented in the related work chapter \ref{ch:related_work}, we have analysed the possibilities of reusing some of them so we do not start from scratch. Unfortunately, none of them was fit for our approach. In this section we present the challenges we would face trying to design our solution in the context of some of the related systems.
+
+%************************************************
+\subsection{DiaSim}\label{subsec:design_diasim}
+%************************************************
+After thorough analysis, we found DiaSim's \ref{sec:diasim} simulation model as being generic enough to possibly host our needs. The simulation model seems to be flexible and open for further modifications. The system is not open source and the research team is not yet open for external collaboration. We have contacted the research group at INRIA\footnote{\url{http://www.inria.fr}} proposing a collaboration in order to extend DiaSim in the directions required by this project. The answer we got back is that development of DiaSim is momentarily suspended as most of the group is focused on another project. They will resume development of DiaSim only six month later. Even so, they are yet unable to determine whether a partial release of the sources is possible.\\
+
+Even if building on top of DiaSim would have been possible, some outstanding issues should be tackled. The simulated environment does not monitor the agent's field of vision. To accommodate this need, the renderer module should be entirely replaced. Besides, there is no support for direct interaction with physical objects and mediators. The only type of interaction is proximity based: i.e. a sensor attached to a door would command the door to open if the agent is within range. Moreover, DiaSim is lacking an open API to enable third party service to make use of the simulated system's context data.\\
+
+%************************************************
+\subsection{SIMACT}\label{subsec:design_simact}
+%************************************************
+SIMACT \ref{sec:simact} is a smart home infrastructure simulator built to reproduce everyday life scenarios on a step-by-step basis. To make it easier to comprehend the simulated system, SIMACT animates the simulation using the jMonkey Engine (JME) framework. SIMACT is not a tool to create simulations for simulation user, rather it is oriented towards observing the systems evolution over time.\\
+
+Although SIMACT does not offer the necessary means to support the implementation of our requirements, the JME game engine used to animate the simulations has caught our attention. JME has all the capabilities of a modern game engine which, as discussed in this chapter, we consider well fit to accommodate our requirements. In Chapter \ref{ch:implementation} we will argue for JMonkey as a possible candidate to be used in our work.\\
+
+%************************************************
+\subsection{TATUS}\label{subsec:design_tatus}
+%************************************************
+TATUS \ref{sec:tatus} is a 3D simulator implemented on top of Half-Life's Game Engine. It has exploited the concept \emph{Triggers} from the SDK to simulate sensors and actuators. They are used to generate associated events based on a player's movements and location. Therefore, TATUS already has proximity detection, but only based on sensors.\\
+
+It would be possible to partially base our design on TATUS' triggers, by attaching such a trigger to each object we would like to classify based on the agent's proximity. Moreover, TATUS does not simulate interaction with devices neither does it simulate interaction with everyday physical objects.\\
+
+To conclude, TATUS is not open-source, making it unusable for research outside the institution it was developed in.\\
+
+%************************************************
+\subsection{UbiWise}\label{subsec:design_ubiwise}
+%************************************************
+UbiWise \ref{sec:ubiwise} was designed to simulate the interaction of the agent with the device prototypes within the target environment, not with the actual environment. Moreover, the framework empowers the user to interact with the software running on them. Therefore UbiWise handles the representation of mediators and interaction with virtual objects. This could be a good starting point. But UbiWise is solely oriented towards simulating prototyped devices. The virtual agent can interact with the prototyped devices and with the software running on them, some of the device may even be hand-held. It has no direct interaction with physical objects, the framework does no track the agent position towards objects within the environment and does not determine the objects within the agent's field of vision. The underlying game engine might provide the necessary means to accommodate these requirements, but the effort depends greatly on individual experience in C programming.\\
+
+To conclude, UbiWise was implemented with a radically different goal in mind and it poses an unnecessary technical challenge to try and accommodate EgoSim's requirements into its design.\\
+
+%************************************************
+\subsection{Conclusion}\label{subsec:reusing_conclusion}
+%************************************************
+In this section we have presented the challenges we would have faced trying to design our solution in the context of some of the related systems. None of the system were fit for our approach, but we had much to learn from them, nonetheless. Most systems which allow direct interaction between the agent and the simulated environment were build to some degree using game engines. We are considering to include game engines into our design as argued for in Section \ref{sec:simulation_runtime}.
+
+% section sec:reusing_related_systems (end)
