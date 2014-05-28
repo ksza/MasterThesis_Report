@@ -26,11 +26,11 @@ The classification logic is spread among multiple classes as depicted in Figure 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{gfx/Chapter4/computation_strategy}
-	\caption{Computation Strategy hierarchy class diagram}
+	\caption{Computation Strategy class diagram}
 	\label{fig:impl_computation_strategy}
 \end{figure}
 
-When the classification process is started up, it first determines the set of objects in the agent's field of vision. The algorithm of determining whether an object is currently visible to the agent or not, is embedded in the SSMClassifier.isOnScreen(Spatial) method. Having the list of currently visible objects, each concrete strategy (i.e. PerceptionSpaceStrategy) is responsible to determine which of these objects should be par of a certain space.\\
+When the classification process is started up, it first determines the set of objects in the agent's field of vision. The algorithm of determining whether an object is currently visible to the agent or not, is embedded in the SSMClassifier.isOnScreen(Spatial) method. Having the list of currently visible objects, each concrete strategy (i.e. PerceptionSpaceStrategy) is responsible to determine which of these objects should be part of a certain space.\\
 
 After the classification process is finished, all the sets in the SSMBundle are up to date.
 % section impl_the_classifier (end)

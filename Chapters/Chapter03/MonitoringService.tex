@@ -11,7 +11,7 @@ Next, we will briefly address how to determine whether objects are within the ag
 %************************************************
 Central to all computations and decisions in this framework is the World Space. It is ought to contain all the objects in the environment carrying Ego metadata. To design for easy access to the objects carrying Ego metadata, when the simulation is started up, we parse the \ref{scene_graph} and each object carrying Ego metadata is added to the World Space. Whenever we need to categorize the monitored objects, we can simply refer to the World Space.\\
 
-The drawback of this choice is that we are duplicating a set of data already present in the scene graph. The advantage is that we don't have to parse to \ref{scene_graph} every time we are interested in the objects carrying Ego metadata, accessing them from a reduced set of data brings performance improvements. Moreover, the World Space has to always be available through the API and it never changes, so computing it once, at the simulation's start-up, comes as a natural decision.
+The drawback of this choice is that we are duplicating a set of data already present in the scene graph. The advantage is that we don't have to parse to \ref{scene_graph} every time we are interested in the objects carrying Ego metadata; accessing them from a reduced set of data brings performance improvements. Moreover, the World Space has to always be available through the API and it never changes, so computing it once, at the simulation's start-up, comes as a natural decision.
 % subsection world_space (end)
 
 %************************************************

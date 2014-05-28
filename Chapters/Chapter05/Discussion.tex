@@ -18,14 +18,14 @@ Given that simulations created with EgoSim are interactive systems, we are inter
 
 The core of a simulation is the classification process and the SSM context model. We have found it imperative to assess the quality and relevance of how objects around the virtual agent got classified during the simulation.\\
 
-To conclude, in the remainder of this section we will have discuss the evaluation results in the light of four characteristics: usefulness, usability, responsiveness and classification.\\
+To conclude, in the remainder of this section we will discuss the evaluation results in the light of four characteristics: usefulness, usability, responsiveness and classification.\\
 % section sec:eval_characteristics (end)
 
 %************************************************
 \subsection{Usefulness} % (fold)
 \label{sec:eval_usefulness}
 %************************************************
-One of the main objectives of our evaluation was to investigate if the users found our system useful. On one hand we were interested if the participants found simulations built using EgoSim as being useful; on the other hand if they have found the system as a whole useful to simulate system designed around the SSM context model.\\
+One of the main objectives of our evaluation was to investigate if the users found our system useful. On one hand we were interested if the participants found simulations built using EgoSim as being useful; on the other hand if they have found the system as a whole useful to simulate systems designed around the SSM context model.\\
 
 %************************************************
 \subsubsection{The Framework} % (fold)
@@ -45,7 +45,7 @@ Our system proved to be a useful educational tool as well. Before staring the ev
 
 In one of the feedback questions we have asked the participants to imagine various system they could build using based on the SSM Sets and the outcome of our classification algorithms. The have came up with a list of interesting ideas \ref{question2:10}; we have listed some of them bellow:
 \begin{itemize}
-	\item Assistance for people with disabilities (especially the visually impaired), to offer a augmented representation of their environment.
+	\item Assistance for people with disabilities (especially the visually impaired), to offer an augmented representation of their environment.
 	\item A tourist map that is context aware and can recommend places to visit that are near the current location, that are for example still open (maybe it's night, you don't want recommendations for a zoo), etc.
 	\item Security application: auto-lock my computer screen when it is in my Action Space.
 	\item Automatic light switching based on the position of the inhabitant of a home (not motion-based). This can be generalized to a system that defines custom operation modes of devices in a home, depending on what the user is doing.
@@ -56,7 +56,7 @@ All of these systems/services are useful systems and they can easily be simulate
 %************************************************
 \subsubsection{The Simulation} % (fold)
 %************************************************
-When creating a simulation of a real life environment, immersion of the user into the virtual environment is rather important. The user must identify herself/himself with the agent and the simulated environment must resemble the real environment it actually represents. This has two implications: on one hand the 3D model of the environment must be good enough to resemble the real life setup of the simulated environment; on the other hand, the when the simulation is running and the user is interacting with the environment, she/he must feel absorbed to a certain extent. All the participants found the ALF simulation a good simulation for a home \ref{question1:1}. We have build both the ALF and the Childproof 3D models with a third party software and used them with our framework. Moreover, the participants have experienced the virtual environment by means of the running simulation. The fact that all participants found it a good simulation of a home, assures that third party software can supply useful 3D models. The feedback from our participants makes us believe that we made the right decision to use a game engine to render the 3D models and provide interaction capabilities.\\
+When creating a simulation of a real life environment, immersion of the user into the virtual environment is rather important. The user must identify herself/himself with the agent and the simulated environment must resemble the real environment it actually represents. This has two implications: on one hand the 3D model of the environment must be good enough to resemble the real life setup of the simulated environment; on the other hand, when the simulation is running and the user is interacting with the environment, she/he must feel absorbed to a certain extent. All the participants found the ALF simulation a good simulation for a home \ref{question1:1}. We have build both the ALF and the Childproof 3D models with a third party software and used them with our framework. Moreover, the participants have experienced the virtual environment by means of the running the simulation. The fact that all participants found it a good simulation of a home, assures that third party software can supply useful 3D models. The feedback from our participants makes us believe that we made the right decision to use a game engine to render the 3D models and provide interaction capabilities.\\
 
 We believed the level of object details for this evaluation was not relevant. One of the participants proved us wrong saying ''given the high system requirements I would have expected a better graphics/game engine''. Reflecting upon the issues this is not a game engine problem. The jMonkey Engine has all the capabilities of rendering high quality models. We have simply implemented models with low details. However, developing high detail models requires much more time invested in the modelling process.\\
 % section sec:eval_usefulness (end)
@@ -71,7 +71,7 @@ We believed the level of object details for this evaluation was not relevant. On
 %************************************************
 All participants were positive about the usability of the system. Creating a simulation using EgoSim comes down to do some configuration work on top of a 3D model. Using EgoSim to design a new simulations, the participants have reported that identifying and configuring the objects to be classified during simulation, on a scale from 1 to 7 (Very easy - Very hard) was an average of 2.1 \ref{question2:3}. This means that almost everyone has found the process of designing a new simulation easy. We have based this process on the jMonkey SDK's components. We were sceptical at first and thought it might be a laborious and hard to understand process, but based on the user feedback, we conclude it was the right decision.\\
 
-Although, one of the participants was not able to finish the second task \ref{question2:1} because due to not being able to augment the desired object models with EgocentricContextData. This was most probably due to the fact that when configuring an object in the jMonkey scene composer, the name of the custom user data must be EGOCENTRIC\_CONTEXT\_DATA. If it is not exactly this, even if the name has an extra space, the framework will fail to identify object to be classified. A user feedback to improve this feature was to ''trim the context variable for space EGOCENTRIC\_CONTEXT\_DATA''. We could indeed rephrase the name into something shorter, but this is a matter for future work.\\
+Although, one of the participants was not able to finish the second task \ref{question2:1} due to not being able to augment the desired object models with EgocentricContextData. This was most probably due to the fact that when configuring an object in the jMonkey scene composer, the name of the custom user data must be EGOCENTRIC\_CONTEXT\_DATA. If it is not exactly this, even if the name has an extra space, the framework will fail to identify object to be classified. A user feedback to improve this feature was to ''trim the context variable for space EGOCENTRIC\_CONTEXT\_DATA''. We could indeed rephrase the name into something shorter, but this is a task for future work.\\
 
 %************************************************
 \subsubsection{The Simulation} % (fold)
