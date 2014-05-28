@@ -2,7 +2,7 @@
 \section{Simulation Runtime} % (fold)
 \label{sec:impl_simulation_runtime}
 %************************************************
-As depicted in Figure \ref{fig:final_architecture}, the Simulation Runtime component is responsible for loading up the 3D model of the target environment and initialize some of the components: the agent \ref{sec:impl_the_agent} and the monitoring service \ref{sec:impl_monitoring_service}. It also represents the entry point of the simulation. In Java terminology this means that this is the main class of the application.\\
+As depicted in Figure \ref{fig:final_architecture}, the Simulation Runtime component is responsible for loading up the 3D model of the target environment and to initialize some of the components: the agent \ref{sec:impl_the_agent} and the monitoring service \ref{sec:impl_monitoring_service}. It also represents the entry point of the simulation. In Java terminology this means that this is the main class of the application.\\
 
 Each simulation a system designer would set up, needs to follow the exact same series of tasks. Hence, this component represents an abstraction which must be extended by each particular simulation. Normally, the particular simulation should only provide the loaded scene and the abstraction takes care of the rest. We have implemented a few prototype simulations described in Section \ref{sec:impl_prototype_simulations}. These prototype simulations have been used during the evaluation process.\\
 
@@ -14,7 +14,7 @@ The diagram in Figure \ref{fig:impl_ego_app} illustrates the EgocentricApp abstr
 	\label{fig:impl_ego_app}
 \end{figure}
 
-The EgocentricApp subclasses SimpleApplication from the core JME library.  SimpleApplication  gives us access to standard game features, such as a scene graph (or the rootNode), an asset manager (to import textures, sounds, etc), a user interface (guiNode), input manager, audio manager, and many more. We have covered most of these concepts in Sections \ref{subsec:game_engine_architecture} and \ref{subsec:game_engine_concepts}. The components we have access through SimpleApplication are implementations of these generic concepts particular to JME. To star or stop the simulation, SimpleApplication provides the \emph{start()} and \emph{stop()} methods.\\
+The EgocentricApp subclasses SimpleApplication from the core JME library.  SimpleApplication  gives us access to standard game features, such as a scene graph (or the rootNode), an asset manager (to import textures, sounds, etc), a user interface (guiNode), input manager, audio manager, and many more. We have covered most of these concepts in Sections \ref{subsec:game_engine_architecture} and \ref{subsec:game_engine_concepts}. The components we have access to through SimpleApplication are implementations of these generic concepts particular to JME. To star or stop the simulation, SimpleApplication provides the \emph{start()} and \emph{stop()} methods.\\
 
 In the diagram, we have depicted the \emph{simpleInitApp()} method. This is called when the simulation is initialized. This is where EgocentricApp initializes of the simulation as follows:
 \begin{enumerate}

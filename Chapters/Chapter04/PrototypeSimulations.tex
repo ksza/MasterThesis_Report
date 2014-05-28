@@ -2,7 +2,7 @@
 \section{Prototype Simulations} % (fold)
 \label{sec:impl_prototype_simulations}
 %************************************************
-To prepare the framework for the evaluation processes, we have set up a few prototype simulations, on the basis of the user guide described in Appendix \ref{ch:user_guide}. The class diagram in Figure \ref{fig:impl_prototype_simulations} illustrates the classes implementing the two prototype simulations. The WarmUpTask and ALFTask are two individual simulations extending the EgocentricApp class. Explaining the meaning of the environments used in the simulations is out of scope for this section, this information is tightly related to the evaluation and will be addressed in Chapter \ref{ch:evaluation}.
+To prepare the framework for the evaluation processes, we have set up a few prototype simulations, using the steps described in the user guide in Appendix \ref{ch:user_guide}. The class diagram in Figure \ref{fig:impl_prototype_simulations} illustrates the classes implementing the two prototype simulations. The WarmUpTask and ALFTask are two individual simulations extending the EgocentricApp class. Explaining the meaning of the environments used in the simulations is out of scope for this section, this information is tightly related to the evaluation and will be addressed in Chapter \ref{ch:evaluation}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{gfx/Chapter4/prototype_simulations}
@@ -18,6 +18,12 @@ Next, we will shortly address each of the prototypes.
 \label{subsec:impl_warmup_task}
 %************************************************
 This simulation was used during the development of the framework to validate the ongoing work. For this simulation we have set up a 3D environment pragmatically. When the createEnvironmentScene() is called, it builds up a simple environment using standard shapes in the JME SDK and a few available models. The screenshot in Figure \ref{fig:impl_prototype1} illustrate a view over prototype one's 3D model. We have named it WarmUpTask because it was used as the first task in the evaluation process, helping the subjects of the evaluation familiar with simulator. The 3D model is made up by two tables, a sphere and a cylinder. All of them are configured with EgocentricContextData.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{gfx/Chapter4/prototype1}
+	\caption{WarmUp Prototype}
+	\label{fig:impl_prototype1}
+\end{figure}
 
 A detailed description of the scenario this simulation is involved in can be found in Appendix \ref{sec:eval_warmup_scenario}.
 % section impl_warmup_task (end)
@@ -28,7 +34,7 @@ A detailed description of the scenario this simulation is involved in can be fou
 %************************************************
 The ALFTask represents the simulations used as the second evaluation task. For this simulation we have create a 3D model in Blender. The model resembles a one level home interior with kitchen, bathroom, living room and bathroom. The environment is populated with appliances and everyday physical objects and devices. Some of the objects have been configured with EgocentricContextData. The 3D model is available in the framework's source code in the \emph{Assets/Scenes/alf} folder; for information regarding the source code see Appendix \ref{ch:source_code}. Also, a detailed description of the scenario this simulation is involved in can be found in Appendix \ref{sec:eval_alf_scenario}.\\
 
-Interesting to note in the ALF simulations is that we have implemented a custom interaction action with the piano depicted in Figure \ref{fig:impl_piano}. The piano's EgocentricContextData is configured with interactionType CUSTOM. When the agent interacts with the piano it the simulation plays a series of musical notes.
+Interesting to note in the ALF simulations is that we have implemented a custom interaction action with the piano depicted in Figure \ref{fig:impl_piano}. The piano's EgocentricContextData is configured with interactionType CUSTOM. When the agent interacts with the piano, the simulation plays a series of musical notes.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{gfx/Chapter4/piano}
@@ -59,7 +65,7 @@ Moreover, we have also implemented an example of combined interaction. The scree
 	\label{fig:impl_combined_interaction}
 \end{figure}
 
-To implement the combined interaction behaviour, we have overridden the onCombinedInteraction() method as illustrated in the following Listing. In this version we simply play a poring liquid sound. But, from the ALFTask we have access to all the components and assets of the simulations, so more complex actions could be taken (e.g. animating liquid pouring from the Pot into the Cup, etc).
+To implement the combined interaction behaviour, we have overridden the onCombinedInteraction() method as illustrated in the following Listing. In this version we simply play a pouring liquid sound. But, from the ALFTask we have access to all the components and assets of the simulations, so more complex actions could be taken (e.g. animating liquid pouring from the Pot into the Cup, etc).
 \begin{lstlisting}[caption={Snippet of code illustrating how to implement a COMBINED interaction between two objects (when the agent acts upon an object while holding another object)},label={lst:combined_interaction}]
 @Override
 public void onCombinedInteraction(Spatial pickedUpObject, Spatial withObject) {
@@ -79,7 +85,7 @@ public void onCombinedInteraction(Spatial pickedUpObject, Spatial withObject) {
 \subsection{Childproof model} % (fold)
 \label{subsec:impl_childproof_model}
 %************************************************
-For the last evaluation task we have not implemented a simulation as that is the task the subjects of the evaluation will outperform. But, in order to reduce allow them to focus on working with the framework, we have provided a 3D Blender model. The 3D model is available in the framework's source code in the \emph{Assets/Scenes/alf} folder; for information regarding the source code see Appendix \ref{ch:source_code}.\\
+For the last evaluation task we have not implemented a simulation as that is the task the subjects of the evaluation has to carry out. But, in order to allow them to focus on working with the framework, we have provided a 3D Blender model. The 3D model is available in the framework's source code in the \emph{Assets/Scenes/alf} folder; for information regarding the source code see Appendix \ref{ch:source_code}.\\
 
 The model resembles a living room with a semi-integrated kitchen. The environment has been populated with appliances and everyday physical objects and devices. A detailed description of the scenario this simulation is involved in can be found in Appendix \ref{sec:eval_childproof_scenario}.
 % section impl_childproof_model (end)
